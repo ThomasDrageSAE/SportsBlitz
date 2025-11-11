@@ -798,7 +798,8 @@ MonoBehaviour:
   gamesLost: 0
   health: 3
   tvSceneName: TVScene
-  miniGameScenes: []
+  miniGameScenes:
+  - Fencing
   postGamePause: 4
 --- !u!4 &1107914841
 Transform:

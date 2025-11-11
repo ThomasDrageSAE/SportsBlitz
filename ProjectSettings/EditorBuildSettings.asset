@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TVScene.unity
     guid: bafc462616912fd4cb2d527e5b2de812
+  - enabled: 1
+    path: Assets/Scenes/Fencing.unity
+    guid: daf110952102a7b49971f41506fae88c
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
