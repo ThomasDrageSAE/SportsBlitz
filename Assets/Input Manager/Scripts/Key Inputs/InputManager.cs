@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using System.Collections;
 
 namespace SportzBlitz.Controls.Managers
 {
@@ -22,6 +23,7 @@ namespace SportzBlitz.Controls.Managers
 
         #region Letters to be used for inputs
         [SerializeField]
+        // TODO: Update this to handle prefabs (From Thomas) when I get them
         private List<char> _inputLetters = new List<char>
         {
             'a','b','c','d','e','f','g','h','i','j','k','l','m',
@@ -34,19 +36,8 @@ namespace SportzBlitz.Controls.Managers
 
         private void Awake()
         {
-            // #region Singleton Instance
-            // if (Instance != null && Instance != this)
-            // {
-            //     Destroy(gameObject);
-            // }
-            // else
-            // {
-            //     Instance = this;
-            // }
-            // #endregion
-
+            _neededKeys = new List<char>();
         }
-
 
         private void Update()
         {
