@@ -15,12 +15,14 @@ namespace SportzBlitz.Controls.Managers
         #region Events
         void OnEnable()
         {
+            if (EventManager.Instance == null) return;
             EventManager.Instance.incorrectKeyInput += OnIncorrectKeyInput;
             EventManager.Instance.correctKeyInput += OnCorrectKeyInput;
         }
 
         void OnDisable()
         {
+            if (EventManager.Instance == null) return;
             EventManager.Instance.incorrectKeyInput -= OnIncorrectKeyInput;
             EventManager.Instance.correctKeyInput -= OnCorrectKeyInput;
         }
