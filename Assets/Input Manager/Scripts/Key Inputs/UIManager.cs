@@ -32,34 +32,50 @@ namespace SportzBlitz.Controls.Managers
         // INFO: Event Handlers
         private void OnIncorrectKeyInput(string incorrectKey)
         {
-            // Debug.Log($"Incorrect key pressed: {incorrectKey}");
+            foreach (IUIElement element in _uiElements)
+                element.Pressed(false);
+
         }
 
         private void OnCorrectKeyInput(string correctKey)
         {
-            foreach(IUIElement element in _uiElements)
+            foreach (IUIElement element in _uiElements)
             {
-                if (element.GetGameObject().transform.parent.transform.parent.transform.parent.name.ToString().Contains($"_{correctKey}"))
+                if (element.GetGameObject().name.ToString() == $"{correctKey.ToUpper()}_Key" && !element.isPressed)
                 {
-                    element.Pressed();
+                    element.Pressed(true);
                     break;
-                
+
                 }
             }
         }
         #endregion
 
+        // Backwards-compatible: simple CreateUI that uses default prefab for all elements
         public void CreateUI(int amountOfElements, List<char> lettersToDisplay)
         {
-            if (_gridManager == null || _uiPrefab == null) { Debug.LogError("GridManager or UIPrefab is not assigned in the UIManager."); return; }
+            CreateUI(amountOfElements, lettersToDisplay, null);
+        }
+
+        // Create UI with an explicit per-element prefab list. If an entry in prefabs is null or
+        // prefabs is null/too-short, falls back to `_uiPrefab`.
+        public void CreateUI(int amountOfElements, List<char> lettersToDisplay, List<GameObject> prefabs)
+        {
+            if (_gridManager == null) { Debug.LogError("GridManager is not assigned in the UIManager."); return; }
+            if (_uiPrefab == null) { Debug.LogError("Default UIPrefab is not assigned in the UIManager."); return; }
 
             for (int i = 0; i < amountOfElements; i++)
             {
-                GameObject uiElement = Instantiate(_uiPrefab, _gridManager?.transform);
-                uiElement.name = $"UIElement_{lettersToDisplay[i]}";
-                uiElement?.GetComponent<IUIElement>()?.CreateElement();
-                uiElement?.GetComponent<IUIElement>()?.SetText(lettersToDisplay[i].ToString());
-                _uiElements?.Add(uiElement.GetComponent<IUIElement>());
+                GameObject prefabToUse = _uiPrefab;
+                if (prefabs != null && i < prefabs.Count && prefabs[i] != null)
+                    prefabToUse = prefabs[i];
+
+                GameObject uiElement = Instantiate(prefabToUse, _gridManager.transform);
+                uiElement.name = $"{lettersToDisplay[i].ToString().ToUpper()}_Key";
+                var uiComp = uiElement.GetComponent<IUIElement>();
+                uiComp?.CreateElement();
+                uiComp?.SetText(lettersToDisplay[i].ToString());
+                _uiElements?.Add(uiComp);
             }
         }
 
@@ -70,7 +86,7 @@ namespace SportzBlitz.Controls.Managers
                 Destroy(child.gameObject);
 
             for (int i = 0; i < _uiElements.Count; i++)
-                _uiElements[i].DestroyElement();
+                Destroy(_uiElements[i].GetGameObject());
 
             _uiElements.Clear();
         }

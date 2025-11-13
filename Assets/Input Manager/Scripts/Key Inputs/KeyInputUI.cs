@@ -1,28 +1,42 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class KeyInputUI : MonoBehaviour, IUIElement
 {
     private TextMeshProUGUI _textComponent;
     [SerializeField] private float _releaseKeyTime = 0.05f;
+    private Image _keyImage;
+    public bool isPressed { get; private set; } = false; // INFO: Logic to hnadle the pressed state
 
     // INFO: Things to be done when the element is created
     public void CreateElement()
     {
-        _textComponent = gameObject.GetComponentInChildren<TextMeshProUGUI>();
+        _textComponent = GetComponentInChildren<TextMeshProUGUI>();
+        _keyImage = GetComponentInChildren<Image>();
+
+
     }
 
-    // INFO: Called when the element is destroyed by the UI manager
-    public void DestroyElement()
+    // INFO: Handle any cleanup if needed
+    public void OnDestroy()
     {
-        Destroy(_textComponent.gameObject);
+
     }
 
     // INFO: Called by the UI manager when the key is pressed
-    public void Pressed()
+    public void Pressed(bool correctInput)
     {
-        transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+        isPressed = true;
+        transform.localScale = new Vector3(0.95f, 0.95f, 0.95f);
+
+        if (_keyImage != null && correctInput)
+            _keyImage.color = Color.green;
+        else
+            _keyImage.color = Color.red;
+
+        // INFO: Coroutine to undo the pressed effects.
         StartCoroutine(ReleaseKeyCoroutine(_releaseKeyTime));
 
     }
@@ -32,10 +46,16 @@ public class KeyInputUI : MonoBehaviour, IUIElement
     {
         yield return new WaitForSeconds(waitTime);
         transform.localScale = new Vector3(1, 1, 1);
-    
+
     }
 
-    public GameObject GetGameObject() => _textComponent.gameObject;
-    public void SetText(string text) => _textComponent.text = text;
-    
+    #region Helper Functions
+    public GameObject GetGameObject() => gameObject;
+    public void SetText(string text)
+    {
+        if (_textComponent == null) return;
+        _textComponent.text = text;
+    }
+    #endregion
+
 }

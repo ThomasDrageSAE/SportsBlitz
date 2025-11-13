@@ -45,11 +45,10 @@ namespace Helper.Blake
             singletonObject.transform.SetParent(singletonObjectParent.transform);
 
             // INFO: Keep singletons across scenes (optional, but usually desired)
-            DontDestroyOnLoad(singletonObjectParent);
-            DontDestroyOnLoad(singletonObject);
+            DontDestroyOnLoad(singletonObject.transform.parent == null ? singletonObject : singletonObject.transform.parent);
 
             return instance;
         }
     }
-    
+
 }

@@ -175,7 +175,7 @@ MonoBehaviour:
   m_ChildAlignment: 4
   m_StartCorner: 0
   m_StartAxis: 1
-  m_CellSize: {x: 64, y: 64}
+  m_CellSize: {x: 128, y: 128}
   m_Spacing: {x: 15, y: 15}
   m_Constraint: 2
   m_ConstraintCount: 1
@@ -439,11 +439,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40419ea4bc0f75444a6fa5eedca2e1ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debug: 1
-  _amountOfInputs: 3
+  debug: 0
+  _amountOfInputs: 5
   _allowDuplicateInputs: 0
   _sortInputs: 0
   _inputLetters: 6100620063006400650066006700680069006a006b006c006d006e006f0070007100720073007400750076007700780079007a00
+  _inputLettersPrefabs:
+  - {fileID: 8174171947773725957, guid: a1c9da04c7ac8714d9ca87afcdccf857, type: 3}
+  - {fileID: 8174171947773725957, guid: 4aae8808b200c4c4cb00178643abb34f, type: 3}
+  - {fileID: 8174171947773725957, guid: 7f85a2e2b68fc8d4f9ad223922ad1494, type: 3}
+  - {fileID: 8174171947773725957, guid: 5cac15133c5e4094ab86263b2a1c79db, type: 3}
+  - {fileID: 8174171947773725957, guid: e59f2012ec59ac24a862cad67fcad471, type: 3}
+  - {fileID: 8174171947773725957, guid: 7a325c3560d763f43903635a2801652a, type: 3}
+  - {fileID: 8174171947773725957, guid: 5772c0f769afa2b4891d851e38bfa7fe, type: 3}
+  - {fileID: 8174171947773725957, guid: 40de33dc6c80559429e9eb100af2e5c0, type: 3}
+  - {fileID: 8174171947773725957, guid: 3ab516e3594a76b47a186f88fb3a1477, type: 3}
+  - {fileID: 8174171947773725957, guid: b78decd326ad3414796e956790a3ab4d, type: 3}
+  - {fileID: 8174171947773725957, guid: c6230d0a7ed12db4aa90b546100b950d, type: 3}
+  - {fileID: 8174171947773725957, guid: 8eb41927e8589ac4299ae141339cab90, type: 3}
+  - {fileID: 8174171947773725957, guid: 9286336db09d56143b4266f6a13c8824, type: 3}
+  - {fileID: 8174171947773725957, guid: 78293c1ca4d426443bbd8162d920130d, type: 3}
+  - {fileID: 8174171947773725957, guid: 9f7df46e48121c747a360950ab7fdf9c, type: 3}
+  - {fileID: 8174171947773725957, guid: 972f404fa803a1c488921d4081caea6f, type: 3}
+  - {fileID: 8174171947773725957, guid: c2fa3a317c50d384db4d064ff09be190, type: 3}
+  - {fileID: 8174171947773725957, guid: e61d863b24b297d4d90f6a49847ba629, type: 3}
+  - {fileID: 8174171947773725957, guid: 6fba094fbd4527d47889e343d885c9b7, type: 3}
+  - {fileID: 8174171947773725957, guid: fa60d35415b5bd54d80ce69caef1553e, type: 3}
+  - {fileID: 8174171947773725957, guid: 9b6a7f0855cf7414488c630c1345d8c5, type: 3}
+  - {fileID: 8174171947773725957, guid: fdedf7b674db01f4b8432c1d866e9e69, type: 3}
+  - {fileID: 8174171947773725957, guid: 52ec36acc28f1d44fadf7b01f168eb6e, type: 3}
+  - {fileID: 8174171947773725957, guid: 14b9ae3be2fc3e840b3978d02dfbd66c, type: 3}
+  - {fileID: 8174171947773725957, guid: 986c4db259c7b4049b7c3bfde1093dfb, type: 3}
+  - {fileID: 8174171947773725957, guid: 3db455eb3cc35464fb7fbf7210510522, type: 3}
 --- !u!1 &1129426637
 GameObject:
   m_ObjectHideFlags: 0
