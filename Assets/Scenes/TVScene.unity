@@ -800,6 +800,7 @@ MonoBehaviour:
   tvSceneName: TVScene
   miniGameScenes:
   - Fencing
+  - Racing
   postGamePause: 4
 --- !u!4 &1107914841
 Transform:

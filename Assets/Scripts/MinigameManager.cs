@@ -1,62 +1,57 @@
 using UnityEngine;
+using System.Collections;
 
 public class MinigameManager : MonoBehaviour
 {
-    [Header("Global Minigame Settings")]
     public float defaultTimeLimit = 8f;
+    private float remainingTime;
 
-    private float timer;
-    private bool timerActive = false;
+    private ResultPopup popup;
 
-    void Start()
+    void Awake()
     {
-        timer = defaultTimeLimit;
-        timerActive = true;
-    }
-
-    void Update()
-    {
-        if (!timerActive) return;
-
-        timer -= Time.deltaTime;
-        if (timer <= 0)
-        {
-            timerActive = false;
-            TimeUp();
-        }
-    }
-
-    public float GetRemainingTime()
-    {
-        return Mathf.Max(0, timer);
+        popup = FindObjectOfType<ResultPopup>(true);
     }
 
     public void ResetTimer()
     {
-        timer = defaultTimeLimit;
-        timerActive = true;
+        remainingTime = defaultTimeLimit;
     }
 
-    public void StopTimer()
+    public float GetRemainingTime()
     {
-        timerActive = false;
+        return remainingTime;
+    }
+
+    void Update()
+    {
+        if (remainingTime > 0)
+            remainingTime -= Time.deltaTime;
     }
 
     public void Win()
     {
-        StopTimer();
-        SportsBlitzGameManager.Instance.RegisterWin();
+        StartCoroutine(WinRoutine());
     }
 
     public void Lose()
     {
-        StopTimer();
-        SportsBlitzGameManager.Instance.RegisterLoss();
+        StartCoroutine(LoseRoutine());
     }
 
-    private void TimeUp()
+    IEnumerator WinRoutine()
     {
-        Debug.Log("Time's up!");
-        Lose();
+        if (popup != null)
+            yield return popup.ShowResult("CLEAR!", Color.green);
+
+        SportsBlitzGameManager.Instance.RegisterWin();
+    }
+
+    IEnumerator LoseRoutine()
+    {
+        if (popup != null)
+            yield return popup.ShowResult("LOSE!", Color.red);
+
+        SportsBlitzGameManager.Instance.RegisterLoss();
     }
 }

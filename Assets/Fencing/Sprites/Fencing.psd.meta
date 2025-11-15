@@ -1,25 +1,22 @@
 fileFormatVersion: 2
-guid: 24b84c649d55d144da51720070b97b6d
+guid: ae64d440400cd124dbcac4ad8c812385
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2638926974304622450
-    second: SportsBlitzLogo_0
+      213: 1760092521168046486
+    second: Fencing_0
   - first:
-      213: -6508685594918708157
-    second: SportsBlitzLogo_1
+      213: -801515022276899080
+    second: Fencing_1
   - first:
-      213: -6487398044069094240
-    second: SportsBlitzLogo_2
+      213: 2212061370925561593
+    second: Fencing_2
   - first:
-      213: 3631791798308274815
-    second: SportsBlitzLogo_3
+      213: -2531268879472610379
+    second: Fencing_3
   - first:
-      213: 8645007989651422112
-    second: SportsBlitzLogo_4
-  - first:
-      213: -7780155627861569398
-    second: SportsBlitzLogo_5
+      213: -7838445748245717466
+    second: Fencing_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,7 +49,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -61,7 +58,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -90,7 +87,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -115,13 +112,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SportsBlitzLogo_0
+      name: Fencing_0
       rect:
         serializedVersion: 2
-        x: 95
-        y: 580
-        width: 841
-        height: 232
+        x: 0
+        y: 0
+        width: 42
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,20 +127,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2779f9bf91a5f9420800000000000000
-      internalID: 2638926974304622450
+      spriteID: 6990b0892da1d6810800000000000000
+      internalID: 1760092521168046486
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SportsBlitzLogo_1
+      name: Fencing_1
       rect:
         serializedVersion: 2
-        x: 95
-        y: 254
-        width: 195
-        height: 316
+        x: 63
+        y: 0
+        width: 43
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +149,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 34c1b289fe08ca5a0800000000000000
-      internalID: -6508685594918708157
+      spriteID: 8fecb07755270e4f0800000000000000
+      internalID: -801515022276899080
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SportsBlitzLogo_2
+      name: Fencing_2
       rect:
         serializedVersion: 2
-        x: 294
-        y: 254
-        width: 174
-        height: 316
+        x: 127
+        y: 0
+        width: 43
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,20 +171,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0ac92b2c9d128f5a0800000000000000
-      internalID: -6487398044069094240
+      spriteID: 9f6b16bc812d2be10800000000000000
+      internalID: 2212061370925561593
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SportsBlitzLogo_3
+      name: Fencing_3
       rect:
         serializedVersion: 2
-        x: 473
-        y: 254
-        width: 88
-        height: 316
+        x: 191
+        y: 0
+        width: 44
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,20 +193,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f7287540667b66230800000000000000
-      internalID: 3631791798308274815
+      spriteID: 5b3b8088d502fdcd0800000000000000
+      internalID: -2531268879472610379
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SportsBlitzLogo_4
+      name: Fencing_4
       rect:
         serializedVersion: 2
-        x: 564
-        y: 254
-        width: 193
-        height: 316
+        x: 256
+        y: 0
+        width: 43
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,30 +215,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0ab369f96fc39f770800000000000000
-      internalID: 8645007989651422112
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SportsBlitzLogo_5
-      rect:
-        serializedVersion: 2
-        x: 756
-        y: 254
-        width: 190
-        height: 316
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a801e007da5570490800000000000000
-      internalID: -7780155627861569398
+      spriteID: 62e94a03f1f383390800000000000000
+      internalID: -7838445748245717466
       vertices: []
       indices: 
       edges: []
@@ -250,7 +225,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -260,12 +235,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SportsBlitzLogo_0: 2638926974304622450
-      SportsBlitzLogo_1: -6508685594918708157
-      SportsBlitzLogo_2: -6487398044069094240
-      SportsBlitzLogo_3: 3631791798308274815
-      SportsBlitzLogo_4: 8645007989651422112
-      SportsBlitzLogo_5: -7780155627861569398
+      Fencing_0: 1760092521168046486
+      Fencing_1: -801515022276899080
+      Fencing_2: 2212061370925561593
+      Fencing_3: -2531268879472610379
+      Fencing_4: -7838445748245717466
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

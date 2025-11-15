@@ -1139,7 +1139,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1852143945}
   m_CullTransparentMesh: 1
---- !u!1 &1902684070
+--- !u!1 &1892934325
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1147,8 +1147,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1902684072}
-  - component: {fileID: 1902684071}
+  - component: {fileID: 1892934327}
+  - component: {fileID: 1892934326}
   m_Layer: 0
   m_Name: MinigameManager
   m_TagString: Untagged
@@ -1156,29 +1156,29 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1902684071
+--- !u!114 &1892934326
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1902684070}
+  m_GameObject: {fileID: 1892934325}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5afa8d16346258b4ca3782359172a340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   defaultTimeLimit: 10
---- !u!4 &1902684072
+--- !u!4 &1892934327
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1902684070}
+  m_GameObject: {fileID: 1892934325}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 960, y: 540, z: 0}
+  m_LocalPosition: {x: 843.3328, y: 571.839, z: -3.8248124}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1579,6 +1579,6 @@ SceneRoots:
   - {fileID: 95285134}
   - {fileID: 1578664183}
   - {fileID: 621504489}
-  - {fileID: 1902684072}
   - {fileID: 812247734}
   - {fileID: 97666948}
+  - {fileID: 1892934327}
