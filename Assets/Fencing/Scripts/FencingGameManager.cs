@@ -81,7 +81,7 @@ public class FencingGameManager : MonoBehaviour
         GenerateSequence();
         DisplaySequence();
 
-        manager.ResetTimer(); // ⏱ global timer start
+        manager.ResetTimer(); // global timer start
         gameActive = true;
     }
 
@@ -89,7 +89,7 @@ public class FencingGameManager : MonoBehaviour
     {
         if (!gameActive) return;
 
-        // Time’s up check via MinigameManager
+        
         if (manager.GetRemainingTime() <= 0)
         {
             gameActive = false;

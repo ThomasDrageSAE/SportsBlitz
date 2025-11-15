@@ -10,7 +10,7 @@ public class MiniGameTutorial : MonoBehaviour
     [Header("UI")]
     public TextMeshProUGUI tutorialText;
 
-    // EXPOSED PUBLIC PROPERTY
+    
     public bool TutorialFinished { get; private set; }
 
     void OnEnable()

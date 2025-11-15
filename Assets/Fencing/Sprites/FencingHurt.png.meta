@@ -1,22 +1,22 @@
 fileFormatVersion: 2
-guid: 8fb67d8fcd161344ca669df09ab2ceaa
+guid: 867e625f81a05dc44b790baf95cf4791
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4639518201986207465
-    second: Fencing1_0
+      213: -2479036073769689968
+    second: FencingHurt_0
   - first:
-      213: 4496453817710927638
-    second: Fencing1_1
+      213: 1593992229787289119
+    second: FencingHurt_1
   - first:
-      213: 4899110777407771217
-    second: Fencing1_2
+      213: -4764725940004130925
+    second: FencingHurt_2
   - first:
-      213: 4263724352053642812
-    second: Fencing1_3
+      213: -6770992993312531516
+    second: FencingHurt_3
   - first:
-      213: -4498310428626049452
-    second: Fencing1_4
+      213: -3674806347650693806
+    second: FencingHurt_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -112,7 +112,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Fencing1_0
+      name: FencingHurt_0
       rect:
         serializedVersion: 2
         x: 0
@@ -127,14 +127,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 71137a9c6ce1d9fb0800000000000000
-      internalID: -4639518201986207465
+      spriteID: 09c149d43d1b89dd0800000000000000
+      internalID: -2479036073769689968
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fencing1_1
+      name: FencingHurt_1
       rect:
         serializedVersion: 2
         x: 63
@@ -149,14 +149,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 61fdb998cec966e30800000000000000
-      internalID: 4496453817710927638
+      spriteID: f164437dc7ffe1610800000000000000
+      internalID: 1593992229787289119
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fencing1_2
+      name: FencingHurt_2
       rect:
         serializedVersion: 2
         x: 127
@@ -171,14 +171,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1529da2ab432df340800000000000000
-      internalID: 4899110777407771217
+      spriteID: 39fe6fd800b40edb0800000000000000
+      internalID: -4764725940004130925
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fencing1_3
+      name: FencingHurt_3
       rect:
         serializedVersion: 2
         x: 191
@@ -193,14 +193,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c36075045bacb2b30800000000000000
-      internalID: 4263724352053642812
+      spriteID: 4cb92f03fb99802a0800000000000000
+      internalID: -6770992993312531516
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fencing1_4
+      name: FencingHurt_4
       rect:
         serializedVersion: 2
         x: 256
@@ -215,8 +215,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4562f4c8f7ac291c0800000000000000
-      internalID: -4498310428626049452
+      spriteID: 2550ee5c817700dc0800000000000000
+      internalID: -3674806347650693806
       vertices: []
       indices: 
       edges: []
@@ -235,11 +235,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Fencing1_0: -4639518201986207465
-      Fencing1_1: 4496453817710927638
-      Fencing1_2: 4899110777407771217
-      Fencing1_3: 4263724352053642812
-      Fencing1_4: -4498310428626049452
+      FencingHurt_0: -2479036073769689968
+      FencingHurt_1: 1593992229787289119
+      FencingHurt_2: -4764725940004130925
+      FencingHurt_3: -6770992993312531516
+      FencingHurt_4: -3674806347650693806
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

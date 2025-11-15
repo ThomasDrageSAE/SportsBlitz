@@ -1,22 +1,16 @@
 fileFormatVersion: 2
-guid: 8fb67d8fcd161344ca669df09ab2ceaa
+guid: 891346cdf0ee7bb45b9abeb54d0d3553
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4639518201986207465
-    second: Fencing1_0
+      213: -5390352775165665134
+    second: FencingAttack_0
   - first:
-      213: 4496453817710927638
-    second: Fencing1_1
+      213: 8007395547886784550
+    second: FencingAttack_1
   - first:
-      213: 4899110777407771217
-    second: Fencing1_2
-  - first:
-      213: 4263724352053642812
-    second: Fencing1_3
-  - first:
-      213: -4498310428626049452
-    second: Fencing1_4
+      213: -3282224943946096830
+    second: FencingAttack_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -112,34 +106,78 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Fencing1_0
+      name: FencingAttack_0
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 290a536d5be9135b0800000000000000
+      internalID: -5390352775165665134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FencingAttack_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62016d763dbff1f60800000000000000
+      internalID: 8007395547886784550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FencingAttack_2
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 42
+        width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 71137a9c6ce1d9fb0800000000000000
-      internalID: -4639518201986207465
+      spriteID: 24f9a2fadc13372d0800000000000000
+      internalID: -3282224943946096830
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fencing1_1
+      name: FencingAttack_3
       rect:
         serializedVersion: 2
-        x: 63
+        x: 64
         y: 0
-        width: 43
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -147,76 +185,10 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 61fdb998cec966e30800000000000000
-      internalID: 4496453817710927638
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fencing1_2
-      rect:
-        serializedVersion: 2
-        x: 127
-        y: 0
-        width: 43
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1529da2ab432df340800000000000000
-      internalID: 4899110777407771217
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fencing1_3
-      rect:
-        serializedVersion: 2
-        x: 191
-        y: 0
-        width: 44
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c36075045bacb2b30800000000000000
-      internalID: 4263724352053642812
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fencing1_4
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 43
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4562f4c8f7ac291c0800000000000000
-      internalID: -4498310428626049452
+      spriteID: f63a7b4f6df81b14e8c897fb566ccd33
+      internalID: 128144790
       vertices: []
       indices: 
       edges: []
@@ -225,7 +197,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 152cb92a4f2347e42909a970c2226cdb
     internalID: 0
     vertices: []
     indices: 
@@ -235,11 +207,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Fencing1_0: -4639518201986207465
-      Fencing1_1: 4496453817710927638
-      Fencing1_2: 4899110777407771217
-      Fencing1_3: 4263724352053642812
-      Fencing1_4: -4498310428626049452
+      FencingAttack_0: -5390352775165665134
+      FencingAttack_1: 8007395547886784550
+      FencingAttack_2: -3282224943946096830
+      FencingAttack_3: 128144790
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,22 +1,10 @@
 fileFormatVersion: 2
-guid: 8fb67d8fcd161344ca669df09ab2ceaa
+guid: fdc9337a47122364fa3ee073f8c8b6d2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4639518201986207465
-    second: Fencing1_0
-  - first:
-      213: 4496453817710927638
-    second: Fencing1_1
-  - first:
-      213: 4899110777407771217
-    second: Fencing1_2
-  - first:
-      213: 4263724352053642812
-    second: Fencing1_3
-  - first:
-      213: -4498310428626049452
-    second: Fencing1_4
+      213: -806031743939262977
+    second: FencingBackgroundwall_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -87,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -112,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Fencing1_0
+      name: FencingBackgroundwall_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 42
-        height: 64
+        width: 300
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,96 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 71137a9c6ce1d9fb0800000000000000
-      internalID: -4639518201986207465
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fencing1_1
-      rect:
-        serializedVersion: 2
-        x: 63
-        y: 0
-        width: 43
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 61fdb998cec966e30800000000000000
-      internalID: 4496453817710927638
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fencing1_2
-      rect:
-        serializedVersion: 2
-        x: 127
-        y: 0
-        width: 43
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1529da2ab432df340800000000000000
-      internalID: 4899110777407771217
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fencing1_3
-      rect:
-        serializedVersion: 2
-        x: 191
-        y: 0
-        width: 44
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c36075045bacb2b30800000000000000
-      internalID: 4263724352053642812
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fencing1_4
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 43
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4562f4c8f7ac291c0800000000000000
-      internalID: -4498310428626049452
+      spriteID: ff5cfc0466660d4f0800000000000000
+      internalID: -806031743939262977
       vertices: []
       indices: 
       edges: []
@@ -235,11 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Fencing1_0: -4639518201986207465
-      Fencing1_1: 4496453817710927638
-      Fencing1_2: 4899110777407771217
-      Fencing1_3: 4263724352053642812
-      Fencing1_4: -4498310428626049452
+      FencingBackgroundwall_0: -806031743939262977
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

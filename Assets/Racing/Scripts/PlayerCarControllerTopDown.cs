@@ -25,7 +25,7 @@ public class PlayerCarControllerTopDown : MonoBehaviour
         if (!isAlive || RacingGameManager.RacingGameOver)
             return;
 
-        // Block movement until tutorial + GO
+        
         if (tutorial != null && !tutorial.TutorialFinished) return;
         if (lightSystem != null && !lightSystem.sequenceFinished) return;
 
