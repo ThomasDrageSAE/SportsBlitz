@@ -17,31 +17,37 @@ namespace SportzBlitz.Controls.Managers
         [SerializeField] private bool debug;
 
         #region Input Settings
+        [Header("Input Generation Settings")]
         [SerializeField] private int _amountOfInputs = 3;
         [SerializeField] private bool _allowDuplicateInputs = false;
         [SerializeField] private bool _sortInputs = false;
+
+        [Header("Key Removal Settings")]
+        [SerializeField] private bool _removeKeyAfterCorrectPress = false;
+        [SerializeField] private bool _removeKeyAfterIncorrectPress = false;
         #endregion
 
         #region Letters to be used for inputs
+        [Header("Letters and Prefabs Settings")]
         [SerializeField]
-        private List<char> _inputLetters = new List<char>
+        private List<string> _inputLetters = new List<string>()
         {
-            'a','b','c','d','e','f','g','h','i','j','k','l','m',
-            'n','o','p','q','r','s','t','u','v','w','x','y','z'
+            "a","b","c","d","e","f","g","h","i","j","k","l","m",
+            "n","o","p","q","r","s","t","u","v","w","x","y","z"
         };
 
         [SerializeField] private List<GameObject> _inputLettersPrefabs = new List<GameObject>();
 
-        private Dictionary<char, GameObject> _letterPrefabDict = new Dictionary<char, GameObject>();
+        private Dictionary<string, GameObject> _letterPrefabDict = new Dictionary<string, GameObject>();
         #endregion
 
         // INFO: Store needed keys for game manager (Don't edit manually!)
-        [HideInInspector] private List<char> _neededKeys;
+        [HideInInspector] private List<string> _neededKeys;
 
         #region Unity Functions
         private void Awake()
         {
-            _neededKeys = new List<char>();
+            _neededKeys = new List<string>();
             CreateDictionary();
 
         }
@@ -65,12 +71,12 @@ namespace SportzBlitz.Controls.Managers
         private void CreateDictionary()
         {
             // Build dictionary mapping letters to prefabs from the two serialized lists.
-            _letterPrefabDict = new Dictionary<char, GameObject>();
+            _letterPrefabDict = new Dictionary<string, GameObject>();
 
-            int pairCount = Math.Min(_inputLetters.Count, _inputLettersPrefabs.Count);
+            int pairCount = Math.Min(_inputLetters.Count(), _inputLettersPrefabs.Count);
             for (int i = 0; i < pairCount; i++)
             {
-                char key = char.ToUpper(_inputLetters[i]);
+                string key = _inputLetters[i].ToUpper();
                 GameObject prefab = _inputLettersPrefabs[i];
                 if (prefab == null) continue;
 
@@ -78,11 +84,18 @@ namespace SportzBlitz.Controls.Managers
                     _letterPrefabDict.Add(key, prefab);
             }
 
-            if (_inputLetters.Count != _inputLettersPrefabs.Count)
-                Debug.LogWarning($"InputManager: _inputLetters.Count ({_inputLetters.Count}) != _inputLettersPrefabs.Count ({_inputLettersPrefabs.Count}). Excess items will be ignored.");
+            if (_inputLetters.Count() != _inputLettersPrefabs.Count)
+                Debug.LogWarning($"InputManager: _inputLetters.Count ({_inputLetters.Count()}) != _inputLettersPrefabs.Count ({_inputLettersPrefabs.Count}). Excess items will be ignored.");
 
         }
         #endregion
+
+        // INFO: Remove after the key is pressed
+        private void RemoveKeyAfterPress(string key)
+        {
+            if(_inputLetters.Contains(key.ToLower())) _inputLetters.Remove(key.ToLower());
+
+        }
 
         private void HandleInput()
         {
@@ -94,18 +107,19 @@ namespace SportzBlitz.Controls.Managers
 
             foreach (UnityEngine.InputSystem.Controls.KeyControl key in keyboardInputs.allKeys)
             {
+
                 if (key == null || !key.wasPressedThisFrame) continue;
-                if (_neededKeys == null || _neededKeys.Count == 0) return;
+                if (_neededKeys == null || _neededKeys.Count == 0 || !_inputLetters.Contains(key.keyCode.ToString().ToLower())) return;
 
                 string pressed = key.keyCode.ToString().ToUpper();
-
-                char expected = char.ToUpper(_neededKeys[0]);
+                string expected = _neededKeys[0].ToUpper();
 
                 // INFO: Incorrect Key
-                if (pressed != expected.ToString())
+                if (pressed != expected)
                 {
                     if (debug) Debug.Log($"Incorrect key '{pressed}'. Resetting.");
                     EventManager.Instance.incorrectKeyInput?.Invoke(pressed);
+                    if (_removeKeyAfterIncorrectPress) RemoveKeyAfterPress(expected.ToString());
 
                     StartCoroutine(DelayAndReset(0.1f));
                     continue;
@@ -121,6 +135,7 @@ namespace SportzBlitz.Controls.Managers
                 {
                     if (debug) Debug.Log("Sequence complete.");
                     EventManager.Instance?.correctKeySequence?.Invoke();
+                    if (_removeKeyAfterCorrectPress) RemoveKeyAfterPress(expected.ToString());
                     StartCoroutine(DelayAndReset(0.1f));
                     break;
                 }
@@ -134,15 +149,15 @@ namespace SportzBlitz.Controls.Managers
         }
 
         #region Generate Random Inputs
-        public List<char> GenerateRandomChars(int amountOfInputs, bool allowDuplicates = false, bool sortList = true)
+        public List<string> GenerateRandomChars(int amountOfInputs, bool allowDuplicates = false, bool sortList = true)
         {
             // INFO: Validate input
-            if (!allowDuplicates && amountOfInputs > _inputLetters.Count)
-                return new List<char>();
+            if (!allowDuplicates && amountOfInputs > _inputLetters.Count())
+                return new List<string>();
 
             // INFO: Generate random chars
-            List<char> result = new List<char>();
-            List<char> temp = allowDuplicates ? _inputLetters : new List<char>(_inputLetters);
+            List<string> result = new List<string>();
+            List<string> temp = new List<string>(_inputLetters);
 
             for (int i = 0; i < amountOfInputs; i++)
             {
@@ -170,14 +185,14 @@ namespace SportzBlitz.Controls.Managers
             UIManager uIManager = UIManager.Instance;
             uIManager.ClearUI();
 
-            List<char> randomChars = GenerateRandomChars(_amountOfInputs, _allowDuplicateInputs, _sortInputs);
-            Debug.Log(string.Join(", ", randomChars));
+            List<string> randomChars = GenerateRandomChars(_amountOfInputs, _allowDuplicateInputs, _sortInputs);
+            if (debug) Debug.Log($"Sequence: {string.Join(", ", randomChars)}");
 
             // Build per-letter prefab list (may contain nulls -> UIManager will fallback)
             List<GameObject> prefabsForLetters = new List<GameObject>(randomChars.Count);
-            foreach (char c in randomChars)
+            foreach (string c in randomChars)
             {
-                prefabsForLetters.Add(GetPrefabForLetter(c));
+                prefabsForLetters.Add(GetPrefabForLetter(c[0]));
             }
 
             uIManager.CreateUI(randomChars.Count, randomChars, prefabsForLetters);
@@ -189,7 +204,7 @@ namespace SportzBlitz.Controls.Managers
 
         #endregion
 
-        public List<char> GetNeededKeys() => _neededKeys;
+        public List<string> GetNeededKeys() => _neededKeys;
         public void ClearNeededKeys() => _neededKeys?.Clear();
 
         // Helper to lookup a prefab for a given letter (returns null if none assigned)
@@ -198,7 +213,7 @@ namespace SportzBlitz.Controls.Managers
             if (_letterPrefabDict == null || _letterPrefabDict.Count == 0)
                 return null;
 
-            _letterPrefabDict.TryGetValue(char.ToUpper(letter), out var result);
+            _letterPrefabDict.TryGetValue(letter.ToString().ToUpper(), out var result);
             return result;
         }
 

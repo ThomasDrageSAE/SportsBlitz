@@ -52,14 +52,14 @@ namespace SportzBlitz.Controls.Managers
         #endregion
 
         // Backwards-compatible: simple CreateUI that uses default prefab for all elements
-        public void CreateUI(int amountOfElements, List<char> lettersToDisplay)
+        public void CreateUI(int amountOfElements, List<string> lettersToDisplay)
         {
             CreateUI(amountOfElements, lettersToDisplay, null);
         }
 
         // Create UI with an explicit per-element prefab list. If an entry in prefabs is null or
         // prefabs is null/too-short, falls back to `_uiPrefab`.
-        public void CreateUI(int amountOfElements, List<char> lettersToDisplay, List<GameObject> prefabs)
+        public void CreateUI(int amountOfElements, List<string> lettersToDisplay, List<GameObject> prefabs)
         {
             if (_gridManager == null) { Debug.LogError("GridManager is not assigned in the UIManager."); return; }
             if (_uiPrefab == null) { Debug.LogError("Default UIPrefab is not assigned in the UIManager."); return; }
