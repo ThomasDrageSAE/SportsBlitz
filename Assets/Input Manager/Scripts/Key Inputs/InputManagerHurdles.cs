@@ -9,7 +9,7 @@ using System.Runtime.CompilerServices;
 
 namespace SportzBlitz.Controls.Managers
 {
-    public class InputManager : MonoBehaviour
+    public class InputManagerHurdles : MonoBehaviour
     {
 
         // public static InputManager Instance { get; private set; }
