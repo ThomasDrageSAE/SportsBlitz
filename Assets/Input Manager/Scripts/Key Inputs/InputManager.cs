@@ -120,6 +120,7 @@ namespace SportzBlitz.Controls.Managers
                 if (_neededKeys.Count == 0)
                 {
                     if (debug) Debug.Log("Sequence complete.");
+                    EventManager.Instance?.correctKeySequence?.Invoke();
                     StartCoroutine(DelayAndReset(0.1f));
                     break;
                 }

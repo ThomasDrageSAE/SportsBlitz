@@ -11,6 +11,7 @@ public class EventManager : Singleton<EventManager>
     #region User Input Events
     public DelegateOneArg<string> incorrectKeyInput;
     public DelegateOneArg<string> correctKeyInput;
+    public DelegateNoArgs correctKeySequence;
     #endregion
     
 }
