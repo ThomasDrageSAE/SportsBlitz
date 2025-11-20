@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SportzBlitz.AnimationHandler
+namespace SportzBlitz.Animation
 {
     public class AnimationHandler : MonoBehaviour
     {
