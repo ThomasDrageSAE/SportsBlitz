@@ -93,7 +93,7 @@ namespace SportzBlitz.Controls.Managers
         // INFO: Remove after the key is pressed
         private void RemoveKeyAfterPress(string key)
         {
-            if(_inputLetters.Contains(key.ToLower())) _inputLetters.Remove(key.ToLower());
+            if (_inputLetters.Contains(key.ToLower())) _inputLetters.Remove(key.ToLower());
 
         }
 
@@ -108,8 +108,9 @@ namespace SportzBlitz.Controls.Managers
             foreach (UnityEngine.InputSystem.Controls.KeyControl key in keyboardInputs.allKeys)
             {
 
-                if (key == null || !key.wasPressedThisFrame) continue;
-                if (_neededKeys == null || _neededKeys.Count == 0 || !_inputLetters.Contains(key.keyCode.ToString().ToLower())) return;
+                if (key == null) continue;
+                if (!key.wasPressedThisFrame) continue;
+                if (_neededKeys == null || _neededKeys.Count == 0 || !_inputLetters.Contains(key.keyCode.ToString().ToLower())) continue;
 
                 string pressed = key.keyCode.ToString().ToUpper();
                 string expected = _neededKeys[0].ToUpper();
