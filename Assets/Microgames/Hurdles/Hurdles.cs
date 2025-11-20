@@ -7,19 +7,23 @@ public class Hurdles : MonoBehaviour
     public float stopX = 10f;
     public float jumpForce = 7f;
     public bool Jumping = false;
+    public bool canMove = true;
 
     private Rigidbody2D rb2d;
     private Animator anim;
 
+    private MinigameManager minigame;
+
     void Start()
     {
+        minigame = FindAnyObjectByType<MinigameManager>();
         rb2d = GetComponent<Rigidbody2D>(); // or Rigidbody2D if 2D
         anim = GetComponent<Animator>();
     }
 
     void Update()
     {
-        if (transform.position.x < stopX)
+        if (canMove && transform.position.x < stopX)
         {
             transform.Translate(Vector3.right * speed * Time.deltaTime);
 
@@ -36,6 +40,11 @@ public class Hurdles : MonoBehaviour
 
     private void Jump()
     {
+        if (!canMove)
+        {
+            return;
+        }
+
         // Reset vertical velocity to make jumps consistent
         rb2d.linearVelocity = new Vector2(rb2d.linearVelocity.x, 0f);
 
@@ -56,13 +65,17 @@ public class Hurdles : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Hurdle"))
         {
+            anim.SetBool("Fall", true);
+            canMove = false;
+            anim.SetBool("Jumping", false);
+            rb2d.linearVelocity = Vector2.zero;
             Debug.Log("YOU LOSE!");
-            // Add lose logic here
+            minigame.Lose();
         }
         if (collision.gameObject.CompareTag("Finish"))
         {
             Debug.Log("YOU WIN!");
-            // Add win logic here
+            minigame.Win();
         }
     }
 }
