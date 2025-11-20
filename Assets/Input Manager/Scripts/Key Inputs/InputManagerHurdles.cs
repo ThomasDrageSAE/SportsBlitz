@@ -14,6 +14,7 @@ namespace SportzBlitz.Controls.Managers
 
         // public static InputManager Instance { get; private set; }
         private Keyboard keyboardInputs;
+        private bool _canAcceptInput = true;
         [SerializeField] private bool debug;
 
         #region Input Settings
@@ -86,6 +87,8 @@ namespace SportzBlitz.Controls.Managers
 
         private void HandleInput()
         {
+            if (!_canAcceptInput) return;
+
             if (keyboardInputs == null)
             {
                 keyboardInputs = Keyboard.current;
@@ -106,9 +109,8 @@ namespace SportzBlitz.Controls.Managers
                 {
                     if (debug) Debug.Log($"Incorrect key '{pressed}'. Resetting.");
                     EventManager.Instance.incorrectKeyInput?.Invoke(pressed);
-
-                    StartCoroutine(DelayAndReset(0.1f));
-                    continue;
+                    StartCoroutine(DelayAndReset(2.1f));
+                    return;
                 }
 
                 // INFO: Correct Key
@@ -121,16 +123,18 @@ namespace SportzBlitz.Controls.Managers
                 {
                     if (debug) Debug.Log("Sequence complete.");
                     EventManager.Instance?.correctKeySequence?.Invoke();
-                    StartCoroutine(DelayAndReset(0.1f));
-                    break;
+                    StartCoroutine(DelayAndReset(0.5f));
+                    return;
                 }
             }
         }
 
         private IEnumerator DelayAndReset(float time)
         {
+            _canAcceptInput = false; // blocks inputs
             yield return new WaitForSeconds(time);
             GetNewInputs();
+            _canAcceptInput = true; // blocks inputs
         }
 
         #region Generate Random Inputs

@@ -3,47 +3,66 @@ using Helper.Blake;
 
 public class Hurdles : MonoBehaviour
 {
-    // Movement
-    public float moveSpeed = 5f;
-    public float jumpHeight = 7f;
+    public float speed = 5f;
+    public float stopX = 10f;
+    public float jumpForce = 7f;
+    public bool Jumping = false;
 
-    private Rigidbody rb;
+    private Rigidbody2D rb2d;
+    private Animator anim;
 
-    private void Awake()
+    void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb2d = GetComponent<Rigidbody2D>(); // or Rigidbody2D if 2D
+        anim = GetComponent<Animator>();
     }
 
-    private void OnEnable()
+    void Update()
     {
-        // Listen for correct key from InputManager
-        EventManager.Instance.correctKeyInput += OnCorrectKeyPressed;
-    }
-
-    private void OnDisable()
-    {
-        EventManager.Instance.correctKeyInput -= OnCorrectKeyPressed;
-    }
-
-    private void FixedUpdate()
-    {
-        // Constant forward movement
-        Vector3 forwardMovement = Vector3.forward * moveSpeed * Time.fixedDeltaTime;
-        rb.MovePosition(rb.position + forwardMovement);
-    }
-
-    private void OnCorrectKeyPressed(string key)
-    {
-        // Jump when correct key is pressed
-        if (IsGrounded())
+        if (transform.position.x < stopX)
         {
-            rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
+            transform.Translate(Vector3.right * speed * Time.deltaTime);
+
+            // Subscribe to input event
+            EventManager.Instance.correctKeyInput += OnCorrectKeyPressed;
         }
     }
 
-    private bool IsGrounded()
+
+    private void OnCorrectKeyPressed(string key)
     {
-        // Check if player is on ground
-        return Physics.Raycast(transform.position, Vector3.down, 1.1f);
+        Jump();
+    }
+
+    private void Jump()
+    {
+        // Reset vertical velocity to make jumps consistent
+        rb2d.linearVelocity = new Vector2(rb2d.linearVelocity.x, 0f);
+
+        // Add jump force
+        rb2d.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+
+        // Play jump animation
+        anim.SetBool("Jumping", true);
+
+    
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            anim.SetBool("Jumping", false);
+        }
+        if (collision.gameObject.CompareTag("Hurdle"))
+        {
+            Debug.Log("YOU LOSE!");
+            // Add lose logic here
+        }
+        if (collision.gameObject.CompareTag("Finish"))
+        {
+            Debug.Log("YOU WIN!");
+            // Add win logic here
+        }
     }
 }
