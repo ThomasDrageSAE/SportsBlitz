@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: 14f7a4e885a6e1a44b040273480e4794
+guid: af3fc0ba10f836b408ef0ab9c8b2159a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2287953675435641492
-    second: Soccer-Goal_0
+      213: 7701388766158070694
+    second: Soccer-Player_0
+  - first:
+      213: -8006430118327048718
+    second: Soccer-Player_1
+  - first:
+      213: 6010888625868257501
+    second: Soccer-Player_2
+  - first:
+      213: -4566381122743810902
+    second: Soccer-Player_3
+  - first:
+      213: 9186229438199152454
+    second: Soccer-Player_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +58,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -101,7 +113,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,13 +125,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Soccer-Goal_0
+      name: Soccer-Player_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 55
-        width: 250
-        height: 138
+        x: 21
+        y: 6
+        width: 19
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +140,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c65fb19114e8f30e0800000000000000
-      internalID: -2287953675435641492
+      spriteID: 6a329047744d0ea60800000000000000
+      internalID: 7701388766158070694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soccer-Player_1
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 6
+        width: 19
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f5a02e2a3273e090800000000000000
+      internalID: -8006430118327048718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soccer-Player_2
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 6
+        width: 19
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd83051bb57fa6350800000000000000
+      internalID: 6010888625868257501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soccer-Player_3
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 6
+        width: 19
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa44ec50094f0a0c0800000000000000
+      internalID: -4566381122743810902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soccer-Player_4
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 6
+        width: 19
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64fb819d00b0c7f70800000000000000
+      internalID: 9186229438199152454
       vertices: []
       indices: 
       edges: []
@@ -138,7 +238,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +248,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Soccer-Goal_0: -2287953675435641492
+      Soccer-Player_0: 7701388766158070694
+      Soccer-Player_1: -8006430118327048718
+      Soccer-Player_2: 6010888625868257501
+      Soccer-Player_3: -4566381122743810902
+      Soccer-Player_4: 9186229438199152454
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
