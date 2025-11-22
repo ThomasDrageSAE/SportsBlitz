@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SportzBlitz.Animation
+namespace SportsBlitz.Animation
 {
     public class AnimationHandler : MonoBehaviour
     {
@@ -18,7 +18,7 @@ namespace SportzBlitz.Animation
         {
             if (animator != null) animator.SetTrigger(triggerName);
         }
-        
+
         // INFO: Set Float
         public void SetFloat(string floatName, float value)
         {

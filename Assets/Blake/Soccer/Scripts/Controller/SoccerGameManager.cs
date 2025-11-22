@@ -1,14 +1,14 @@
-using SportzBlitz.Animation;
+using SportsBlitz.Animation;
 using UnityEngine;
 
-namespace SportzBlitz.Blake.Soccer
+namespace SportsBlitz.Blake.Soccer
 {
     public class SoccerGameManager : MonoBehaviour
     {
         private AnimationHandler animationHandler;
         private GameObject player;
 
-         #region Events
+        #region Events
         private void OnEnable()
         {
             // EventManager.Instance.correctKeySequence += HandleCorrectKeySequence;

@@ -5,9 +5,10 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using System.Collections;
-using System.Runtime.CompilerServices;
+using SportsBlitz.Events;
+using SportsBlitz.Blake.Boxing;
 
-namespace SportzBlitz.Controls.Managers
+namespace SportsBlitz.Controls.Managers
 {
     public class InputManager : MonoBehaviour
     {
@@ -146,7 +147,8 @@ namespace SportzBlitz.Controls.Managers
         private IEnumerator DelayAndReset(float time)
         {
             yield return new WaitForSeconds(time);
-            GetNewInputs();
+
+            if (!BoxingGameManager.Instance._gameWon || !BoxingGameManager.Instance._gameLost) GetNewInputs();
         }
 
         #region Generate Random Inputs
@@ -183,6 +185,7 @@ namespace SportzBlitz.Controls.Managers
         private void GetNewInputs()
         {
 
+            if (BoxingGameManager.Instance._gameWon || BoxingGameManager.Instance._gameLost) return;
             UIManager uIManager = UIManager.Instance;
             uIManager.ClearUI();
 

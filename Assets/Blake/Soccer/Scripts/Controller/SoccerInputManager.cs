@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace SportzBlitz.Blake.Soccer
+namespace SportsBlitz.Blake.Soccer
 {
     public class SoccerInputManager : MonoBehaviour
     {
@@ -15,7 +15,7 @@ namespace SportzBlitz.Blake.Soccer
         [SerializeField][Tooltip("Center of the target zone")] private TargetZoneCenter _targetZoneCentre = TargetZoneCenter.Center;
         [SerializeField][Tooltip("Width of the target zone (In Pixels)")] private float _targetZoneWidth = 100f;
 
-        [SerializeField]private TextMeshProUGUI feedbackText;
+        [SerializeField] private TextMeshProUGUI feedbackText;
         private RectTransform cursorRectTransform;
         private float startTime;
         private bool isGameActive = true;
@@ -41,7 +41,7 @@ namespace SportzBlitz.Blake.Soccer
 
             cursorRectTransform.localPosition = new Vector3(newX, cursorRectTransform.localPosition.y, 0);
 
-            if(Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 CheckHit();
             }
@@ -79,8 +79,8 @@ namespace SportzBlitz.Blake.Soccer
             {
                 message = "Good Hit!";
             }
-            
-            if(feedbackText != null) feedbackText.text = message;
+
+            if (feedbackText != null) feedbackText.text = message;
         }
     }
 

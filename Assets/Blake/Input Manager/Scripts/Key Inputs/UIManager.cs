@@ -3,8 +3,9 @@ using UnityEngine;
 using TMPro;
 using System;
 using Helper.Blake;
+using SportsBlitz.Events;
 
-namespace SportzBlitz.Controls.Managers
+namespace SportsBlitz.Controls.Managers
 {
     public class UIManager : Singleton<UIManager>
     {
@@ -90,5 +91,9 @@ namespace SportzBlitz.Controls.Managers
 
             _uiElements.Clear();
         }
+
+        // INFO: Get UI Elements
+        public List<IUIElement> GetUIElements() => _uiElements;
+
     }
 }
