@@ -3,7 +3,7 @@ using SportsBlitz.Events;
 using TMPro;
 using Helper.Blake;
 
-namespace SportsBlitz.Blake.Boxing
+namespace SportsBlitz.Blake
 {
     public class TimerUIManager : Singleton<TimerUIManager>
     {
@@ -12,11 +12,11 @@ namespace SportsBlitz.Blake.Boxing
         #region Events
         private void OnEnable()
         {
-            if (BoxingEventManager.Instance != null) BoxingEventManager.Instance.OnUpdateTimerText += OnUpdateTimerText;
+            if (Blake.EventManager.Instance != null) Blake.EventManager.Instance.OnUpdateTimerText += OnUpdateTimerText;
         }
         private void OnDisable()
         {
-            if (BoxingEventManager.Instance != null) BoxingEventManager.Instance.OnUpdateTimerText -= OnUpdateTimerText;
+            if (Blake.EventManager.Instance != null) Blake.EventManager.Instance.OnUpdateTimerText -= OnUpdateTimerText;
         }
         #endregion
 

@@ -1,8 +1,9 @@
 using UnityEngine;
 using SportsBlitz.Events;
 using System.Collections;
+using SportsBlitz.Blake.Soccer;
 
-namespace SportsBlitz.Blake.Boxing
+namespace SportsBlitz.Blake
 {
     public class Timer : MonoBehaviour
     {
@@ -12,12 +13,12 @@ namespace SportsBlitz.Blake.Boxing
         #region Events
         private void OnEnable()
         {
-            if (BoxingEventManager.Instance != null) BoxingEventManager.Instance.startTimer += StartTimer;
+            if (Blake.EventManager.Instance != null) Blake.EventManager.Instance.startTimer += StartTimer;
         }
 
         private void OnDisable()
         {
-            if (BoxingEventManager.Instance != null) BoxingEventManager.Instance.startTimer -= StartTimer;
+            if (Blake.EventManager.Instance != null) Blake.EventManager.Instance.startTimer -= StartTimer;
         }
         #endregion
 
@@ -40,13 +41,19 @@ namespace SportsBlitz.Blake.Boxing
 
             for (; remaining > 0; remaining--)
             {
-                BoxingEventManager.Instance.OnUpdateTimerText?.Invoke(remaining);
+                // INFO: Pause timer if game is won or lost
+                if (SoccerGameManager.Instance._gameLost || SoccerGameManager.Instance._gameWon)
+                {
+                    yield break;
+                }
+
+                Blake.EventManager.Instance.OnUpdateTimerText?.Invoke(remaining);
                 yield return new WaitForSeconds(1f);
             }
 
-            BoxingEventManager.Instance.OnUpdateTimerText?.Invoke(0f);
+            Blake.EventManager.Instance.OnUpdateTimerText?.Invoke(0f);
             _timerCoroutine = null;
-            BoxingEventManager.Instance.timeOver?.Invoke("");
+            Blake.EventManager.Instance.timeOver?.Invoke();
         }
 
     }

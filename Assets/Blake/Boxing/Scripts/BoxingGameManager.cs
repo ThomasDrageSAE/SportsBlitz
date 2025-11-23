@@ -2,7 +2,7 @@ using System.Collections;
 using Helper.Blake;
 using SportsBlitz.Controls.Managers;
 using SportsBlitz.Events;
-using UnityEditor.UIElements;
+using SportsBlitz.Blake;
 using UnityEngine;
 
 namespace SportsBlitz.Blake.Boxing
@@ -25,9 +25,9 @@ namespace SportsBlitz.Blake.Boxing
         #endregion
 
         #region  Managers
-        private BoxingUIManager _boxingUIManager => BoxingUIManager.Instance;
+        private Blake.UIManager _boxingUIManager => Blake.UIManager.Instance;
         private TimerUIManager _timerUIManager => TimerUIManager.Instance;
-        private BoxingEventManager _boxingEventManager => BoxingEventManager.Instance;
+        private Blake.EventManager _boxingEventManager => Blake.EventManager.Instance;
         [SerializeField] private InputManager _inputManager;
         #endregion
 
@@ -57,21 +57,21 @@ namespace SportsBlitz.Blake.Boxing
         #region Events
         private void OnEnable()
         {
-            if (BoxingEventManager.Instance != null) BoxingEventManager.Instance.timeOver += GameLose;
-            if (BoxingEventManager.Instance != null) BoxingEventManager.Instance.roundStart += RoundLogic;
+            if (EventManager.Instance != null) EventManager.Instance.timeOver += GameLose;
+            if (EventManager.Instance != null) EventManager.Instance.roundStart += RoundLogic;
 
             // INFO: Win/Lose
-            if (EventManager.Instance != null) EventManager.Instance.correctKeySequence += GameWin;
-            if (EventManager.Instance != null) EventManager.Instance.incorrectKeyInput += GameLose;
+            if (Events.EventManager.Instance != null) Events.EventManager.Instance.correctKeySequence += GameWin;
+            if (Events.EventManager.Instance != null) Events.EventManager.Instance.incorrectKeyInput += GameLose;
         }
         private void OnDisable()
         {
-            if (BoxingEventManager.Instance != null) BoxingEventManager.Instance.timeOver -= GameLose;
-            if (BoxingEventManager.Instance != null) BoxingEventManager.Instance.roundStart -= RoundLogic;
+            if (EventManager.Instance != null) EventManager.Instance.timeOver -= GameLose;
+            if (EventManager.Instance != null) EventManager.Instance.roundStart -= RoundLogic;
 
             // INFO: Win/Lose
-            if (EventManager.Instance != null) EventManager.Instance.correctKeySequence -= GameWin;
-            if (EventManager.Instance != null) EventManager.Instance.incorrectKeyInput -= GameLose;
+            if (Events.EventManager.Instance != null) Events.EventManager.Instance.correctKeySequence -= GameWin;
+            if (Events.EventManager.Instance != null) Events.EventManager.Instance.incorrectKeyInput -= GameLose;
         }
         #endregion
 
@@ -130,7 +130,7 @@ namespace SportsBlitz.Blake.Boxing
         }
 
         // INFO: Game Lose Function
-        private void GameLose(string keyInput)
+        private void GameLose()
         {
             if (_gameWon) return;
             _gameLost = true;
@@ -154,7 +154,7 @@ namespace SportsBlitz.Blake.Boxing
 
 
             // INFO: Prevent the input UI from updating
-            foreach (IUIElement element in FindFirstObjectByType<UIManager>()?.GetUIElements())
+            foreach (IUIElement element in FindFirstObjectByType<Controls.Managers.UIManager>()?.GetUIElements())
             {
                 Debug.Log($"Disabling KeyInputUI for element: {element.GetGameObject().name}");
                 element.GetGameObject().GetComponent<KeyInputUI>().enabled = false;

@@ -120,7 +120,7 @@ namespace SportsBlitz.Controls.Managers
                 if (pressed != expected)
                 {
                     if (debug) Debug.Log($"Incorrect key '{pressed}'. Resetting.");
-                    EventManager.Instance.incorrectKeyInput?.Invoke(pressed);
+                    EventManager.Instance.incorrectKeyInput?.Invoke();
                     if (_removeKeyAfterIncorrectPress) RemoveKeyAfterPress(expected.ToString());
 
                     StartCoroutine(DelayAndReset(0.1f));

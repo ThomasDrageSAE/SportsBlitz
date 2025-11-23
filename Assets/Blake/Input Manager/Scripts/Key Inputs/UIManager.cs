@@ -31,7 +31,7 @@ namespace SportsBlitz.Controls.Managers
 
         #region Event Handlers
         // INFO: Event Handlers
-        private void OnIncorrectKeyInput(string incorrectKey)
+        private void OnIncorrectKeyInput()
         {
             foreach (IUIElement element in _uiElements)
                 element.Pressed(false);

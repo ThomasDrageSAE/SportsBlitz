@@ -7,87 +7,87 @@ namespace SportsBlitz.Blake.Soccer
     public class SoccerInputManager : MonoBehaviour
     {
 
+        #region  UI Elements
+        [Header("UI Elements")]
+        [SerializeField] private GameObject _sliderUI;
+        [SerializeField] private TextMeshProUGUI _feedbackText;
+        [SerializeField] private RectTransform _cursor;
+        #endregion
+
+        #region Movement Settings
         [Header("Movement Settings")]
         [SerializeField][Tooltip("Speed at which the player moves")] private float _movementSpeed = 1f;
-        [SerializeField][Tooltip("The total distance the cursor travels (In Pixels)")] private float _travelDistance = 500f;
+        [SerializeField][Tooltip("The total distance the cursor travels (In Pixels)")] private float _travelDistance = 600f;
+        #endregion
 
+        #region Target Zone Settings
         [Header("Target Zone Settings")]
-        [SerializeField][Tooltip("Center of the target zone")] private TargetZoneCenter _targetZoneCentre = TargetZoneCenter.Center;
-        [SerializeField][Tooltip("Width of the target zone (In Pixels)")] private float _targetZoneWidth = 100f;
+        [SerializeField][Tooltip("Centre of the target zone")] private TargetZoneCentre _targetZoneCentre = TargetZoneCentre.Center;
+        [SerializeField][Tooltip("Width of the target zone (In Pixels)")] private float _targetZoneWidth = 25;
+        #endregion
 
-        [SerializeField] private TextMeshProUGUI feedbackText;
-        private RectTransform cursorRectTransform;
+        #region  Debug Settings
+        [Header("Debug Settings")]
+        [SerializeField] private bool _debug = false;
+        #endregion
         private float startTime;
-        private bool isGameActive = true;
+
 
         void Start()
         {
-            cursorRectTransform = GetComponent<RectTransform>();
             startTime = Time.time;
 
-            if (feedbackText == null) feedbackText.text = "Press SPACE to hit!";
-
+            if (_feedbackText != null && _debug) _feedbackText.text = "Press SPACE to hit!";
+            if (_sliderUI != null) _sliderUI.SetActive(true);
 
         }
 
 
         private void Update()
         {
-            if (!isGameActive) return;
 
             float t = (Time.time - startTime) * _movementSpeed;
             float pingPongValue = Mathf.PingPong(t, _travelDistance);
             float newX = pingPongValue - (_travelDistance / 2f);
 
-            cursorRectTransform.localPosition = new Vector3(newX, cursorRectTransform.localPosition.y, 0);
+            if (_cursor != null) _cursor.localPosition = new Vector3(newX, _cursor.localPosition.y, 0);
 
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                CheckHit();
-            }
+            if (Input.GetKey(KeyCode.Space)) CheckHit();
+
         }
 
         private void CheckHit()
         {
-            float currentX = cursorRectTransform.localPosition.x;
+            if (_cursor == null) { Debug.LogError($"Cursor RectTransform is not assigned."); return; }
+            float _currentX = _cursor.localPosition.x;
 
             float halfWidth = _targetZoneWidth / 2f;
-            float minTarget = (float)_targetZoneCentre - halfWidth;
+            float _minTarget = (float)_targetZoneCentre - halfWidth;
             float maxTarget = (float)_targetZoneCentre + halfWidth;
 
-            if (currentX < minTarget || currentX > maxTarget)
+            float _distanceToCentre = Mathf.Abs(_currentX - (float)_targetZoneCentre);
+            float _normalisedDistance = _distanceToCentre / halfWidth;
+
+            if (_debug) Debug.Log($"normalisedDistance: {_normalisedDistance}");
+            if (_normalisedDistance <= 0.5f && _normalisedDistance > 0f)
             {
-                if (feedbackText != null) feedbackText.text = "Missed! Try Again!";
-                return;
-            }
-
-            float distanceToCentre = Mathf.Abs(currentX - (float)_targetZoneCentre);
-
-            float normalisedDistance = distanceToCentre / halfWidth;
-
-            string message;
-
-            if (normalisedDistance < 0.1f)
-            {
-                message = "Perfect Hit!";
-            }
-            else if (normalisedDistance < 0.3f)
-            {
-                message = "Great Hit!";
+                if (_feedbackText != null && _debug) _feedbackText.text = "Perfect Hit!";
+                Blake.EventManager.Instance.Wongame?.Invoke();
             }
             else
             {
-                message = "Good Hit!";
+                Blake.EventManager.Instance.gameEnd?.Invoke();
             }
 
-            if (feedbackText != null) feedbackText.text = message;
         }
+
+        public GameObject GetSliderUI() => _sliderUI.gameObject;
     }
 
 }
 
-// INFO: Only used in this file
-internal enum TargetZoneCenter
+// INFO: Enum for zone centre (Unneeded but makes it easier to use in the inspector)
+internal enum TargetZoneCentre
 {
     Center = 0,
     Left = -1,

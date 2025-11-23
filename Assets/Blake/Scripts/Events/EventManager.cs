@@ -2,9 +2,9 @@ using System;
 using Helper.Blake;
 using UnityEngine;
 
-namespace SportsBlitz.Events
+namespace SportsBlitz.Blake
 {
-    public class BoxingEventManager : Singleton<BoxingEventManager>
+    public class EventManager : Singleton<EventManager>
     {
 
         public delegate void DelegateNoArgs();
@@ -15,12 +15,13 @@ namespace SportsBlitz.Events
         public DelegateNoArgs gameEnd; // INFO: Game has ended
         public DelegateNoArgs gameLose; // INFO: Player lost the game
         public DelegateNoArgs gameWon; // INFO: Player won the game
+        public DelegateNoArgs Wongame; // INFO: Player won the game
         public DelegateNoArgs startGame; // INFO: Scene loaded game starting
         public DelegateNoArgs roundStart; // INFO: Game loaded and  round starting
 
         #region Timer Events
         public DelegateOneArg<float> startTimer; // INFO: Start round timer
-        public DelegateOneArg<string> timeOver; // INFO: Timer has run out
+        public DelegateNoArgs timeOver; // INFO: Timer has run out
         #endregion
 
         #region UI Events
