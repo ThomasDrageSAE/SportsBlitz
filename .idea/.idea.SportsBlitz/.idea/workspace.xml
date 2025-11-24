@@ -6,18 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1331eba5-df3a-4702-a395-df2270eb9d5e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SportsBlitz/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SportsBlitz/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fencing/Animations/Fencing1_0 1.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fencing/Animations/Fencing1_0 1.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fencing/Animations/Fencing1_0 2.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fencing/Animations/Fencing1_0 2.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fencing/Sprites/Fencing.psd" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fencing/Sprites/Fencing.psd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fencing/Sprites/Fencing.psd.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fencing/Sprites/Fencing.psd.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fencing/Sprites/Fencing1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fencing/Sprites/Fencing1.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Racing/Sprites/cars_1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Racing/Sprites/cars_1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Fencing.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Fencing.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/IntroScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/IntroScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Racing.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Racing.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TVScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TVScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SportsBlitzGameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SportsBlitzGameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TVSceneController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TVSceneController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +127,7 @@
       <workItem from="1762878286634" duration="1000" />
       <workItem from="1762878295867" duration="2772000" />
       <workItem from="1763142759762" duration="7640000" />
-      <workItem from="1763219932856" duration="4692000" />
+      <workItem from="1763219932856" duration="6203000" />
     </task>
     <servers />
   </component>
