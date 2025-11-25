@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Table
   - Ground
+  - Barrier
   layers:
   - Default
   - TransparentFX
