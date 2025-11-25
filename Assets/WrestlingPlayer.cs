@@ -14,6 +14,12 @@ public class WrestlingPlayer : MonoBehaviour
     Vector2 throwingPosition;
     Vector2 direction;
 
+    [SerializeField] private Animator playerAnimation;
+
+    [SerializeField] private AudioSource playerAudioSource;
+    [SerializeField] private AudioSource enemyAudioSource;
+    [SerializeField] AudioSource floorAudioSource;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -39,6 +45,8 @@ public class WrestlingPlayer : MonoBehaviour
 
    public void PlayerJump()
     {
+        playerAnimation.Play("Jump", 0, 0.0f);
+        playerAudioSource.Play();
         throwingPosition = throwingPoint.transform.position;
         direction = throwingPosition - startPosition;
         direction.Normalize();
@@ -53,14 +61,15 @@ public class WrestlingPlayer : MonoBehaviour
         if(other.gameObject.tag == "Table")
         {
             Debug.Log("hit table");
-            Destroy(other.gameObject);
             Time.timeScale = 0;
+            enemyAudioSource.Play();
             //win
         }
         else if(other.gameObject.tag == "Ground")
         {
             Debug.Log("hit ground");
             Time.timeScale = 0;
+            floorAudioSource.Play();
         }
     }
 }
