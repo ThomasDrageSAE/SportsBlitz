@@ -1,31 +1,31 @@
 fileFormatVersion: 2
-guid: b608421fa4b852447a678ceee23a2056
+guid: 1f63fbd2623f95f4696741f015652f4f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 111169933186321102
-    second: Player wrestler_0
+      213: 352306833938977546
+    second: Player Wrestler (2)_0
   - first:
-      213: -1355645105497038092
-    second: Player wrestler_1
+      213: -6497632357040477740
+    second: Player Wrestler (2)_1
   - first:
-      213: -5390795686506102028
-    second: Player wrestler_2
+      213: -3736373565155865559
+    second: Player Wrestler (2)_2
   - first:
-      213: -8193138060902120630
-    second: Player wrestler_3
+      213: -6529707138092376415
+    second: Player Wrestler (2)_3
   - first:
-      213: 5539552520317500242
-    second: Player wrestler_4
+      213: -3409564294957527107
+    second: Player Wrestler (2)_4
   - first:
-      213: 3856055881430855571
-    second: Player wrestler_5
+      213: 2188011744383652570
+    second: Player Wrestler (2)_5
   - first:
-      213: -3312884776410362456
-    second: Player wrestler_6
+      213: 1198792785956531345
+    second: Player Wrestler (2)_6
   - first:
-      213: 3628203258647996533
-    second: Player wrestler_7
+      213: -7313745661642086316
+    second: Player Wrestler (2)_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -121,7 +121,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player wrestler_0
+      name: Player Wrestler (2)_0
       rect:
         serializedVersion: 2
         x: 11
@@ -136,14 +136,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: eca46491774fa8100800000000000000
-      internalID: 111169933186321102
+      spriteID: a0310e8e235a3e400800000000000000
+      internalID: 352306833938977546
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player wrestler_1
+      name: Player Wrestler (2)_1
       rect:
         serializedVersion: 2
         x: 43
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4f22a5585f7cf2de0800000000000000
-      internalID: -1355645105497038092
+      spriteID: 4d9a4851cc5c3d5a0800000000000000
+      internalID: -6497632357040477740
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player wrestler_2
+      name: Player Wrestler (2)_2
       rect:
         serializedVersion: 2
         x: 75
@@ -180,14 +180,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4f2881182eb0035b0800000000000000
-      internalID: -5390795686506102028
+      spriteID: 92c89b4e90cb52cc0800000000000000
+      internalID: -3736373565155865559
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player wrestler_3
+      name: Player Wrestler (2)_3
       rect:
         serializedVersion: 2
         x: 11
@@ -202,14 +202,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a43423cb7502c4e80800000000000000
-      internalID: -8193138060902120630
+      spriteID: 1aedbaa24f1d165a0800000000000000
+      internalID: -6529707138092376415
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player wrestler_4
+      name: Player Wrestler (2)_4
       rect:
         serializedVersion: 2
         x: 43
@@ -224,14 +224,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 25bf42cdaa170ec40800000000000000
-      internalID: 5539552520317500242
+      spriteID: dbf8330a65bcea0d0800000000000000
+      internalID: -3409564294957527107
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player wrestler_5
+      name: Player Wrestler (2)_5
       rect:
         serializedVersion: 2
         x: 75
@@ -246,14 +246,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 39fedb6d466738530800000000000000
-      internalID: 3856055881430855571
+      spriteID: ad2de54c6116d5e10800000000000000
+      internalID: 2188011744383652570
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player wrestler_6
+      name: Player Wrestler (2)_6
       rect:
         serializedVersion: 2
         x: 11
@@ -268,14 +268,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8adc24829d44602d0800000000000000
-      internalID: -3312884776410362456
+      spriteID: 19c6d36ffa7f2a010800000000000000
+      internalID: 1198792785956531345
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player wrestler_7
+      name: Player Wrestler (2)_7
       rect:
         serializedVersion: 2
         x: 43
@@ -290,8 +290,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 578e0a404a7f95230800000000000000
-      internalID: 3628203258647996533
+      spriteID: 458e444121b508a90800000000000000
+      internalID: -7313745661642086316
       vertices: []
       indices: 
       edges: []
@@ -300,7 +300,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 22e2a9802e7a2774bab879155d1f8b42
+    spriteID: e70569185ada3494a97b1769b5b58429
     internalID: 0
     vertices: []
     indices: 
@@ -310,15 +310,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Player wrestler_0: 111169933186321102
-      Player wrestler_1: -1355645105497038092
-      Player wrestler_2: -5390795686506102028
-      Player wrestler_3: -8193138060902120630
-      Player wrestler_4: 5539552520317500242
-      Player wrestler_5: 3856055881430855571
-      Player wrestler_6: -3312884776410362456
-      Player wrestler_7: 3628203258647996533
-      Player wrestler_8: -1627032433
+      Player Wrestler (2)_0: 352306833938977546
+      Player Wrestler (2)_1: -6497632357040477740
+      Player Wrestler (2)_2: -3736373565155865559
+      Player Wrestler (2)_3: -6529707138092376415
+      Player Wrestler (2)_4: -3409564294957527107
+      Player Wrestler (2)_5: 2188011744383652570
+      Player Wrestler (2)_6: 1198792785956531345
+      Player Wrestler (2)_7: -7313745661642086316
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
