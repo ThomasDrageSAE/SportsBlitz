@@ -11,9 +11,12 @@ public class SportsBlitzGameManager : MonoBehaviour
     public int gamesLost = 0;
     public int health = 3;
 
+    [Header("Goal")]
+    public int targetWins = 5;
+
     [Header("Scenes")]
     public string tvSceneName = "TVScene";
-    public string[] miniGameScenes; 
+    public string[] miniGameScenes;
 
     [Header("Timing")]
     public float postGamePause = 1.2f;
@@ -26,12 +29,12 @@ public class SportsBlitzGameManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-
             if (health <= 0) health = 3;
         }
         else Destroy(gameObject);
     }
 
+    // ---------------------------------------------------------
     public void RegisterWin()
     {
         if (transitioning) return;
@@ -39,27 +42,27 @@ public class SportsBlitzGameManager : MonoBehaviour
         StartCoroutine(ReturnToTV());
     }
 
+
     public void RegisterLoss()
     {
         if (transitioning) return;
         gamesLost++;
         health--;
-
-        if (IsGameOver())
-        {
-            SceneManager.LoadScene("GameOverScene"); 
-        }
-        else
-        {
-            StartCoroutine(ReturnToTV());
-        }
+        StartCoroutine(ReturnToTV());
     }
 
-    public bool IsGameOver()
+    // ---------------------------------------------------------
+    public bool HasClearedRun()
+    {
+        return gamesWon >= targetWins;
+    }
+
+    public bool HasFailedRun()
     {
         return health <= 0;
     }
 
+    // ---------------------------------------------------------
     IEnumerator ReturnToTV()
     {
         transitioning = true;
