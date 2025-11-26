@@ -12,11 +12,11 @@ namespace SportsBlitz.Blake
         #region Events
         private void OnEnable()
         {
-            if (Blake.EventManager.Instance != null) Blake.EventManager.Instance.OnUpdateTimerText += OnUpdateTimerText;
+            if (Blake.EventManagerBlake.Instance != null) Blake.EventManagerBlake.Instance.OnUpdateTimerText += OnUpdateTimerText;
         }
         private void OnDisable()
         {
-            if (Blake.EventManager.Instance != null) Blake.EventManager.Instance.OnUpdateTimerText -= OnUpdateTimerText;
+            if (Blake.EventManagerBlake.Instance != null) Blake.EventManagerBlake.Instance.OnUpdateTimerText -= OnUpdateTimerText;
         }
         #endregion
 

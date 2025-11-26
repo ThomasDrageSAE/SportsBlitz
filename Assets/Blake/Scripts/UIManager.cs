@@ -11,16 +11,16 @@ namespace SportsBlitz.Blake
         #region Events
         void OnEnable()
         {
-            if (Blake.EventManager.Instance != null) Blake.EventManager.Instance.startGame += ShowInstructions;
-            if (Blake.EventManager.Instance != null) Blake.EventManager.Instance.roundStart += HideInstructions;
-            if (Blake.EventManager.Instance != null) Blake.EventManager.Instance.gameEnd += HideInstructions;
+            if (Blake.EventManagerBlake.Instance != null) Blake.EventManagerBlake.Instance.startGame += ShowInstructions;
+            if (Blake.EventManagerBlake.Instance != null) Blake.EventManagerBlake.Instance.roundStart += HideInstructions;
+            if (Blake.EventManagerBlake.Instance != null) Blake.EventManagerBlake.Instance.gameEnd += HideInstructions;
         }
 
         void OnDisable()
         {
-            if (Blake.EventManager.Instance != null) Blake.EventManager.Instance.startGame -= ShowInstructions;
-            if (Blake.EventManager.Instance != null) Blake.EventManager.Instance.roundStart -= HideInstructions;
-            if (Blake.EventManager.Instance != null) Blake.EventManager.Instance.gameEnd -= HideInstructions;
+            if (Blake.EventManagerBlake.Instance != null) Blake.EventManagerBlake.Instance.startGame -= ShowInstructions;
+            if (Blake.EventManagerBlake.Instance != null) Blake.EventManagerBlake.Instance.roundStart -= HideInstructions;
+            if (Blake.EventManagerBlake.Instance != null) Blake.EventManagerBlake.Instance.gameEnd -= HideInstructions;
         }
         #endregion
 

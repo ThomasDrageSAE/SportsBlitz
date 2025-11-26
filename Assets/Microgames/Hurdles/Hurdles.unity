@@ -999,11 +999,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40419ea4bc0f75444a6fa5eedca2e1ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debug: 0
+  debug: 1
   _amountOfInputs: 1
   _allowDuplicateInputs: 0
   _sortInputs: 0
-  _inputLetters: 6100620063006400650066006700680069006a006b006c006d006e006f0070007100720073007400750076007700780079007a00
+  _removeKeyAfterCorrectPress: 0
+  _removeKeyAfterIncorrectPress: 0
+  delayAndResetSuccess: 1.25
+  delayAndResetFail: 2
+  _inputLetters:
+  - a
+  - b
+  - c
+  - d
+  - e
+  - f
+  - g
+  - h
+  - i
+  - j
+  - k
+  - l
+  - m
+  - n
+  - o
+  - p
+  - q
+  - r
+  - s
+  - t
+  - u
+  - v
+  - w
+  - x
+  - y
+  - z
   _inputLettersPrefabs:
   - {fileID: 8174171947773725957, guid: a1c9da04c7ac8714d9ca87afcdccf857, type: 3}
   - {fileID: 8174171947773725957, guid: 4aae8808b200c4c4cb00178643abb34f, type: 3}

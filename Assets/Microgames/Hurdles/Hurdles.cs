@@ -1,5 +1,6 @@
 using UnityEngine;
 using Helper.Blake;
+using SportsBlitz.Events;
 
 public class Hurdles : MonoBehaviour
 {
@@ -35,7 +36,14 @@ public class Hurdles : MonoBehaviour
 
     private void OnCorrectKeyPressed(string key)
     {
-        Jump();
+        if (Jumping == false)
+        {
+            Jump();
+        }
+        else
+        {
+            return;
+        }
     }
 
     private void Jump()

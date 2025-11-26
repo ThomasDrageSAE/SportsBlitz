@@ -72,11 +72,11 @@ namespace SportsBlitz.Blake.Soccer
             if (_normalisedDistance <= 0.5f && _normalisedDistance > 0f)
             {
                 if (_feedbackText != null && _debug) _feedbackText.text = "Perfect Hit!";
-                Blake.EventManager.Instance.gameWon?.Invoke();
+                Blake.EventManagerBlake.Instance.gameWon?.Invoke();
             }
             else
             {
-                Blake.EventManager.Instance.gameLose?.Invoke();
+                Blake.EventManagerBlake.Instance.gameLose?.Invoke();
             }
 
         }

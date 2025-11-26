@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace SportsBlitz.Blake
 {
-    public class EventManager : Singleton<EventManager>
+    public class EventManagerBlake : Singleton<EventManagerBlake>
     {
 
         public delegate void DelegateNoArgs();

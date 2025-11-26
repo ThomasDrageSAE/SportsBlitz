@@ -27,7 +27,7 @@ namespace SportsBlitz.Blake.Boxing
         #region  Managers
         private Blake.UIManager _boxingUIManager => Blake.UIManager.Instance;
         private TimerUIManager _timerUIManager => TimerUIManager.Instance;
-        private Blake.EventManager _boxingEventManager => Blake.EventManager.Instance;
+        private Blake.EventManagerBlake _boxingEventManager => Blake.EventManagerBlake.Instance;
         [SerializeField] private InputManager _inputManager;
         #endregion
 
@@ -56,8 +56,8 @@ namespace SportsBlitz.Blake.Boxing
         #region Events
         private void OnEnable()
         {
-            if (EventManager.Instance != null) EventManager.Instance.timeOver += GameLose;
-            if (EventManager.Instance != null) EventManager.Instance.roundStart += RoundLogic;
+            if (_boxingEventManager != null) _boxingEventManager.timeOver += GameLose;
+            if (_boxingEventManager != null) _boxingEventManager.roundStart += RoundLogic;
 
             // INFO: Win/Lose
             if (Events.EventManager.Instance != null) Events.EventManager.Instance.correctKeySequence += GameWin;
@@ -65,8 +65,8 @@ namespace SportsBlitz.Blake.Boxing
         }
         private void OnDisable()
         {
-            if (EventManager.Instance != null) EventManager.Instance.timeOver -= GameLose;
-            if (EventManager.Instance != null) EventManager.Instance.roundStart -= RoundLogic;
+            if (_boxingEventManager != null) _boxingEventManager.timeOver -= GameLose;
+            if (_boxingEventManager != null) _boxingEventManager.roundStart -= RoundLogic;
 
             // INFO: Win/Lose
             if (Events.EventManager.Instance != null) Events.EventManager.Instance.correctKeySequence -= GameWin;

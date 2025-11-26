@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using SportzBlitz.Controls.Managers;
+using SportsBlitz.Controls.Managers;
+using SportsBlitz.Events;
 
 public class TugOfWar : MonoBehaviour
 {
@@ -21,7 +22,7 @@ public class TugOfWar : MonoBehaviour
     [Header("Debug")]
     [SerializeField] private bool debug = true;
 
-    private char selectedKey;               // The single key to mash
+    private string selectedKey;               // The single key to mash
 
     private void Start()
     {
@@ -64,7 +65,7 @@ public class TugOfWar : MonoBehaviour
         }
     }
 
-    private IEnumerator ResetKeyUI(char key, float delay)
+    private IEnumerator ResetKeyUI(string key, float delay)
     {
         yield return new WaitForSeconds(delay);
 
@@ -81,7 +82,7 @@ public class TugOfWar : MonoBehaviour
         if (inputManager == null || UIManager.Instance == null) return;
 
         // Generate exactly one random key
-        List<char> newKeys = inputManager.GenerateRandomChars(1, false, false);
+        List<string> newKeys = inputManager.GenerateRandomChars(1, false, false);
         selectedKey = newKeys[0];
 
         // Clear any previous keys in InputManager
@@ -94,7 +95,7 @@ public class TugOfWar : MonoBehaviour
         {
             inputManager.GetPrefabForLetter(selectedKey)
         };
-        UIManager.Instance.CreateUI(1, new List<char> { selectedKey }, prefabs);
+        UIManager.Instance.CreateUI(1, new List<string> { selectedKey }, prefabs);
 
         if (debug) Debug.Log("Selected key for game: " + selectedKey);
     }
