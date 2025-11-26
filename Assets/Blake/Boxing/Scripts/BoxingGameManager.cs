@@ -33,8 +33,7 @@ namespace SportsBlitz.Blake.Boxing
 
         #region Audio Settings
         [Header("Audio Settings")]
-        [SerializeField] private AudioClip _bellSound;
-        [Tooltip("Play bell start sound at the beginning of each round")][SerializeField] private bool _playBellStartSound = true;
+        [SerializeField] private AudioClip _punchSound;
         #endregion
 
         #region Player Settings
@@ -107,7 +106,6 @@ namespace SportsBlitz.Blake.Boxing
             _boxingEventManager.roundStart?.Invoke();
 
             // INFO: Play bell sound
-            if (_bellSound != null && _playBellStartSound) AudioSource.PlayClipAtPoint(_bellSound, Vector3.zero);
             yield return new WaitForSeconds(0.1f); // INFO: Small delay to ensure the bell sound plays properly
 
         }
@@ -122,6 +120,7 @@ namespace SportsBlitz.Blake.Boxing
             _gameWon = true;
 
             if (_playerAnimationController != null) _playerAnimationController.SetTrigger("Win");
+            if (_punchSound != null) AudioSource.PlayClipAtPoint(_punchSound, Vector3.zero, 1.0f);
             if (_enemyAnimationController != null) _enemyAnimationController.SetTrigger("Lose");
             StartCoroutine(EndDelay(0.5f, true));
             if (_debug) Debug.Log("Game Won!");
@@ -138,6 +137,7 @@ namespace SportsBlitz.Blake.Boxing
 
             if (_playerAnimationController != null) _playerAnimationController.SetTrigger("Lose");
             if (_enemyAnimationController != null) _enemyAnimationController.SetTrigger("Win");
+            if (_punchSound != null) AudioSource.PlayClipAtPoint(_punchSound, Vector3.zero, 1.0f);
 
             StartCoroutine(EndDelay(0.5f));
             if (_debug) Debug.Log("Game Lost!");

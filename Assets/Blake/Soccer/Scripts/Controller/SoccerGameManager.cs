@@ -4,6 +4,7 @@ using SportsBlitz.Controls.Managers;
 using SportsBlitz.Events;
 using SportsBlitz.Blake;
 using UnityEngine;
+using UnityEditor.Experimental.GraphView;
 
 namespace SportsBlitz.Blake.Soccer
 {
@@ -43,6 +44,16 @@ namespace SportsBlitz.Blake.Soccer
         [SerializeField] private Animator _playerAnimationController;
         #endregion
 
+        #region Ball Settings
+        [Header("Ball Settings")]
+        [SerializeField] private GameObject _ballObject;
+        [SerializeField] private Animator _ballAnimationController;
+
+        [Tooltip("Speed of the ball")]
+        [SerializeField] private float _ballSpeed = 5f;
+        private Rigidbody2D ballRB;
+        #endregion
+
         #region Debug Settings
         [Header("Debug Settings")]
         [SerializeField] private bool _debug = false;
@@ -73,7 +84,7 @@ namespace SportsBlitz.Blake.Soccer
         {
             _soccerEventManager.startGame?.Invoke();
             StartCoroutine(InstructionsCoroutine()); // INFO: Give the player time to read the instructions
-
+            ballRB = _ballObject?.GetComponent<Rigidbody2D>();
             if (_playerAnimationController == null) Debug.LogWarning($"Player animation controller isn't assigned.");
         }
 
@@ -101,11 +112,17 @@ namespace SportsBlitz.Blake.Soccer
             _soccerEventManager.roundStart?.Invoke();
 
             // INFO: Play ball kick sound
-            if (_ballKickSound != null && _playBallKickSound) AudioSource.PlayClipAtPoint(_ballKickSound, Vector3.zero);
             yield return new WaitForSeconds(0.1f); // INFO: Small delay to ensure the bell sound plays properly
 
         }
         #endregion
+
+        private void FixedUpdate()
+        {
+            if (_gameLost && _ballObject != null) ballRB.MovePosition(ballRB.position + new Vector2(-1, 1).normalized * _ballSpeed * Time.fixedDeltaTime);
+            if (_gameWon && _ballObject != null) ballRB.MovePosition(ballRB.position + Vector2.up * _ballSpeed * Time.fixedDeltaTime);
+
+        }
 
         #region Win/Lose Logic
         // INFO: Game Win Function
@@ -116,7 +133,10 @@ namespace SportsBlitz.Blake.Soccer
             _gameWon = true;
 
             if (_playerAnimationController != null) _playerAnimationController.SetTrigger("Win");
+            if (_ballAnimationController != null) _ballAnimationController.SetTrigger("Win");
+            if (_ballKickSound != null && _playBallKickSound) AudioSource.PlayClipAtPoint(_ballKickSound, Vector3.zero);
             StartCoroutine(EndDelay(0.5f, true));
+
             if (_debug) Debug.Log("Game Won!");
 
             // INFO: The rest is handled by the Microgame Manager
@@ -130,8 +150,10 @@ namespace SportsBlitz.Blake.Soccer
             _gameWon = false;
 
             if (_playerAnimationController != null) _playerAnimationController.SetTrigger("Lose");
-
+            if (_ballAnimationController != null) _ballAnimationController.SetTrigger("Lose");
+            if (_ballKickSound != null && _playBallKickSound) AudioSource.PlayClipAtPoint(_ballKickSound, Vector3.zero);
             StartCoroutine(EndDelay(0.5f));
+
             if (_debug) Debug.Log("Game Lost!");
 
             // INFO: The rest is handled by the Microgame Manager
@@ -155,8 +177,6 @@ namespace SportsBlitz.Blake.Soccer
                     break;
             }
 
-            _soccerEventManager.gameEnd?.Invoke();
-            yield return new WaitForSeconds(time);
 
         }
     }

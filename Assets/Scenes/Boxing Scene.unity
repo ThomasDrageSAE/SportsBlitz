@@ -213,8 +213,7 @@ MonoBehaviour:
   _roundTime: 10
   _instructionDelay: 3
   _inputManager: {fileID: 1414271411}
-  _bellSound: {fileID: 0}
-  _playBellStartSound: 1
+  _punchSound: {fileID: 8300000, guid: df8c430fda0285f4185784075f447951, type: 3}
   _playerAnimationController: {fileID: 1300047823}
   _enemyAnimationController: {fileID: 812279684}
   _debug: 1
@@ -741,7 +740,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 944991993}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a4cc4a8c11b628459ce2fbc492c9db8, type: 3}
+  m_Script: {fileID: 11500000, guid: 8659bcbc56bd98f4591c6170b7acd79d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _debug: 1
