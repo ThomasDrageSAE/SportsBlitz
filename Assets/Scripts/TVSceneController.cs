@@ -12,20 +12,42 @@ public class TVSceneController : MonoBehaviour
 
     void Start()
     {
-        
-        cameraZoom.ZoomOut();
+        var gm = SportsBlitzGameManager.Instance;
 
      
-        if (!SportsBlitzGameManager.Instance.IsGameOver())
-            StartCoroutine(TVSequence());
+
+        cameraZoom.ZoomOut();
+
+        if (CheckRunFinished())
+            return;
+
+        StartCoroutine(TVSequence());
     }
+
+
+    bool CheckRunFinished()
+    {
+        var gm = SportsBlitzGameManager.Instance;
+
+        if (gm.HasClearedRun() || gm.HasFailedRun())
+        {
+            HighScoreUI ui = FindObjectOfType<HighScoreUI>(true);
+
+            if (ui != null)
+                ui.Show(gm.gamesWon, gm.HasClearedRun());
+
+            return true;
+        }
+
+        return false;
+    }
+
 
     IEnumerator TVSequence()
     {
-        yield return new WaitForSeconds(1f); 
+        yield return new WaitForSeconds(1f);
 
         ChannelFlicker();
-
         yield return new WaitForSeconds(channelDisplayTime);
 
         cameraZoom.StartZoom();
