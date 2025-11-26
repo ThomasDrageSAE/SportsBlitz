@@ -1,0 +1,1781 @@
+fileFormatVersion: 2
+guid: 513b3b317e5e2bf4e9360094b6e6bd1a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8389829899481557776
+    second: CrowdLayer_0
+  - first:
+      213: -4714399162163753517
+    second: CrowdLayer_1
+  - first:
+      213: 2369762794931628729
+    second: CrowdLayer_2
+  - first:
+      213: 710998202512193701
+    second: CrowdLayer_3
+  - first:
+      213: 99033561973787223
+    second: CrowdLayer_4
+  - first:
+      213: 6785627426535395590
+    second: CrowdLayer_5
+  - first:
+      213: -4988817751420447917
+    second: CrowdLayer_6
+  - first:
+      213: -8489137517570338959
+    second: CrowdLayer_7
+  - first:
+      213: 484522654377708652
+    second: CrowdLayer_8
+  - first:
+      213: -7801548544550035717
+    second: CrowdLayer_9
+  - first:
+      213: -7865770904081843509
+    second: CrowdLayer_10
+  - first:
+      213: -2005078189950002173
+    second: CrowdLayer_11
+  - first:
+      213: -1616546953663717785
+    second: CrowdLayer_12
+  - first:
+      213: -5741254114084805147
+    second: CrowdLayer_13
+  - first:
+      213: -1230557164382630976
+    second: CrowdLayer_14
+  - first:
+      213: 3537169916151313968
+    second: CrowdLayer_15
+  - first:
+      213: 3680654210400709557
+    second: CrowdLayer_16
+  - first:
+      213: 5054448404322550493
+    second: CrowdLayer_17
+  - first:
+      213: -1086493708569173421
+    second: CrowdLayer_18
+  - first:
+      213: 6018895292071408798
+    second: CrowdLayer_19
+  - first:
+      213: -6799740863440214697
+    second: CrowdLayer_20
+  - first:
+      213: 8901356091134332127
+    second: CrowdLayer_21
+  - first:
+      213: -5050186399406085916
+    second: CrowdLayer_22
+  - first:
+      213: 1785830089281027708
+    second: CrowdLayer_23
+  - first:
+      213: -6185713506395375698
+    second: CrowdLayer_24
+  - first:
+      213: -805100438655654615
+    second: CrowdLayer_25
+  - first:
+      213: 7943815207971342578
+    second: CrowdLayer_26
+  - first:
+      213: -7400289054507724389
+    second: CrowdLayer_27
+  - first:
+      213: 925246597934621175
+    second: CrowdLayer_28
+  - first:
+      213: 6248532036789362122
+    second: CrowdLayer_29
+  - first:
+      213: 3050405513111071576
+    second: CrowdLayer_30
+  - first:
+      213: -12804920467131549
+    second: CrowdLayer_31
+  - first:
+      213: 1895553858222841942
+    second: CrowdLayer_32
+  - first:
+      213: 4571997013834506883
+    second: CrowdLayer_33
+  - first:
+      213: 9150552280745308931
+    second: CrowdLayer_34
+  - first:
+      213: 4147628324022280934
+    second: CrowdLayer_35
+  - first:
+      213: 3198177256845903185
+    second: CrowdLayer_36
+  - first:
+      213: 2672437210458723756
+    second: CrowdLayer_37
+  - first:
+      213: 9101233652352519029
+    second: CrowdLayer_38
+  - first:
+      213: -4287439411356218078
+    second: CrowdLayer_39
+  - first:
+      213: 3404459245359481972
+    second: CrowdLayer_40
+  - first:
+      213: 7554833911715016142
+    second: CrowdLayer_41
+  - first:
+      213: 8293739870690711672
+    second: CrowdLayer_42
+  - first:
+      213: 4137713369792193007
+    second: CrowdLayer_43
+  - first:
+      213: -6422816799983994894
+    second: CrowdLayer_44
+  - first:
+      213: 6489412582335994896
+    second: CrowdLayer_45
+  - first:
+      213: -8476012536606170689
+    second: CrowdLayer_46
+  - first:
+      213: -4699441499390741993
+    second: CrowdLayer_47
+  - first:
+      213: 6326079717763238173
+    second: CrowdLayer_48
+  - first:
+      213: -2267438992007737393
+    second: CrowdLayer_49
+  - first:
+      213: 1192625209922319358
+    second: CrowdLayer_50
+  - first:
+      213: -3214829722787657892
+    second: CrowdLayer_51
+  - first:
+      213: -5562813850660677899
+    second: CrowdLayer_52
+  - first:
+      213: -5372483401433033293
+    second: CrowdLayer_53
+  - first:
+      213: -1705354707938340041
+    second: CrowdLayer_54
+  - first:
+      213: 7072568836320687176
+    second: CrowdLayer_55
+  - first:
+      213: 2789319794569967669
+    second: CrowdLayer_56
+  - first:
+      213: 7128398758732848036
+    second: CrowdLayer_57
+  - first:
+      213: 4044775077005629413
+    second: CrowdLayer_58
+  - first:
+      213: 1723952066889812530
+    second: CrowdLayer_59
+  - first:
+      213: 6319283210583449935
+    second: CrowdLayer_60
+  - first:
+      213: -5092806235265766005
+    second: CrowdLayer_61
+  - first:
+      213: 3872720970279273470
+    second: CrowdLayer_62
+  - first:
+      213: 7177870024733489313
+    second: CrowdLayer_63
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: CrowdLayer_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 22
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96319ee380ae1544ea100533fb853b2b
+      internalID: -8389829899481557776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_1
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 22
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0432da08076a74b4193c0a9df79de6f3
+      internalID: -4714399162163753517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_2
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 22
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 712aaffd8dc53a943953afbff5993037
+      internalID: 2369762794931628729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_3
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 22
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33e57b58a1043204f8a3c4e773642e40
+      internalID: 710998202512193701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_4
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 22
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15e654252df64444a83f8d6fbb1ea6c9
+      internalID: 99033561973787223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_5
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 22
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0786bfd39df15dc4f978655ab4070009
+      internalID: 6785627426535395590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_6
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 23
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ef8c438018e6cb44b92b4c686930dd8
+      internalID: -4988817751420447917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_7
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 12
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce23988a24639b540a133cc7dc8266c8
+      internalID: -8489137517570338959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_8
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 22
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fc72232ed7316e448f2ba658fbbeb27
+      internalID: 484522654377708652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_9
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 22
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4897136f08a4d7d439a76ec572740ed5
+      internalID: -7801548544550035717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_10
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 22
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fde71c758a20644ab21d78ec54dc166
+      internalID: -7865770904081843509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_11
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 22
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1545112a9318757419f701221669a503
+      internalID: -2005078189950002173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_12
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 22
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b27b4f3db41dd5419fed99b507bdd75
+      internalID: -1616546953663717785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_13
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 22
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e7494a660b2bd344ae3ca369f94551e
+      internalID: -5741254114084805147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_14
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 22
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e11425c49a860140aa44f4fc40a88c6
+      internalID: -1230557164382630976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_15
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 22
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c9750c700c68c4489608b8651a6b8b0
+      internalID: 3537169916151313968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_16
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 23
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 349755922fcff5c48bc62f42e4d13b2e
+      internalID: 3680654210400709557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_17
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 12
+        width: 12
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1209e2a56a3f2ae40b9b6acc77fff4f8
+      internalID: 5054448404322550493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_18
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 22
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54fc50f251def8c40ba2811d18d7db47
+      internalID: -1086493708569173421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_19
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 22
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0dfbdbad2500c842a33f7503df7a262
+      internalID: 6018895292071408798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_20
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 12
+        width: 12
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2937466d1b3e05b428385a2b0e655dbe
+      internalID: -6799740863440214697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_21
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 22
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70bc086574605064ebc8d65ba9df02f6
+      internalID: 8901356091134332127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_22
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 22
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42b683e7e23fc334ca99d5e90614d4cc
+      internalID: -5050186399406085916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_23
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 11
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c57e1d9b41d5c5f4bafa9b0447042ad8
+      internalID: 1785830089281027708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_24
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 11
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0470ee8bc709ef64daa2dad2578d5be6
+      internalID: -6185713506395375698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_25
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 11
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2432c6912cbe1924f959fcaf3aec9aaf
+      internalID: -805100438655654615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_26
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 11
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5d68cf83f564b347ba7adbe19b92a2c
+      internalID: 7943815207971342578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_27
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 11
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 284fc9ef3b2ffec4493818fe88d6614c
+      internalID: -7400289054507724389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_28
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 11
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4e74bdf2ab785140ba376d3738452d5
+      internalID: 925246597934621175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_29
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 11
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c40d289e91ec36488cfb236391a18de
+      internalID: 6248532036789362122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_30
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 11
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31ebb0c1c68dda247a953537d1065f4d
+      internalID: 3050405513111071576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_31
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 11
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4647ce9920fe6d24a8f67173ace19b00
+      internalID: -12804920467131549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_32
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 11
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03e3fd0e28e8aba48993dc41215f1188
+      internalID: 1895553858222841942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_33
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 11
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e843f92bda2c62f459849ada8f18c664
+      internalID: 4571997013834506883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_34
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 11
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b916a994b3db5ad40afb6e5560985f0d
+      internalID: 9150552280745308931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_35
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 11
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5c60356b7e43e84e89aa3f6fe0fd778
+      internalID: 4147628324022280934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_36
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 11
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a60885138dc2fdf48b7f4a46fb203724
+      internalID: 3198177256845903185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_37
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 11
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 351a8dce548824e45aa0325a8e3c6c26
+      internalID: 2672437210458723756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_38
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 11
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8aa0786cfd77392499d0150c9619a5a9
+      internalID: 9101233652352519029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_39
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 11
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fe92715a66c28a4ebb0ebab291b005d
+      internalID: -4287439411356218078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_40
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 11
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2be06cd4ab601b4bac95acbb1e6c520
+      internalID: 3404459245359481972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_41
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8af4d580a8a219c45974cf42d5e44d6c
+      internalID: 7554833911715016142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_42
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 1
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b389b09a0f525842b45baabf4c69854
+      internalID: 8293739870690711672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_43
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 1
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0969c0b7ae890904195d25f22457463e
+      internalID: 4137713369792193007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_44
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 1
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c99f4e1ea4d9e574bb1ebd2f8c4cc15e
+      internalID: -6422816799983994894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_45
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 1
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bddeb22256c9ee34d844401df7ef498a
+      internalID: 6489412582335994896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_46
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 1
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 583fea4fa664c854ab3a71c3c6e31061
+      internalID: -8476012536606170689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_47
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 2
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 669df68a904cbf34db7d8133ca5a34f4
+      internalID: -4699441499390741993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_48
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 0
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d626b4242a8fc234288b301a7a30f0de
+      internalID: 6326079717763238173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_49
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 1
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c7ef401080715149810004e63dd136d
+      internalID: -2267438992007737393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_50
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 1
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3421438cc80421418073e8bb59c5891
+      internalID: 1192625209922319358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_51
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 1
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de123b3e482cd68458d7a70f951a95ae
+      internalID: -3214829722787657892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_52
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 1
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d78d844767edc1b48a8c9c041256d4da
+      internalID: -5562813850660677899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_53
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 1
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf7db761891054f4b9802876a83effaf
+      internalID: -5372483401433033293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_54
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 1
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a09ee7fbf1f64c74d8467db1f4b74c6f
+      internalID: -1705354707938340041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_55
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 1
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28fd3c3450661ba4098c792be01096d5
+      internalID: 7072568836320687176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_56
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 1
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d27b6bf6fa7c5504bb649e1879a56c1f
+      internalID: 2789319794569967669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_57
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 2
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb26efbbb1ddb94498868830b6379409
+      internalID: 7128398758732848036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_58
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 0
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bccd5f79e8f0e4b4080445b75afa9136
+      internalID: 4044775077005629413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_59
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 1
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d45f67a7401a82c49b1f232d0fca9cab
+      internalID: 1723952066889812530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_60
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 1
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95d193fbce53f61459c0fcb9f1b0c9b4
+      internalID: 6319283210583449935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_61
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 0
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26f7369c691aefe4ba541ed51550cd07
+      internalID: -5092806235265766005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_62
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 1
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c40bea82e725c5849b832af1b54bd149
+      internalID: 3872720970279273470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrowdLayer_63
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 1
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc84fd66bdaa8214f879619452f07323
+      internalID: 7177870024733489313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 6a0dd11514f293b44ab847f2ba253529
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      CrowdLayer_0: -8389829899481557776
+      CrowdLayer_1: -4714399162163753517
+      CrowdLayer_10: -7865770904081843509
+      CrowdLayer_11: -2005078189950002173
+      CrowdLayer_12: -1616546953663717785
+      CrowdLayer_13: -5741254114084805147
+      CrowdLayer_14: -1230557164382630976
+      CrowdLayer_15: 3537169916151313968
+      CrowdLayer_16: 3680654210400709557
+      CrowdLayer_17: 5054448404322550493
+      CrowdLayer_18: -1086493708569173421
+      CrowdLayer_19: 6018895292071408798
+      CrowdLayer_2: 2369762794931628729
+      CrowdLayer_20: -6799740863440214697
+      CrowdLayer_21: 8901356091134332127
+      CrowdLayer_22: -5050186399406085916
+      CrowdLayer_23: 1785830089281027708
+      CrowdLayer_24: -6185713506395375698
+      CrowdLayer_25: -805100438655654615
+      CrowdLayer_26: 7943815207971342578
+      CrowdLayer_27: -7400289054507724389
+      CrowdLayer_28: 925246597934621175
+      CrowdLayer_29: 6248532036789362122
+      CrowdLayer_3: 710998202512193701
+      CrowdLayer_30: 3050405513111071576
+      CrowdLayer_31: -12804920467131549
+      CrowdLayer_32: 1895553858222841942
+      CrowdLayer_33: 4571997013834506883
+      CrowdLayer_34: 9150552280745308931
+      CrowdLayer_35: 4147628324022280934
+      CrowdLayer_36: 3198177256845903185
+      CrowdLayer_37: 2672437210458723756
+      CrowdLayer_38: 9101233652352519029
+      CrowdLayer_39: -4287439411356218078
+      CrowdLayer_4: 99033561973787223
+      CrowdLayer_40: 3404459245359481972
+      CrowdLayer_41: 7554833911715016142
+      CrowdLayer_42: 8293739870690711672
+      CrowdLayer_43: 4137713369792193007
+      CrowdLayer_44: -6422816799983994894
+      CrowdLayer_45: 6489412582335994896
+      CrowdLayer_46: -8476012536606170689
+      CrowdLayer_47: -4699441499390741993
+      CrowdLayer_48: 6326079717763238173
+      CrowdLayer_49: -2267438992007737393
+      CrowdLayer_5: 6785627426535395590
+      CrowdLayer_50: 1192625209922319358
+      CrowdLayer_51: -3214829722787657892
+      CrowdLayer_52: -5562813850660677899
+      CrowdLayer_53: -5372483401433033293
+      CrowdLayer_54: -1705354707938340041
+      CrowdLayer_55: 7072568836320687176
+      CrowdLayer_56: 2789319794569967669
+      CrowdLayer_57: 7128398758732848036
+      CrowdLayer_58: 4044775077005629413
+      CrowdLayer_59: 1723952066889812530
+      CrowdLayer_6: -4988817751420447917
+      CrowdLayer_60: 6319283210583449935
+      CrowdLayer_61: -5092806235265766005
+      CrowdLayer_62: 3872720970279273470
+      CrowdLayer_63: 7177870024733489313
+      CrowdLayer_7: -8489137517570338959
+      CrowdLayer_8: 484522654377708652
+      CrowdLayer_9: -7801548544550035717
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
