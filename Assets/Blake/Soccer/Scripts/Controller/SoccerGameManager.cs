@@ -74,7 +74,7 @@ namespace SportsBlitz.Blake.Soccer
             _soccerEventManager.startGame?.Invoke();
             StartCoroutine(InstructionsCoroutine()); // INFO: Give the player time to read the instructions
 
-            if (_playerAnimationController == null) Debug.LogWarning($"Player animation controller is assigned.");
+            if (_playerAnimationController == null) Debug.LogWarning($"Player animation controller isn't assigned.");
         }
 
         #region Round Logic
@@ -156,7 +156,7 @@ namespace SportsBlitz.Blake.Soccer
             }
 
             _soccerEventManager.gameEnd?.Invoke();
-            // yield return new WaitForSeconds(time);
+            yield return new WaitForSeconds(time);
 
         }
     }

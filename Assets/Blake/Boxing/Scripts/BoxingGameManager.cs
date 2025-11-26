@@ -173,7 +173,6 @@ namespace SportsBlitz.Blake.Boxing
             _boxingEventManager.gameEnd?.Invoke();
 
             yield return new WaitForSeconds(time);
-            Time.timeScale = 0f;
         }
     }
 
