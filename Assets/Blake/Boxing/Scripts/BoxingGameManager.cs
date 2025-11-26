@@ -151,6 +151,7 @@ namespace SportsBlitz.Blake.Boxing
         {
             // INFO: Disable the input manager to prevent further inputs
             if (_inputManager != null) _inputManager.gameObject.GetComponent<InputManager>().enabled = false;
+            _boxingEventManager.stopTimer?.Invoke();
 
 
             // INFO: Prevent the input UI from updating
@@ -158,16 +159,6 @@ namespace SportsBlitz.Blake.Boxing
             {
                 Debug.Log($"Disabling KeyInputUI for element: {element.GetGameObject().name}");
                 element.GetGameObject().GetComponent<KeyInputUI>().enabled = false;
-            }
-
-            switch (isWin)
-            {
-                case true:
-                    _boxingEventManager.gameWon?.Invoke();
-                    break;
-                default:
-                    _boxingEventManager.gameLose?.Invoke();
-                    break;
             }
 
             _boxingEventManager.gameEnd?.Invoke();

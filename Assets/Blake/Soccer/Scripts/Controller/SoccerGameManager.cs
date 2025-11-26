@@ -1,10 +1,6 @@
 using System.Collections;
 using Helper.Blake;
-using SportsBlitz.Controls.Managers;
-using SportsBlitz.Events;
-using SportsBlitz.Blake;
 using UnityEngine;
-using UnityEditor.Experimental.GraphView;
 
 namespace SportsBlitz.Blake.Soccer
 {
@@ -66,8 +62,8 @@ namespace SportsBlitz.Blake.Soccer
             if (Blake.EventManager.Instance != null) Blake.EventManager.Instance.roundStart += RoundLogic;
 
             // INFO: Win/Lose
-            if (Blake.EventManager.Instance != null) Blake.EventManager.Instance.Wongame += GameWin;
-            if (Blake.EventManager.Instance != null) Blake.EventManager.Instance.gameEnd += GameLose;
+            if (Blake.EventManager.Instance != null) Blake.EventManager.Instance.gameLose += GameWin;
+            if (Blake.EventManager.Instance != null) Blake.EventManager.Instance.gameWon += GameLose;
         }
         private void OnDisable()
         {
@@ -75,8 +71,8 @@ namespace SportsBlitz.Blake.Soccer
             if (Blake.EventManager.Instance != null) Blake.EventManager.Instance.roundStart -= RoundLogic;
 
             // INFO: Win/Lose
-            if (Blake.EventManager.Instance != null) Blake.EventManager.Instance.Wongame -= GameWin;
-            if (Blake.EventManager.Instance != null) Blake.EventManager.Instance.gameEnd -= GameLose;
+            if (Blake.EventManager.Instance != null) Blake.EventManager.Instance.gameWon -= GameWin;
+            if (Blake.EventManager.Instance != null) Blake.EventManager.Instance.gameLose -= GameLose;
         }
         #endregion
 
@@ -166,17 +162,8 @@ namespace SportsBlitz.Blake.Soccer
             // INFO: Disable the input manager to prevent further inputs
             if (_inputManager == null) yield break;
             _inputManager.gameObject.GetComponent<SoccerInputManager>().enabled = false;
-
-            switch (isWin)
-            {
-                case true:
-                    _soccerEventManager.gameWon?.Invoke();
-                    break;
-                default:
-                    _soccerEventManager.gameLose?.Invoke();
-                    break;
-            }
-
+            _soccerEventManager.stopTimer?.Invoke();
+            _soccerEventManager.gameEnd?.Invoke();
 
         }
     }

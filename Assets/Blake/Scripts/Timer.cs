@@ -1,7 +1,6 @@
 using UnityEngine;
 using SportsBlitz.Events;
 using System.Collections;
-using SportsBlitz.Blake.Soccer;
 
 namespace SportsBlitz.Blake
 {
@@ -14,6 +13,7 @@ namespace SportsBlitz.Blake
         private void OnEnable()
         {
             if (Blake.EventManager.Instance != null) Blake.EventManager.Instance.startTimer += StartTimer;
+            if (Blake.EventManager.Instance != null) Blake.EventManager.Instance.stopTimer += StopTimer;
         }
 
         private void OnDisable()
@@ -33,6 +33,9 @@ namespace SportsBlitz.Blake
 
             _timerCoroutine = StartCoroutine(TimerCoroutine(time));
         }
+    
+        // INFO: Stop the timer
+        private void StopTimer() => StopAllCoroutines();
 
         // INFO: Timer coroutine
         private IEnumerator TimerCoroutine(float time)
@@ -41,12 +44,6 @@ namespace SportsBlitz.Blake
 
             for (; remaining > 0; remaining--)
             {
-                // INFO: Pause timer if game is won or lost
-                if (SoccerGameManager.Instance._gameLost || SoccerGameManager.Instance._gameWon)
-                {
-                    yield break;
-                }
-
                 Blake.EventManager.Instance.OnUpdateTimerText?.Invoke(remaining);
                 yield return new WaitForSeconds(1f);
             }

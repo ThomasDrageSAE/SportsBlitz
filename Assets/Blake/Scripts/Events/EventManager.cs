@@ -15,12 +15,12 @@ namespace SportsBlitz.Blake
         public DelegateNoArgs gameEnd; // INFO: Game has ended
         public DelegateNoArgs gameLose; // INFO: Player lost the game
         public DelegateNoArgs gameWon; // INFO: Player won the game
-        public DelegateNoArgs Wongame; // INFO: Player won the game
         public DelegateNoArgs startGame; // INFO: Scene loaded game starting
         public DelegateNoArgs roundStart; // INFO: Game loaded and  round starting
 
         #region Timer Events
-        public DelegateOneArg<float> startTimer; // INFO: Start round timer
+        public DelegateOneArg<float> startTimer; // INFO: Start timer
+        public DelegateNoArgs stopTimer; // INFO: Pause timer
         public DelegateNoArgs timeOver; // INFO: Timer has run out
         #endregion
 
