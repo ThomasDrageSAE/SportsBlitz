@@ -46,7 +46,7 @@ public class TugOfWar : MonoBehaviour
     #region Player Input
     void CheckPlayerPress()
     {
-        InputManagerHurdles inputManager = FindObjectOfType<InputManagerHurdles>();
+        InputManager inputManager = FindObjectOfType<InputManager>();
         if (inputManager == null) return;
 
         if (Input.GetKeyDown(selectedKey.ToString().ToLower()))
@@ -77,7 +77,7 @@ public class TugOfWar : MonoBehaviour
     #region Key Selection
     void SelectSingleKey()
     {
-        InputManagerHurdles inputManager = FindObjectOfType<InputManagerHurdles>();
+        InputManager inputManager = FindObjectOfType<InputManager>();
         if (inputManager == null || UIManager.Instance == null) return;
 
         // Generate exactly one random key
