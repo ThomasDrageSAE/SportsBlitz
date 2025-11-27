@@ -912,7 +912,7 @@ Transform:
   m_GameObject: {fileID: 649001039}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 137.76997, y: 309.24, z: 315.49}
+  m_LocalPosition: {x: 358, y: 309.24, z: 315.49}
   m_LocalScale: {x: 257.42197, y: 257.42197, z: 257.42197}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -932,7 +932,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 390579316}
   target: {fileID: 1201002611}
-  speed: 1
+  speed: 3
   animator: {fileID: 649001046}
 --- !u!82 &649001044
 AudioSource:
@@ -1925,7 +1925,7 @@ Transform:
   m_GameObject: {fileID: 1201002611}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 319.78998, y: 317.86, z: 315.49}
+  m_LocalPosition: {x: 135, y: 301, z: 315.49}
   m_LocalScale: {x: 257.42197, y: 257.42197, z: 257.42197}
   m_ConstrainProportionsScale: 1
   m_Children: []
