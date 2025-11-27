@@ -20,6 +20,8 @@ public class WrestlingPlayer : MonoBehaviour
     [SerializeField] private AudioSource enemyAudioSource;
     [SerializeField] AudioSource floorAudioSource;
 
+    [SerializeField] MinigameManager manager;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -61,15 +63,15 @@ public class WrestlingPlayer : MonoBehaviour
         if(other.gameObject.tag == "Table")
         {
             Debug.Log("hit table");
-            Time.timeScale = 0;
             enemyAudioSource.Play();
+            manager.Win();
             //win
         }
         else if(other.gameObject.tag == "Ground")
         {
             Debug.Log("hit ground");
-            Time.timeScale = 0;
             floorAudioSource.Play();
+            manager.Lose();
         }
     }
 }
