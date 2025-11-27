@@ -118,7 +118,7 @@ namespace SportsBlitz.Controls.Managers
 
                 if (key == null) continue;
                 if (!key.wasPressedThisFrame) continue;
-                if (_neededKeys == null || _neededKeys.Count == 0 || !_inputLetters.Contains(key.keyCode.ToString().ToLower())) continue;
+                if (_neededKeys == null || _neededKeys.Count == 0 || !_inputLetters.Contains(key.keyCode.ToString().ToUpper())) continue;
 
                 string pressed = key.keyCode.ToString().ToUpper();
                 string expected = _neededKeys[0].ToUpper();

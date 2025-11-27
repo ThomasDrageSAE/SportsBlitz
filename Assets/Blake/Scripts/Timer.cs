@@ -6,19 +6,21 @@ namespace SportsBlitz.Blake
 {
     public class Timer : MonoBehaviour
     {
-        private Coroutine _timerCoroutine = null;
+        private Blake.EventManagerBlake _eventManagerBlake => Blake.EventManagerBlake.Instance;
+        private Coroutine _timerCoroutine;
         [SerializeField] private bool _debug = false;
 
         #region Events
         private void OnEnable()
         {
-            if (Blake.EventManagerBlake.Instance != null) Blake.EventManagerBlake.Instance.startTimer += StartTimer;
-            if (Blake.EventManagerBlake.Instance != null) Blake.EventManagerBlake.Instance.stopTimer += StopTimer;
+            if (_eventManagerBlake != null) _eventManagerBlake.startTimer += StartTimer;
+            if (_eventManagerBlake != null) _eventManagerBlake.stopTimer += StopTimer;
         }
 
         private void OnDisable()
         {
-            if (Blake.EventManagerBlake.Instance != null) Blake.EventManagerBlake.Instance.startTimer -= StartTimer;
+            if (_eventManagerBlake != null) _eventManagerBlake.startTimer -= StartTimer;
+            if (_eventManagerBlake != null) _eventManagerBlake.stopTimer -= StopTimer;
         }
         #endregion
 
@@ -44,13 +46,13 @@ namespace SportsBlitz.Blake
 
             for (; remaining > 0; remaining--)
             {
-                Blake.EventManagerBlake.Instance.OnUpdateTimerText?.Invoke(remaining);
+                _eventManagerBlake.OnUpdateTimerText?.Invoke(remaining);
                 yield return new WaitForSeconds(1f);
             }
 
-            Blake.EventManagerBlake.Instance.OnUpdateTimerText?.Invoke(0f);
+            _eventManagerBlake.OnUpdateTimerText?.Invoke(0f);
             _timerCoroutine = null;
-            Blake.EventManagerBlake.Instance.timeOver?.Invoke();
+            _eventManagerBlake.timeOver?.Invoke();
         }
 
     }
