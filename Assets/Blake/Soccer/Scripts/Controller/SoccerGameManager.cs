@@ -24,7 +24,7 @@ namespace SportsBlitz.Blake.Soccer
         #region  Managers
         private Blake.UIManager _soccerUIManager => Blake.UIManager.Instance;
         private TimerUIManager _timerUIManager => TimerUIManager.Instance;
-        private Blake.EventManagerBlake _soccerEventManager => _soccerEventManager;
+        private Blake.EventManagerBlake _soccerEventManager => Blake.EventManagerBlake.Instance;
         [SerializeField] private SoccerInputManager _inputManager;
         #endregion
 
