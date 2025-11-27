@@ -7,20 +7,21 @@ namespace SportsBlitz.Blake
     public class UIManager : Singleton<UIManager>
     {
         [SerializeField] private GameObject _instructionUI;
+        private Blake.EventManagerBlake _eventManagerBlake => Blake.EventManagerBlake.Instance;
 
         #region Events
         void OnEnable()
         {
-            if (Blake.EventManagerBlake.Instance != null) Blake.EventManagerBlake.Instance.startGame += ShowInstructions;
-            if (Blake.EventManagerBlake.Instance != null) Blake.EventManagerBlake.Instance.roundStart += HideInstructions;
-            if (Blake.EventManagerBlake.Instance != null) Blake.EventManagerBlake.Instance.gameEnd += HideInstructions;
+            if (_eventManagerBlake != null) _eventManagerBlake.startGame += ShowInstructions;
+            if (_eventManagerBlake != null) _eventManagerBlake.roundStart += HideInstructions;
+            if (_eventManagerBlake != null) _eventManagerBlake.gameEnd += HideInstructions;
         }
 
         void OnDisable()
         {
-            if (Blake.EventManagerBlake.Instance != null) Blake.EventManagerBlake.Instance.startGame -= ShowInstructions;
-            if (Blake.EventManagerBlake.Instance != null) Blake.EventManagerBlake.Instance.roundStart -= HideInstructions;
-            if (Blake.EventManagerBlake.Instance != null) Blake.EventManagerBlake.Instance.gameEnd -= HideInstructions;
+            if (_eventManagerBlake != null) _eventManagerBlake.startGame -= ShowInstructions;
+            if (_eventManagerBlake != null) _eventManagerBlake.roundStart -= HideInstructions;
+            if (_eventManagerBlake != null) _eventManagerBlake.gameEnd -= HideInstructions;
         }
         #endregion
 

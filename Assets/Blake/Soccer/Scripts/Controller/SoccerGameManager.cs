@@ -24,7 +24,7 @@ namespace SportsBlitz.Blake.Soccer
         #region  Managers
         private Blake.UIManager _soccerUIManager => Blake.UIManager.Instance;
         private TimerUIManager _timerUIManager => TimerUIManager.Instance;
-        private Blake.EventManagerBlake _soccerEventManager => Blake.EventManagerBlake.Instance;
+        private Blake.EventManagerBlake _soccerEventManager => _soccerEventManager;
         [SerializeField] private SoccerInputManager _inputManager;
         #endregion
 
@@ -58,21 +58,21 @@ namespace SportsBlitz.Blake.Soccer
         #region Events
         private void OnEnable()
         {
-            if (Blake.EventManagerBlake.Instance != null) Blake.EventManagerBlake.Instance.timeOver += GameLose;
-            if (Blake.EventManagerBlake.Instance != null) Blake.EventManagerBlake.Instance.roundStart += RoundLogic;
+            if (_soccerEventManager != null) _soccerEventManager.timeOver += GameLose;
+            if (_soccerEventManager != null) _soccerEventManager.roundStart += RoundLogic;
 
             // INFO: Win/Lose
-            if (Blake.EventManagerBlake.Instance != null) Blake.EventManagerBlake.Instance.gameLose += GameWin;
-            if (Blake.EventManagerBlake.Instance != null) Blake.EventManagerBlake.Instance.gameWon += GameLose;
+            if (_soccerEventManager != null) _soccerEventManager.gameLose += GameWin;
+            if (_soccerEventManager != null) _soccerEventManager.gameWon += GameLose;
         }
         private void OnDisable()
         {
-            if (Blake.EventManagerBlake.Instance != null) Blake.EventManagerBlake.Instance.timeOver -= GameLose;
-            if (Blake.EventManagerBlake.Instance != null) Blake.EventManagerBlake.Instance.roundStart -= RoundLogic;
+            if (_soccerEventManager != null) _soccerEventManager.timeOver -= GameLose;
+            if (_soccerEventManager != null) _soccerEventManager.roundStart -= RoundLogic;
 
             // INFO: Win/Lose
-            if (Blake.EventManagerBlake.Instance != null) Blake.EventManagerBlake.Instance.gameWon -= GameWin;
-            if (Blake.EventManagerBlake.Instance != null) Blake.EventManagerBlake.Instance.gameLose -= GameLose;
+            if (_soccerEventManager != null) _soccerEventManager.gameWon -= GameWin;
+            if (_soccerEventManager != null) _soccerEventManager.gameLose -= GameLose;
         }
         #endregion
 
