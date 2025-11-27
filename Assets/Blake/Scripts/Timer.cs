@@ -12,13 +12,13 @@ namespace SportsBlitz.Blake
         #region Events
         private void OnEnable()
         {
-            if (Blake.EventManager.Instance != null) Blake.EventManager.Instance.startTimer += StartTimer;
-            if (Blake.EventManager.Instance != null) Blake.EventManager.Instance.stopTimer += StopTimer;
+            if (Blake.EventManagerBlake.Instance != null) Blake.EventManagerBlake.Instance.startTimer += StartTimer;
+            if (Blake.EventManagerBlake.Instance != null) Blake.EventManagerBlake.Instance.stopTimer += StopTimer;
         }
 
         private void OnDisable()
         {
-            if (Blake.EventManager.Instance != null) Blake.EventManager.Instance.startTimer -= StartTimer;
+            if (Blake.EventManagerBlake.Instance != null) Blake.EventManagerBlake.Instance.startTimer -= StartTimer;
         }
         #endregion
 
@@ -44,13 +44,13 @@ namespace SportsBlitz.Blake
 
             for (; remaining > 0; remaining--)
             {
-                Blake.EventManager.Instance.OnUpdateTimerText?.Invoke(remaining);
+                Blake.EventManagerBlake.Instance.OnUpdateTimerText?.Invoke(remaining);
                 yield return new WaitForSeconds(1f);
             }
 
-            Blake.EventManager.Instance.OnUpdateTimerText?.Invoke(0f);
+            Blake.EventManagerBlake.Instance.OnUpdateTimerText?.Invoke(0f);
             _timerCoroutine = null;
-            Blake.EventManager.Instance.timeOver?.Invoke();
+            Blake.EventManagerBlake.Instance.timeOver?.Invoke();
         }
 
     }
