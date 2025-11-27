@@ -15,11 +15,17 @@ public class Hurdles : MonoBehaviour
 
     private MinigameManager minigame;
 
+    public AudioClip jumpSfx;
+
+
     void Start()
     {
         minigame = FindAnyObjectByType<MinigameManager>();
         rb2d = GetComponent<Rigidbody2D>(); // or Rigidbody2D if 2D
         anim = GetComponent<Animator>();
+       
+        // Subscribe to input event
+        EventManager.Instance.correctKeyInput += OnCorrectKeyPressed;
     }
 
     void Update()
@@ -28,8 +34,6 @@ public class Hurdles : MonoBehaviour
         {
             transform.Translate(Vector3.right * speed * Time.deltaTime);
 
-            // Subscribe to input event
-            EventManager.Instance.correctKeyInput += OnCorrectKeyPressed;
         }
     }
 
@@ -61,6 +65,9 @@ public class Hurdles : MonoBehaviour
 
         // Play jump animation
         anim.SetBool("Jumping", true);
+        if (jumpSfx != null) AudioSource.PlayClipAtPoint(jumpSfx, Vector3.zero, 1.0f);
+
+
 
     
     }

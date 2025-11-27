@@ -392,7 +392,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   win: {fileID: 504000162}
   autoMoveSpeed: 2
-  playerMoveSpeed: 0.35
+  playerMoveSpeed: 0.5
   playerLocation: {fileID: 13048534}
   enemyLocation: {fileID: 1378261426}
   winDistance: 0.5
