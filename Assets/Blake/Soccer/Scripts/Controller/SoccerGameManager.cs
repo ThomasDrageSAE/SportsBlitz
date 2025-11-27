@@ -26,6 +26,7 @@ namespace SportsBlitz.Blake.Soccer
         private TimerUIManager _timerUIManager => TimerUIManager.Instance;
         private Blake.EventManagerBlake _soccerEventManager => Blake.EventManagerBlake.Instance;
         [SerializeField] private SoccerInputManager _inputManager;
+        private MinigameManager minigameManager;
         #endregion
 
         #region Audio Settings
@@ -82,6 +83,7 @@ namespace SportsBlitz.Blake.Soccer
             StartCoroutine(InstructionsCoroutine()); // INFO: Give the player time to read the instructions
             ballRB = _ballObject?.GetComponent<Rigidbody2D>();
             if (_playerAnimationController == null) Debug.LogWarning($"Player animation controller isn't assigned.");
+            minigameManager =  GameObject.Find("MinigameManager").GetComponent<MinigameManager>();
         }
 
         #region Round Logic
@@ -136,6 +138,7 @@ namespace SportsBlitz.Blake.Soccer
             if (_debug) Debug.Log("Game Won!");
 
             // INFO: The rest is handled by the Microgame Manager
+            minigameManager.Win();
         }
 
         // INFO: Game Lose Function
@@ -153,6 +156,7 @@ namespace SportsBlitz.Blake.Soccer
             if (_debug) Debug.Log("Game Lost!");
 
             // INFO: The rest is handled by the Microgame Manager
+            minigameManager.Lose();
         }
         #endregion
 

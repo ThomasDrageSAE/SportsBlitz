@@ -17,6 +17,24 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Racing.unity
     guid: 21764b4d8c83b0c448a61846f4172339
+  - enabled: 1
+    path: Assets/Scenes/Boxing Scene.unity
+    guid: a6873430e654f3347864a2482873ada0
+  - enabled: 1
+    path: Assets/Scenes/Kabaddi.unity
+    guid: 6875b39c3b0d7ba478b2c4aabc7a1c38
+  - enabled: 1
+    path: Assets/Scenes/Soccer Scene.unity
+    guid: a492eb28b8fff3e43b7d7aafccc82175
+  - enabled: 1
+    path: Assets/Scenes/TugOfWarScene.unity
+    guid: 2ddbafc23a0c0e7438103aabafa40122
+  - enabled: 1
+    path: Assets/Scenes/Hurdles.unity
+    guid: 3ff6d8547dc781948b43cbd0f7d2f022
+  - enabled: 1
+    path: Assets/Scenes/Professional wrestling.unity
+    guid: 0a8b3097944911e459a140eabaff27c3
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
