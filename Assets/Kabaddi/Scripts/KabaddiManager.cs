@@ -12,9 +12,9 @@ public class KabaddiManager : MonoBehaviour
     private int countdownText;
     [SerializeField] private GameObject controlScreen;
 
-    //delete the following when done
-    public GameObject winScreen;
-    public GameObject loseScreen;
+    [SerializeField] MinigameManager manager;
+
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -56,16 +56,18 @@ public class KabaddiManager : MonoBehaviour
     public void Lose()
     {
         gameEnd = true;
-        loseScreen.SetActive(true);
+        /*loseScreen.SetActive(true);
         //lose
-        Time.timeScale = 0;
+        Time.timeScale = 0;*/
+        manager.Lose();
     }
 
     public void Win()
     {
         gameEnd = true;
-        winScreen.SetActive(true);
-        Time.timeScale = 0;
+        /*winScreen.SetActive(true);
+        Time.timeScale = 0;*/
+        manager.Win();
     }
     
 }
