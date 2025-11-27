@@ -15,6 +15,9 @@ public class Hurdles : MonoBehaviour
 
     private MinigameManager minigame;
 
+    public AudioClip jumpSfx;
+
+
     void Start()
     {
         minigame = FindAnyObjectByType<MinigameManager>();
@@ -61,6 +64,9 @@ public class Hurdles : MonoBehaviour
 
         // Play jump animation
         anim.SetBool("Jumping", true);
+        if (jumpSfx != null) AudioSource.PlayClipAtPoint(jumpSfx, Vector3.zero, 1.0f);
+
+
 
     
     }

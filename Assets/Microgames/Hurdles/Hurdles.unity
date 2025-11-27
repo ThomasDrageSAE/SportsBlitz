@@ -1798,6 +1798,7 @@ MonoBehaviour:
   jumpForce: 6
   Jumping: 0
   canMove: 1
+  jumpSfx: {fileID: 8300000, guid: 41fae48d986ff6641be506acb5cd56a2, type: 3}
 --- !u!50 &2065690836
 Rigidbody2D:
   serializedVersion: 5
