@@ -23,6 +23,7 @@ public class GolfHoleManager : MonoBehaviour
             time = 0;
             winLoseConditionText.text = "Times Up, You Lose!!!"; // Message displays when time is up.
             Debug.Log("Times Up, You Lose!");
+            return;
         }
     }
 
