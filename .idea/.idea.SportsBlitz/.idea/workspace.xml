@@ -5,6 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1331eba5-df3a-4702-a395-df2270eb9d5e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SportsBlitz/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SportsBlitz/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blake/Boxing/Scripts/BoxingGameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Blake/Boxing/Scripts/BoxingGameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blake/Soccer/Scripts/Controller/SoccerGameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Blake/Soccer/Scripts/Controller/SoccerGameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Kabaddi/Scripts/KabaddiManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Kabaddi/Scripts/KabaddiManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Microgames/Hurdles/Hurdles.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Microgames/Hurdles/Hurdles.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Microgames/Hurdles/Hurdles.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Microgames/Hurdles/Hurdles.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Microgames/Tug Of War/TugOfWar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Microgames/Tug Of War/TugOfWar.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Microgames/Tug Of War/TugOfWarScene.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Microgames/Tug Of War/TugOfWarScene.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Boxing Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Boxing Scene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Kabaddi.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Kabaddi.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Professional wrestling.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Professional wrestling.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Soccer Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Soccer Scene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TVScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TVScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SportsBlitzGameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SportsBlitzGameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/HighScoreUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/HighScoreUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Wrestling/Scripts/WrestlingManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Wrestling/Scripts/WrestlingManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -29,9 +48,16 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/../../../../Trimester 1/GAD170/Project Two/Assets/Scripts/Button.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/PlayerCarControllerTopDown.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Racing/Scripts/EnemyCar.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Racing/Scripts/EnemySpawner.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Racing/Scripts/InfiniteRoad.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Racing/Scripts/RacingTrafficLight.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/HighScoreManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/HighScoreUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/HoverUI.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/ResultPopup.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -56,7 +82,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.0.55f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.0.60f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath &quot;C:\Users\Thomas\Documents\SAE\Trimester 3\GAD182\Sportsblitz\SportsBlitz&quot; -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\Thomas\Documents\SAE\Trimester 3\GAD182\Sportsblitz\SportsBlitz" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -67,7 +93,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.0.55f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.0.60f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath &quot;C:\Users\Thomas\Documents\SAE\Trimester 3\GAD182\Sportsblitz\SportsBlitz&quot; -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\Thomas\Documents\SAE\Trimester 3\GAD182\Sportsblitz\SportsBlitz" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -118,12 +144,19 @@
       <workItem from="1761843687409" duration="1216000" />
       <workItem from="1762340924168" duration="2094000" />
       <workItem from="1762343978595" duration="120000" />
+      <workItem from="1762878286634" duration="1000" />
+      <workItem from="1762878295867" duration="2772000" />
+      <workItem from="1763142759762" duration="7640000" />
+      <workItem from="1763219932856" duration="6203000" />
+      <workItem from="1764257206057" duration="3422000" />
+      <workItem from="1764260684058" duration="3000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityProjectDiscoverer">
     <option name="hasUnityReference" value="true" />
