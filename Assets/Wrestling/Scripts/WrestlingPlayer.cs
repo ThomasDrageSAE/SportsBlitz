@@ -20,16 +20,18 @@ public class WrestlingPlayer : MonoBehaviour
     [SerializeField] private AudioSource enemyAudioSource;
     [SerializeField] AudioSource floorAudioSource;
 
-    [SerializeField] MinigameManager manager;
+    private MinigameManager minigameManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.bodyType = RigidbodyType2D.Kinematic;
+        minigameManager = FindObjectOfType<MinigameManager>();
 
         startPosition = rb.position;
         movementSpeed = speed * 1000;
+        
     }
 
     // Update is called once per frame
@@ -64,14 +66,14 @@ public class WrestlingPlayer : MonoBehaviour
         {
             Debug.Log("hit table");
             enemyAudioSource.Play();
-            manager.Win();
+            minigameManager.Win();
             //win
         }
         else if(other.gameObject.tag == "Ground")
         {
             Debug.Log("hit ground");
             floorAudioSource.Play();
-            manager.Lose();
+            minigameManager.Lose();
         }
     }
 }

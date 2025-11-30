@@ -30,6 +30,7 @@ namespace SportsBlitz.Blake.Boxing
         private Blake.EventManagerBlake _boxingEventManager => Blake.EventManagerBlake.Instance;
         private Events.EventManager _eventManager => Events.EventManager.Instance;
         [SerializeField] private InputManager _inputManager;
+        private MinigameManager minigameManager;
         #endregion
 
         #region Audio Settings
@@ -79,6 +80,7 @@ namespace SportsBlitz.Blake.Boxing
         {
             _boxingEventManager.startGame?.Invoke();
             StartCoroutine(InstructionsCoroutine()); // INFO: Give the player time to read the instructions
+            minigameManager = FindFirstObjectByType<MinigameManager>();
 
 
         }
@@ -125,6 +127,7 @@ namespace SportsBlitz.Blake.Boxing
             if (_enemyAnimationController != null) _enemyAnimationController.SetTrigger("Lose");
             StartCoroutine(EndDelay(0.5f, true));
             if (_debug) Debug.Log("Game Won!");
+            minigameManager.Win();
 
             // INFO: The rest is handled by the Microgame Manager
         }
@@ -142,6 +145,7 @@ namespace SportsBlitz.Blake.Boxing
 
             StartCoroutine(EndDelay(0.5f));
             if (_debug) Debug.Log("Game Lost!");
+            minigameManager.Lose();
 
             // INFO: The rest is handled by the Microgame Manager
         }

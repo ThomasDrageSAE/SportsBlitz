@@ -10,6 +10,8 @@ public class HighScoreUI : MonoBehaviour
     public TMP_InputField nameInput;
     public TextMeshProUGUI resultTitle;
 
+    public UnityEngine.UI.Button submitButton;   // NEW
+
     private int finalScore;
 
     public void Show(int score, bool didWin)
@@ -19,7 +21,14 @@ public class HighScoreUI : MonoBehaviour
         panel.SetActive(true);
         nameInput.text = "";
 
-        resultTitle.text = didWin ? "YOU WIN!" : "GAME OVER";
+        // enable submit when the panel opens for a new run
+        if (submitButton != null)
+        {
+            submitButton.interactable = true;
+            submitButton.gameObject.SetActive(true);
+        }
+
+        resultTitle.text = didWin ? "You Win!" : "GAME OVER";
 
         RefreshScoreList();
     }
@@ -31,6 +40,13 @@ public class HighScoreUI : MonoBehaviour
         Debug.Log($"Submitting score: {name} — {finalScore}");
 
         HighScoreManager.Instance.AddScore(name, finalScore);
+
+        // hide submit button after score submission
+        if (submitButton != null)
+        {
+            submitButton.interactable = false;
+            submitButton.gameObject.SetActive(false); // hide entirely
+        }
 
         RefreshScoreList();
     }
@@ -48,7 +64,7 @@ public class HighScoreUI : MonoBehaviour
         foreach (Transform child in scoreListParent)
             Destroy(child.gameObject);
 
-        // Show ONLY top 10
+        // Show top 10 scores
         int count = Mathf.Min(HighScoreManager.Instance.scores.Count, 10);
 
         for (int i = 0; i < count; i++)
@@ -60,5 +76,4 @@ public class HighScoreUI : MonoBehaviour
             row.text = $"{entry.playerName} — {entry.score}";
         }
     }
-
 }

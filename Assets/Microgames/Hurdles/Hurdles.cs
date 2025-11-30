@@ -13,14 +13,14 @@ public class Hurdles : MonoBehaviour
     private Rigidbody2D rb2d;
     private Animator anim;
 
-    private MinigameManager minigame;
+    private MinigameManager minigameManager;
 
     public AudioClip jumpSfx;
 
 
     void Start()
     {
-        minigame = FindAnyObjectByType<MinigameManager>();
+        minigameManager = GameObject.Find("MinigameManager").GetComponent<MinigameManager>();
         rb2d = GetComponent<Rigidbody2D>(); // or Rigidbody2D if 2D
         anim = GetComponent<Animator>();
        
@@ -85,12 +85,12 @@ public class Hurdles : MonoBehaviour
             anim.SetBool("Jumping", false);
             rb2d.linearVelocity = Vector2.zero;
             Debug.Log("YOU LOSE!");
-            minigame.Lose();
+            minigameManager.Lose();
         }
         if (collision.gameObject.CompareTag("Finish"))
         {
             Debug.Log("YOU WIN!");
-            minigame.Win();
+            minigameManager.Win();
         }
     }
 }

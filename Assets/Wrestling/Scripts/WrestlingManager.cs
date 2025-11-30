@@ -13,6 +13,8 @@ public class WrestlingManager : MonoBehaviour
     [SerializeField] private GameObject controlScreen;
 
     [SerializeField] private WrestlingPlayer player;
+    
+    private MinigameManager minigameManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

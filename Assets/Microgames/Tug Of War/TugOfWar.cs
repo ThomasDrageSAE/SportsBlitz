@@ -26,6 +26,7 @@ public class TugOfWar : MonoBehaviour
 
     private void Start()
     {
+        minigame = GameObject.Find("MinigameManager").GetComponent<MinigameManager>();
         SelectSingleKey();
     }
 
