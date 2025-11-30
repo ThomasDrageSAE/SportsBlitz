@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 using System.Collections;
 using SportsBlitz.Events;
-using SportsBlitz.Blake.Boxing;
 
 namespace SportsBlitz.Controls.Managers
 {
@@ -64,6 +62,18 @@ namespace SportsBlitz.Controls.Managers
             GetNewInputs();
 
         }
+
+        private void OnValidate()
+        {
+            // INFO: Prevent lowercase letters in the input list
+            for(int i = 0; i < _inputLetters.Count; i++)
+            {
+                string letter = _inputLetters[i];
+                if (string.IsNullOrEmpty(letter)) continue;
+
+                _inputLetters[i] = letter.ToUpper();
+            }
+        }
         #endregion
 
         private void Update()
@@ -99,7 +109,7 @@ namespace SportsBlitz.Controls.Managers
         // INFO: Remove after the key is pressed
         private void RemoveKeyAfterPress(string key)
         {
-            if (_inputLetters.Contains(key.ToLower())) _inputLetters.Remove(key.ToLower());
+            if (_inputLetters.Contains(key.ToUpper())) _inputLetters.Remove(key.ToUpper());
 
         }
 
