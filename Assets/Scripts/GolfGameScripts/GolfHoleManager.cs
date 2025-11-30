@@ -6,14 +6,37 @@ public class GolfHoleManager : MonoBehaviour
 {
     public BoxCollider2D golfHole;
     public CircleCollider2D golfBall;
-    public TextMeshProUGUI winLoseConditionText;
-    public TextMeshProUGUI timerText;
+    [SerializeField] TextMeshProUGUI winLoseConditionText;
+    [SerializeField] TextMeshProUGUI timerText;
 
     public float time = 30f;
+    public bool gameOver = false;
 
     private void Update()
     {
-        if(time > 0)
+        Timer();      
+    }
+
+    public void OnTriggerEnter2D(UnityEngine.Collider2D collision)
+    {
+        if (collision.transform.CompareTag("Goal"))
+        {
+            Debug.Log("Ball is not in Hole");
+        }
+        else
+        {
+            winLoseConditionText.text = "Hole In One, You Win!!!"; // Message will display in console when Ball goes into hole.
+            Debug.Log("Ball has gone into Hole!");
+            gameOver = true;
+            Time.timeScale = 0;
+            return;
+        }
+       
+    }
+
+    public void Timer()
+    {
+        if (time > 0)
         {
             time -= Time.deltaTime;
             timerText.text = "Time: " + time;
@@ -22,29 +45,17 @@ public class GolfHoleManager : MonoBehaviour
         {
             time = 0;
             winLoseConditionText.text = "Times Up, You Lose!!!"; // Message displays when time is up.
+            winLoseConditionText.color = Color.red;
+            gameOver = true;
+            Time.timeScale = 0;
             Debug.Log("Times Up, You Lose!");
             return;
         }
-    }
 
-    public void OnTriggerEnter2D(UnityEngine.Collider2D collision)
-    {
-        if (collision.transform.CompareTag("Goal"))
-        {
-            if (time > 0)
-            {
-                time -= Time.deltaTime;
-                timerText.text = "Time: " + time;
-            }
-            Debug.Log("Ball is not in Hole");
-            return;
-        }
-        else
-        {
-            winLoseConditionText.text = "Hole In One, You Win!!!"; // Message will display in console when Ball goes into hole.
-            Debug.Log("Ball has gone into Hole!"); 
-            return;
-        }
+        int minutes = Mathf.FloorToInt(time / 60);
+        int seconds = Mathf.FloorToInt(time % 60);
+
+        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
 
