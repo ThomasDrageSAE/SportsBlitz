@@ -31,7 +31,13 @@ public class GolfHoleManager : MonoBehaviour
     {
         if (collision.transform.CompareTag("Goal"))
         {
+            if (time > 0)
+            {
+                time -= Time.deltaTime;
+                timerText.text = "Time: " + time;
+            }
             Debug.Log("Ball is not in Hole");
+            return;
         }
         else
         {
