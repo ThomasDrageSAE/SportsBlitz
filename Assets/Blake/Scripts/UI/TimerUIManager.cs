@@ -8,15 +8,16 @@ namespace SportsBlitz.Blake
     public class TimerUIManager : Singleton<TimerUIManager>
     {
         [SerializeField] private TextMeshProUGUI _timerText;
+        private Blake.EventManagerBlake _eventManagerBlake => Blake.EventManagerBlake.Instance;
 
         #region Events
         private void OnEnable()
         {
-            if (Blake.EventManager.Instance != null) Blake.EventManager.Instance.OnUpdateTimerText += OnUpdateTimerText;
+            if (_eventManagerBlake != null) _eventManagerBlake.OnUpdateTimerText += OnUpdateTimerText;
         }
         private void OnDisable()
         {
-            if (Blake.EventManager.Instance != null) Blake.EventManager.Instance.OnUpdateTimerText -= OnUpdateTimerText;
+            if (_eventManagerBlake != null) _eventManagerBlake.OnUpdateTimerText -= OnUpdateTimerText;
         }
         #endregion
 

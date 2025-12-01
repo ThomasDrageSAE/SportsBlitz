@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 using System.Collections;
 using SportsBlitz.Events;
-using SportsBlitz.Blake.Boxing;
 
 namespace SportsBlitz.Controls.Managers
 {
@@ -15,6 +13,7 @@ namespace SportsBlitz.Controls.Managers
 
         // public static InputManager Instance { get; private set; }
         private Keyboard keyboardInputs;
+        private bool _canAcceptInput = true;
         [SerializeField] private bool debug;
 
         #region Input Settings
@@ -26,7 +25,11 @@ namespace SportsBlitz.Controls.Managers
         [Header("Key Removal Settings")]
         [SerializeField] private bool _removeKeyAfterCorrectPress = false;
         [SerializeField] private bool _removeKeyAfterIncorrectPress = false;
+
+        public float delayAndResetSuccess = 0;
+        public float delayAndResetFail = 0;
         #endregion
+
 
         #region Letters to be used for inputs
         [Header("Letters and Prefabs Settings")]
@@ -58,6 +61,18 @@ namespace SportsBlitz.Controls.Managers
             keyboardInputs = Keyboard.current;
             GetNewInputs();
 
+        }
+
+        private void OnValidate()
+        {
+            // INFO: Prevent lowercase letters in the input list
+            for(int i = 0; i < _inputLetters.Count; i++)
+            {
+                string letter = _inputLetters[i];
+                if (string.IsNullOrEmpty(letter)) continue;
+
+                _inputLetters[i] = letter.ToUpper();
+            }
         }
         #endregion
 
@@ -94,12 +109,14 @@ namespace SportsBlitz.Controls.Managers
         // INFO: Remove after the key is pressed
         private void RemoveKeyAfterPress(string key)
         {
-            if (_inputLetters.Contains(key.ToLower())) _inputLetters.Remove(key.ToLower());
+            if (_inputLetters.Contains(key.ToUpper())) _inputLetters.Remove(key.ToUpper());
 
         }
 
-        private void HandleInput()
+        public void HandleInput()
         {
+            if (!_canAcceptInput) return;
+
             if (keyboardInputs == null)
             {
                 keyboardInputs = Keyboard.current;
@@ -111,7 +128,7 @@ namespace SportsBlitz.Controls.Managers
 
                 if (key == null) continue;
                 if (!key.wasPressedThisFrame) continue;
-                if (_neededKeys == null || _neededKeys.Count == 0 || !_inputLetters.Contains(key.keyCode.ToString().ToLower())) continue;
+                if (_neededKeys == null || _neededKeys.Count == 0 || !_inputLetters.Contains(key.keyCode.ToString().ToUpper())) continue;
 
                 string pressed = key.keyCode.ToString().ToUpper();
                 string expected = _neededKeys[0].ToUpper();
@@ -123,7 +140,7 @@ namespace SportsBlitz.Controls.Managers
                     EventManager.Instance.incorrectKeyInput?.Invoke();
                     if (_removeKeyAfterIncorrectPress) RemoveKeyAfterPress(expected.ToString());
 
-                    StartCoroutine(DelayAndReset(0.1f));
+                    StartCoroutine(DelayAndReset(delayAndResetFail));
                     continue;
                 }
 
@@ -138,7 +155,7 @@ namespace SportsBlitz.Controls.Managers
                     if (debug) Debug.Log("Sequence complete.");
                     EventManager.Instance?.correctKeySequence?.Invoke();
                     if (_removeKeyAfterCorrectPress) RemoveKeyAfterPress(expected.ToString());
-                    StartCoroutine(DelayAndReset(0.1f));
+                    StartCoroutine(DelayAndReset(delayAndResetSuccess));
                     break;
                 }
             }
@@ -146,9 +163,11 @@ namespace SportsBlitz.Controls.Managers
 
         private IEnumerator DelayAndReset(float time)
         {
+            _canAcceptInput = false; // blocks inputs
             yield return new WaitForSeconds(time);
 
-            if (!BoxingGameManager.Instance._gameWon || !BoxingGameManager.Instance._gameLost) GetNewInputs();
+            GetNewInputs();
+            _canAcceptInput = true; //unblocks input
         }
 
         #region Generate Random Inputs
@@ -184,8 +203,6 @@ namespace SportsBlitz.Controls.Managers
         [ContextMenu("Generate New Inputs")]
         private void GetNewInputs()
         {
-
-            if (BoxingGameManager.Instance._gameWon || BoxingGameManager.Instance._gameLost) return;
             UIManager uIManager = UIManager.Instance;
             uIManager.ClearUI();
 
@@ -196,7 +213,7 @@ namespace SportsBlitz.Controls.Managers
             List<GameObject> prefabsForLetters = new List<GameObject>(randomChars.Count);
             foreach (string c in randomChars)
             {
-                prefabsForLetters.Add(GetPrefabForLetter(c[0]));
+                prefabsForLetters.Add(GetPrefabForLetter(c));
             }
 
             uIManager.CreateUI(randomChars.Count, randomChars, prefabsForLetters);
@@ -212,7 +229,7 @@ namespace SportsBlitz.Controls.Managers
         public void ClearNeededKeys() => _neededKeys?.Clear();
 
         // Helper to lookup a prefab for a given letter (returns null if none assigned)
-        public GameObject GetPrefabForLetter(char letter)
+        public GameObject GetPrefabForLetter(string letter)
         {
             if (_letterPrefabDict == null || _letterPrefabDict.Count == 0)
                 return null;

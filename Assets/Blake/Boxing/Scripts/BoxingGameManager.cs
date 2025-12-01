@@ -27,8 +27,10 @@ namespace SportsBlitz.Blake.Boxing
         #region  Managers
         private Blake.UIManager _boxingUIManager => Blake.UIManager.Instance;
         private TimerUIManager _timerUIManager => TimerUIManager.Instance;
-        private Blake.EventManager _boxingEventManager => Blake.EventManager.Instance;
+        private Blake.EventManagerBlake _boxingEventManager => Blake.EventManagerBlake.Instance;
+        private Events.EventManager _eventManager => Events.EventManager.Instance;
         [SerializeField] private InputManager _inputManager;
+        private MinigameManager minigameManager;
         #endregion
 
         #region Audio Settings
@@ -56,21 +58,21 @@ namespace SportsBlitz.Blake.Boxing
         #region Events
         private void OnEnable()
         {
-            if (EventManager.Instance != null) EventManager.Instance.timeOver += GameLose;
-            if (EventManager.Instance != null) EventManager.Instance.roundStart += RoundLogic;
+            if (_boxingEventManager != null) _boxingEventManager.timeOver += GameLose;
+            if (_boxingEventManager != null) _boxingEventManager.roundStart += RoundLogic;
 
             // INFO: Win/Lose
-            if (Events.EventManager.Instance != null) Events.EventManager.Instance.correctKeySequence += GameWin;
-            if (Events.EventManager.Instance != null) Events.EventManager.Instance.incorrectKeyInput += GameLose;
+            if (_eventManager != null) _eventManager.correctKeySequence += GameWin;
+            if (_eventManager != null) _eventManager.incorrectKeyInput += GameLose;
         }
         private void OnDisable()
         {
-            if (EventManager.Instance != null) EventManager.Instance.timeOver -= GameLose;
-            if (EventManager.Instance != null) EventManager.Instance.roundStart -= RoundLogic;
+            if (_boxingEventManager != null) _boxingEventManager.timeOver -= GameLose;
+            if (_boxingEventManager != null) _boxingEventManager.roundStart -= RoundLogic;
 
             // INFO: Win/Lose
-            if (Events.EventManager.Instance != null) Events.EventManager.Instance.correctKeySequence -= GameWin;
-            if (Events.EventManager.Instance != null) Events.EventManager.Instance.incorrectKeyInput -= GameLose;
+            if (_eventManager != null) _eventManager.correctKeySequence -= GameWin;
+            if (_eventManager != null) _eventManager.incorrectKeyInput -= GameLose;
         }
         #endregion
 
@@ -78,6 +80,7 @@ namespace SportsBlitz.Blake.Boxing
         {
             _boxingEventManager.startGame?.Invoke();
             StartCoroutine(InstructionsCoroutine()); // INFO: Give the player time to read the instructions
+            minigameManager = FindFirstObjectByType<MinigameManager>();
 
 
         }
@@ -124,6 +127,7 @@ namespace SportsBlitz.Blake.Boxing
             if (_enemyAnimationController != null) _enemyAnimationController.SetTrigger("Lose");
             StartCoroutine(EndDelay(0.5f, true));
             if (_debug) Debug.Log("Game Won!");
+            minigameManager.Win();
 
             // INFO: The rest is handled by the Microgame Manager
         }
@@ -141,6 +145,7 @@ namespace SportsBlitz.Blake.Boxing
 
             StartCoroutine(EndDelay(0.5f));
             if (_debug) Debug.Log("Game Lost!");
+            minigameManager.Lose();
 
             // INFO: The rest is handled by the Microgame Manager
         }

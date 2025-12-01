@@ -24,8 +24,9 @@ namespace SportsBlitz.Blake.Soccer
         #region  Managers
         private Blake.UIManager _soccerUIManager => Blake.UIManager.Instance;
         private TimerUIManager _timerUIManager => TimerUIManager.Instance;
-        private Blake.EventManager _soccerEventManager => Blake.EventManager.Instance;
+        private Blake.EventManagerBlake _soccerEventManager => Blake.EventManagerBlake.Instance;
         [SerializeField] private SoccerInputManager _inputManager;
+        private MinigameManager minigameManager;
         #endregion
 
         #region Audio Settings
@@ -58,21 +59,21 @@ namespace SportsBlitz.Blake.Soccer
         #region Events
         private void OnEnable()
         {
-            if (Blake.EventManager.Instance != null) Blake.EventManager.Instance.timeOver += GameLose;
-            if (Blake.EventManager.Instance != null) Blake.EventManager.Instance.roundStart += RoundLogic;
+            if (_soccerEventManager != null) _soccerEventManager.timeOver += GameLose;
+            if (_soccerEventManager != null) _soccerEventManager.roundStart += RoundLogic;
 
             // INFO: Win/Lose
-            if (Blake.EventManager.Instance != null) Blake.EventManager.Instance.gameLose += GameWin;
-            if (Blake.EventManager.Instance != null) Blake.EventManager.Instance.gameWon += GameLose;
+            if (_soccerEventManager != null) _soccerEventManager.gameLose += GameWin;
+            if (_soccerEventManager != null) _soccerEventManager.gameWon += GameLose;
         }
         private void OnDisable()
         {
-            if (Blake.EventManager.Instance != null) Blake.EventManager.Instance.timeOver -= GameLose;
-            if (Blake.EventManager.Instance != null) Blake.EventManager.Instance.roundStart -= RoundLogic;
+            if (_soccerEventManager != null) _soccerEventManager.timeOver -= GameLose;
+            if (_soccerEventManager != null) _soccerEventManager.roundStart -= RoundLogic;
 
             // INFO: Win/Lose
-            if (Blake.EventManager.Instance != null) Blake.EventManager.Instance.gameWon -= GameWin;
-            if (Blake.EventManager.Instance != null) Blake.EventManager.Instance.gameLose -= GameLose;
+            if (_soccerEventManager != null) _soccerEventManager.gameWon -= GameWin;
+            if (_soccerEventManager != null) _soccerEventManager.gameLose -= GameLose;
         }
         #endregion
 
@@ -82,6 +83,7 @@ namespace SportsBlitz.Blake.Soccer
             StartCoroutine(InstructionsCoroutine()); // INFO: Give the player time to read the instructions
             ballRB = _ballObject?.GetComponent<Rigidbody2D>();
             if (_playerAnimationController == null) Debug.LogWarning($"Player animation controller isn't assigned.");
+            minigameManager =  GameObject.Find("MinigameManager").GetComponent<MinigameManager>();
         }
 
         #region Round Logic
@@ -136,6 +138,7 @@ namespace SportsBlitz.Blake.Soccer
             if (_debug) Debug.Log("Game Won!");
 
             // INFO: The rest is handled by the Microgame Manager
+            minigameManager.Win();
         }
 
         // INFO: Game Lose Function
@@ -153,6 +156,7 @@ namespace SportsBlitz.Blake.Soccer
             if (_debug) Debug.Log("Game Lost!");
 
             // INFO: The rest is handled by the Microgame Manager
+            minigameManager.Lose();
         }
         #endregion
 

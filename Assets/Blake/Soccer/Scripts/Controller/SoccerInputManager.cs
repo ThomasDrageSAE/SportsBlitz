@@ -31,7 +31,7 @@ namespace SportsBlitz.Blake.Soccer
         [SerializeField] private bool _debug = false;
         #endregion
         private float startTime;
-
+        private Blake.EventManagerBlake _eventManagerBlake => Blake.EventManagerBlake.Instance;
 
         void Start()
         {
@@ -72,11 +72,11 @@ namespace SportsBlitz.Blake.Soccer
             if (_normalisedDistance <= 0.5f && _normalisedDistance > 0f)
             {
                 if (_feedbackText != null && _debug) _feedbackText.text = "Perfect Hit!";
-                Blake.EventManager.Instance.gameWon?.Invoke();
+                _eventManagerBlake.gameWon?.Invoke();
             }
             else
             {
-                Blake.EventManager.Instance.gameLose?.Invoke();
+                _eventManagerBlake.gameLose?.Invoke();
             }
 
         }
