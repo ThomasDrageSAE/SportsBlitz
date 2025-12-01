@@ -13,7 +13,7 @@ public class KabaddiOpponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(gameManager.gameStart == false)
+        if(gameManager.gameStart == false || gameManager.gameEnd == true)
         {
             movementSpeed = 0;
         }
