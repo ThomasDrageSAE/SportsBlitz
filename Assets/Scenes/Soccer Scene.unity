@@ -179,7 +179,7 @@ MonoBehaviour:
   _movementSpeed: 240
   _travelDistance: 600
   _targetZoneCentre: 0
-  _targetZoneWidth: 27
+  _targetZone: {fileID: 1466253422}
   _debug: 0
 --- !u!1 &159122529
 GameObject:
@@ -260,7 +260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b3b65926b460ca439c96d530e879eea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _roundTime: 10
+  _roundTime: 5
   _instructionDelay: 5
   _inputManager: {fileID: 149378821}
   _ballKickSound: {fileID: 8300000, guid: 7ec51d22b7b14714582afa99a8a63f97, type: 3}
@@ -269,7 +269,7 @@ MonoBehaviour:
   _ballObject: {fileID: 656709407}
   _ballAnimationController: {fileID: 656709410}
   _ballSpeed: 5
-  _debug: 1
+  _debug: 0
 --- !u!1 &265067397
 GameObject:
   m_ObjectHideFlags: 0
@@ -2788,6 +2788,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 322104252889862032, guid: 86ff50967e8c106428d5629c4d3cf654, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 322104252889862032, guid: 86ff50967e8c106428d5629c4d3cf654, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 322104252889862032, guid: 86ff50967e8c106428d5629c4d3cf654, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 322104252889862032, guid: 86ff50967e8c106428d5629c4d3cf654, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 2497991163773437750, guid: 86ff50967e8c106428d5629c4d3cf654, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1809962335}
+    - target: {fileID: 2497991163773437750, guid: 86ff50967e8c106428d5629c4d3cf654, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8655782720696637706, guid: 86ff50967e8c106428d5629c4d3cf654, type: 3}
       propertyPath: m_Pivot.x
       value: 0
