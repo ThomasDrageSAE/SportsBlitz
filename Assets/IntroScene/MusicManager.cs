@@ -23,4 +23,10 @@ public class MusicManager : MonoBehaviour
         if (!musicSource.isPlaying)
             musicSource.Play();
     }
+    public void StopMusic()
+    {
+        if (musicSource != null)
+            musicSource.Stop();
+    }
+
 }
