@@ -63,8 +63,8 @@ namespace SportsBlitz.Blake.Soccer
             if (_soccerEventManager != null) _soccerEventManager.roundStart += RoundLogic;
 
             // INFO: Win/Lose
-            if (_soccerEventManager != null) _soccerEventManager.gameLose += GameWin;
-            if (_soccerEventManager != null) _soccerEventManager.gameWon += GameLose;
+            if (_soccerEventManager != null) _soccerEventManager.gameLose += GameLose;
+            if (_soccerEventManager != null) _soccerEventManager.gameWon += GameWin;
         }
         private void OnDisable()
         {
@@ -114,10 +114,12 @@ namespace SportsBlitz.Blake.Soccer
 
         }
         #endregion
-
+        
+        // INFO: Ball Movement
         private void FixedUpdate()
         {
-            if (_gameLost && _ballObject != null) ballRB.MovePosition(ballRB.position + new Vector2(-1, 1).normalized * _ballSpeed * Time.fixedDeltaTime);
+            if (_gameLost && _ballObject != null) ballRB.MovePosition(ballRB.position + new Vector2(-5, 1).normalized * _ballSpeed * Time.fixedDeltaTime);
+
             if (_gameWon && _ballObject != null) ballRB.MovePosition(ballRB.position + Vector2.up * _ballSpeed * Time.fixedDeltaTime);
 
         }
@@ -138,7 +140,9 @@ namespace SportsBlitz.Blake.Soccer
             if (_debug) Debug.Log("Game Won!");
 
             // INFO: The rest is handled by the Microgame Manager
+            #if minigamemanager
             minigameManager.Win();
+            #endif
         }
 
         // INFO: Game Lose Function
@@ -156,7 +160,10 @@ namespace SportsBlitz.Blake.Soccer
             if (_debug) Debug.Log("Game Lost!");
 
             // INFO: The rest is handled by the Microgame Manager
+            #if minigamemanager
             minigameManager.Lose();
+            #endif
+
         }
         #endregion
 

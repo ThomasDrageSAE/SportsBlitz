@@ -23,7 +23,8 @@ namespace SportsBlitz.Blake.Soccer
         #region Target Zone Settings
         [Header("Target Zone Settings")]
         [SerializeField][Tooltip("Centre of the target zone")] private TargetZoneCentre _targetZoneCentre = TargetZoneCentre.Center;
-        [SerializeField][Tooltip("Width of the target zone (In Pixels)")] private float _targetZoneWidth = 25;
+        [SerializeField][Tooltip("Target zone GameObject")] private GameObject _targetZone;
+        private float _targetZoneWidth;
         #endregion
 
         #region  Debug Settings
@@ -38,6 +39,7 @@ namespace SportsBlitz.Blake.Soccer
             startTime = Time.time;
 
             if (_feedbackText != null && _debug) _feedbackText.text = "Press SPACE to hit!";
+            if(_targetZone != null) _targetZoneWidth = _targetZone.GetComponent<RectTransform>().rect.width;
             if (_sliderUI != null) _sliderUI.SetActive(true);
 
         }
@@ -61,21 +63,31 @@ namespace SportsBlitz.Blake.Soccer
             if (_cursor == null) { Debug.LogError($"Cursor RectTransform is not assigned."); return; }
             float _currentX = _cursor.localPosition.x;
 
-            float halfWidth = _targetZoneWidth / 2f;
-            float _minTarget = (float)_targetZoneCentre - halfWidth;
-            float maxTarget = (float)_targetZoneCentre + halfWidth;
+            // INFO: Calculate target centre and half width in pixels, with safe fallbacks
+            RectTransform targetRect = (_targetZone != null) ? _targetZone.GetComponent<RectTransform>() : null;
+            float centreX = 0f;
+            if (targetRect != null)
+                centreX = targetRect.localPosition.x;
+            else
+                centreX = (float)_targetZoneCentre * (_travelDistance / 2f);
 
-            float _distanceToCentre = Mathf.Abs(_currentX - (float)_targetZoneCentre);
-            float _normalisedDistance = _distanceToCentre / halfWidth;
+            float halfWidth = (targetRect != null) ? (targetRect.rect.width / 2f) : (_targetZoneWidth / 2f);
+            if (halfWidth <= 0f) halfWidth = 1f; // INFO: prevent divide by zero
+
+            float _distanceToCentre = Mathf.Abs(_currentX - centreX);
+            
+            //  INFO: Normalise distance so 0 = perfect centre, 1 = at edge of target zone (clamped)
+            float _normalisedDistance = Mathf.Clamp01(_distanceToCentre / halfWidth);
 
             if (_debug) Debug.Log($"normalisedDistance: {_normalisedDistance}");
-            if (_normalisedDistance <= 0.5f && _normalisedDistance > 0f)
+            if (_normalisedDistance <= 0.5f)
             {
                 if (_feedbackText != null && _debug) _feedbackText.text = "Perfect Hit!";
                 _eventManagerBlake.gameWon?.Invoke();
             }
             else
             {
+                if (_feedbackText != null && _debug) _feedbackText.text = "Miss!";
                 _eventManagerBlake.gameLose?.Invoke();
             }
 
