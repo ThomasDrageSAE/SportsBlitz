@@ -12,7 +12,7 @@ namespace SportsBlitz.Blake.Boxing
 
         #region Round Settings
         [Header("Round Settings")]
-        [Tooltip("Duration of the round in seconds")][SerializeField] private float _roundTime = 10f;
+        [Tooltip("Duration of the round in seconds")][SerializeField] private float _roundTime = 5;
         [Tooltip("Delay to show instructions before the round starts in seconds")][SerializeField] private float _instructionDelay = 5f;
         #endregion
 
@@ -127,9 +127,10 @@ namespace SportsBlitz.Blake.Boxing
             if (_enemyAnimationController != null) _enemyAnimationController.SetTrigger("Lose");
             StartCoroutine(EndDelay(0.5f, true));
             if (_debug) Debug.Log("Game Won!");
-            minigameManager.Win();
 
             // INFO: The rest is handled by the Microgame Manager
+            minigameManager.Win();
+            
         }
 
         // INFO: Game Lose Function
@@ -145,9 +146,10 @@ namespace SportsBlitz.Blake.Boxing
 
             StartCoroutine(EndDelay(0.5f));
             if (_debug) Debug.Log("Game Lost!");
-            minigameManager.Lose();
 
             // INFO: The rest is handled by the Microgame Manager
+            minigameManager.Lose();
+
         }
         #endregion
 

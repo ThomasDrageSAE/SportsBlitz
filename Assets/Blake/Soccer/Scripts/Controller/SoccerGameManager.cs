@@ -140,9 +140,8 @@ namespace SportsBlitz.Blake.Soccer
             if (_debug) Debug.Log("Game Won!");
 
             // INFO: The rest is handled by the Microgame Manager
-            #if minigamemanager
-            minigameManager.Win();
-            #endif
+            minigameManager?.Win();
+            
         }
 
         // INFO: Game Lose Function
@@ -160,9 +159,7 @@ namespace SportsBlitz.Blake.Soccer
             if (_debug) Debug.Log("Game Lost!");
 
             // INFO: The rest is handled by the Microgame Manager
-            #if minigamemanager
-            minigameManager.Lose();
-            #endif
+            minigameManager?.Lose();    
 
         }
         #endregion
