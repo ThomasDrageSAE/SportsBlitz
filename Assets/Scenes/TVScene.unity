@@ -2025,12 +2025,11 @@ MonoBehaviour:
   - Fencing
   - Racing
   - Boxing Scene
-  - Kabaddi
   - TugOfWarScene
   - Soccer Scene
   - Hurdles
   - Professional wrestling
-  postGamePause: 4
+  postGamePause: 2
 --- !u!4 &1107914841
 Transform:
   m_ObjectHideFlags: 0
