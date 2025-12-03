@@ -16,6 +16,7 @@ public class TugOfWar : MonoBehaviour
     public Transform enemyLocation;            // set to enemy
     public float winDistance = 0.5f;        // Distance to win
     public float loseDistance = 0.5f;       // Distance to lose
+    public bool stopRope = false;
 
     private MinigameManager minigame;
 
@@ -40,8 +41,11 @@ public class TugOfWar : MonoBehaviour
     #region Rope Movement
     void AutoMoveRope()
     {
-        // Smooth automatic right movement
-        win.Translate(Vector3.right * autoMoveSpeed * Time.deltaTime, Space.World);
+        if (stopRope == false)
+        {
+            // Smooth automatic right movement
+            win.Translate(Vector3.right * autoMoveSpeed * Time.deltaTime, Space.World);
+        }
     }
     #endregion
 
@@ -51,7 +55,7 @@ public class TugOfWar : MonoBehaviour
         InputManager inputManager = FindObjectOfType<InputManager>();
         if (inputManager == null) return;
 
-        if (Input.GetKeyDown(selectedKey.ToString().ToLower()))
+        if (Time.timeScale == 1 && stopRope == false && Input.GetKeyDown(selectedKey.ToString().ToLower()))
         {
             // Move rope left by a fixed amount
             win.Translate(Vector3.left * playerMoveSpeed, Space.World);
@@ -110,12 +114,14 @@ public class TugOfWar : MonoBehaviour
         {
             Debug.Log("You Win!");
             minigame.Win();
+            stopRope = true;
         }
         // Lose
         else if (Vector3.Distance(win.position, enemyLocation.position) <= loseDistance)
         {
             Debug.Log("You Lose!");
             minigame.Lose();
+            stopRope = true;
         }
     }
     #endregion
