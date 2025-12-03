@@ -63,12 +63,12 @@ public class KabaddiPlayer : MonoBehaviour
     {
         if(other.gameObject.tag == "Finish")
         {
-            gameManager.Win();
+            gameManager.GameWin();
         }
 
         if(other.gameObject.tag == "Barrier")
         {
-            gameManager.Lose();
+            gameManager.GameLose();
         }
     }
 
