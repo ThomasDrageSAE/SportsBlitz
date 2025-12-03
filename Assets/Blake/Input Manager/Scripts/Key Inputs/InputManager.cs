@@ -22,12 +22,13 @@ namespace SportsBlitz.Controls.Managers
         [SerializeField] private bool _allowDuplicateInputs = false;
         [SerializeField] private bool _sortInputs = false;
 
-        [Header("Key Removal Settings")]
+        [Header("Key Settings")]
         [SerializeField] private bool _removeKeyAfterCorrectPress = false;
         [SerializeField] private bool _removeKeyAfterIncorrectPress = false;
+        [SerializeField] private bool _keepSameKey = false;
 
-        public float delayAndResetSuccess = 0;
-        public float delayAndResetFail = 0;
+        [SerializeField] private float delayAndResetSuccess = 0;
+        [SerializeField] private float delayAndResetFail = 0;
         #endregion
 
 
@@ -66,7 +67,7 @@ namespace SportsBlitz.Controls.Managers
         private void OnValidate()
         {
             // INFO: Prevent lowercase letters in the input list
-            for(int i = 0; i < _inputLetters.Count; i++)
+            for (int i = 0; i < _inputLetters.Count; i++)
             {
                 string letter = _inputLetters[i];
                 if (string.IsNullOrEmpty(letter)) continue;
@@ -200,6 +201,7 @@ namespace SportsBlitz.Controls.Managers
         #endregion
 
         #region Get New Inputs
+        string _previousKey = "";
         [ContextMenu("Generate New Inputs")]
         private void GetNewInputs()
         {
@@ -207,7 +209,6 @@ namespace SportsBlitz.Controls.Managers
             uIManager.ClearUI();
 
             List<string> randomChars = GenerateRandomChars(_amountOfInputs, _allowDuplicateInputs, _sortInputs);
-            if (debug) Debug.Log($"Sequence: {string.Join(", ", randomChars)}");
 
             // Build per-letter prefab list (may contain nulls -> UIManager will fallback)
             List<GameObject> prefabsForLetters = new List<GameObject>(randomChars.Count);
@@ -216,7 +217,17 @@ namespace SportsBlitz.Controls.Managers
                 prefabsForLetters.Add(GetPrefabForLetter(c));
             }
 
+            if (_keepSameKey && !string.IsNullOrEmpty(_previousKey))
+            {
+                uIManager.CreateUI(1, new List<string> { _previousKey }, new List<GameObject> { GetPrefabForLetter(_previousKey) });
+                _neededKeys = new List<string> { _previousKey };
+                if (debug) Debug.Log($"Sequence: {string.Join(", ", randomChars)}");
+                return;
+            }
+
             uIManager.CreateUI(randomChars.Count, randomChars, prefabsForLetters);
+            if (debug) Debug.Log($"Sequence: {string.Join(", ", randomChars)}");
+            if (string.IsNullOrEmpty(_previousKey)) _previousKey = randomChars[0];
 
             // INFO: Store needed keys for game manager
             _neededKeys = randomChars;
