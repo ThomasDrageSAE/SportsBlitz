@@ -5,6 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1331eba5-df3a-4702-a395-df2270eb9d5e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SportsBlitz/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SportsBlitz/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/IntroScene/MusicManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/IntroScene/MusicManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Soccer Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Soccer Scene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TVScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TVScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -132,6 +136,9 @@
       <workItem from="1764257206057" duration="3422000" />
       <workItem from="1764260684058" duration="3000" />
       <workItem from="1764260690482" duration="728000" />
+      <workItem from="1764603211409" duration="200000" />
+      <workItem from="1764689160524" duration="1268000" />
+      <workItem from="1764690582939" duration="263000" />
     </task>
     <servers />
   </component>
