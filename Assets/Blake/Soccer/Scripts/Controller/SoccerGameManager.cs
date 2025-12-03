@@ -83,7 +83,8 @@ namespace SportsBlitz.Blake.Soccer
             StartCoroutine(InstructionsCoroutine()); // INFO: Give the player time to read the instructions
             ballRB = _ballObject?.GetComponent<Rigidbody2D>();
             if (_playerAnimationController == null) Debug.LogWarning($"Player animation controller isn't assigned.");
-            minigameManager =  GameObject.Find("MinigameManager").GetComponent<MinigameManager>();
+            minigameManager = GameObject.Find("MinigameManager").GetComponent<MinigameManager>();
+            
         }
 
         #region Round Logic
