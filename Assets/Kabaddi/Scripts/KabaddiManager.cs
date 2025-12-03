@@ -1,4 +1,4 @@
-using UnityEditor.ShaderKeywordFilter;
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -46,7 +46,7 @@ public class KabaddiManager : MonoBehaviour
 
        if (time <= 0)
         {
-            Lose();  
+            GameLose();  
         }
 
         countdownText = (int)time;
@@ -54,20 +54,22 @@ public class KabaddiManager : MonoBehaviour
        countdownTimer.text = countdownText.ToString();
     }
 
-    public void Lose()
+    public void GameLose()
     {
-        minigameManager.Lose();
+        
         gameEnd = true;
+        minigameManager.Lose();
         /*loseScreen.SetActive(true);
         //lose
         Time.timeScale = 0;*/
         
     }
 
-    public void Win()
+    public void GameWin()
     {
-        minigameManager.Win();
+        
         gameEnd = true;
+        minigameManager.Win();
         /*winScreen.SetActive(true);
         Time.timeScale = 0;*/
         
