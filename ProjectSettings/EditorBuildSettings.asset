@@ -20,7 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Boxing Scene.unity
     guid: a6873430e654f3347864a2482873ada0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Kabaddi.unity
     guid: 6875b39c3b0d7ba478b2c4aabc7a1c38
   - enabled: 1
