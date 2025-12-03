@@ -35,7 +35,7 @@ public class BallMovement : MonoBehaviour
             lr.positionCount = 1;
             lr.SetPosition(0, dragStartPosition);
         }
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             lr.positionCount = 0;
             dragging = false;
@@ -44,7 +44,7 @@ public class BallMovement : MonoBehaviour
             Vector3 dragReleasePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
             Vector3 force = dragStartPosition - dragReleasePosition;
-            Vector3 clampedForce = Vector3.ClampMagnitude(force, maxDrag) * power;
+            Vector3 clampedForce = Vector3.ClampMagnitude(force, maxDrag) * power * 2;
 
             if (rb.linearVelocity.magnitude >= 0 && rb.linearVelocity.magnitude <= 0.5f)
             {
