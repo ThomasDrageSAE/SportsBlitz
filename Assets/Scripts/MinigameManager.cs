@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 
 public class MinigameManager : MonoBehaviour
 {
@@ -7,6 +6,7 @@ public class MinigameManager : MonoBehaviour
     private float remainingTime;
 
     private ResultPopup popup;
+    private bool isEnding = false;   // prevent double Win/Lose
 
     void Awake()
     {
@@ -25,33 +25,44 @@ public class MinigameManager : MonoBehaviour
 
     void Update()
     {
-        if (remainingTime > 0)
+        if (remainingTime > 0f)
             remainingTime -= Time.deltaTime;
     }
 
     public void Win()
     {
-        StartCoroutine(WinRoutine());
+        if (isEnding) return;
+        isEnding = true;
+
+        // Show quick visual if popup exists
+        if (popup != null)
+            popup.ShowInstant("CLEAR!", Color.green);
+
+        if (SportsBlitzGameManager.Instance != null)
+        {
+            SportsBlitzGameManager.Instance.RegisterWin();
+        }
+        else
+        {
+            Debug.LogError("No SportsBlitzGameManager");
+        }
     }
 
     public void Lose()
     {
-        StartCoroutine(LoseRoutine());
-    }
+        if (isEnding) return;
+        isEnding = true;
 
-    IEnumerator WinRoutine()
-    {
         if (popup != null)
-            yield return popup.ShowResult("CLEAR!", Color.green);
+            popup.ShowInstant("LOSE!", Color.red);
 
-        SportsBlitzGameManager.Instance.RegisterWin();
-    }
-
-    IEnumerator LoseRoutine()
-    {
-        if (popup != null)
-            yield return popup.ShowResult("LOSE!", Color.red);
-
-        SportsBlitzGameManager.Instance.RegisterLoss();
+        if (SportsBlitzGameManager.Instance != null)
+        {
+            SportsBlitzGameManager.Instance.RegisterLoss();
+        }
+        else
+        {
+            Debug.LogError("No SportsBlitzGameManager");
+        }
     }
 }
