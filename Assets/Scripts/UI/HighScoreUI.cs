@@ -11,6 +11,7 @@ public class HighScoreUI : MonoBehaviour
     public TextMeshProUGUI resultTitle;
 
     public UnityEngine.UI.Button submitButton;   // NEW
+    public GameObject credits;
 
     private int finalScore;
 
@@ -51,6 +52,11 @@ public class HighScoreUI : MonoBehaviour
         RefreshScoreList();
     }
 
+    public void ContinueButton()
+    {
+        panel.gameObject.SetActive(false);
+        credits.SetActive(true);
+    }
     public void CloseAndRestart()
     {
         panel.SetActive(false);
