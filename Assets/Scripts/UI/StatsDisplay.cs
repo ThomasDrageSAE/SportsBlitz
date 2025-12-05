@@ -7,8 +7,8 @@ public class StatsDisplay : MonoBehaviour
 
     void Update()
     {
-        statsText.text = 
-            $"Wins: {SportsBlitzGameManager.Instance.gamesWon}\n" +
-            $"Losses: {SportsBlitzGameManager.Instance.gamesLost}";
+        statsText.text =
+            $"Wins: {SportsBlitzGameManager.Instance.gamesWon}\n";
+
     }
 }

@@ -65,19 +65,26 @@ public class PauseMenuController : MonoBehaviour
 
     public void RestartGame()
     {
-        // Make sure everything is unpaused before switching scenes
-        isPaused = false;
+        // Unpause
         Time.timeScale = 1f;
 
+        
         if (pausePanel != null)
             pausePanel.SetActive(false);
+        
+        if (SportsBlitzGameManager.Instance != null)
+        {
+            SportsBlitzGameManager.Instance.ResetStats();
+        }
 
-        // Load intro scene
+        // Stop all audio 
+        var sounds = FindObjectsOfType<AudioSource>();
+        foreach (var s in sounds)
+            s.Stop();
+        
         SceneManager.LoadScene(0);
-        if (MusicManager.Instance != null)
-            MusicManager.Instance.StopMusic();
-
     }
+
 
     public void QuitGame()
     {

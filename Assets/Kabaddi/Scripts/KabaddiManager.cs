@@ -12,7 +12,7 @@ public class KabaddiManager : MonoBehaviour
     private int countdownText;
     [SerializeField] private GameObject controlScreen;
 
-    private MinigameManager minigameManager;
+    [SerializeField] private MinigameManager minigameManager;
 
 
 
@@ -21,7 +21,7 @@ public class KabaddiManager : MonoBehaviour
     {
         waitTime = 2;
         time = 5;
-        minigameManager = GameObject.Find("MinigameManager").GetComponent<MinigameManager>();
+        minigameManager = FindObjectOfType<MinigameManager>();
     }
 
     // Update is called once per frame
