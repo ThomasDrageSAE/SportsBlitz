@@ -959,7 +959,7 @@ GameObject:
   - component: {fileID: 1028255191}
   - component: {fileID: 1028255190}
   m_Layer: 0
-  m_Name: 254878-P4K3XL-473_0
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1029,7 +1029,7 @@ Transform:
   m_GameObject: {fileID: 1028255189}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.9, y: 4, z: 0}
+  m_LocalPosition: {x: 7.9, y: 4, z: 5}
   m_LocalScale: {x: 25.513807, y: 9.870548, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
