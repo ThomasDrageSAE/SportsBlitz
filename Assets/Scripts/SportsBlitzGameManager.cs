@@ -44,10 +44,7 @@ public class SportsBlitzGameManager : MonoBehaviour
         }
     }
 
-    public void Update()
-    {
-        addHealth();
-    }
+   
 
     // 
     public void RegisterWin()
@@ -113,18 +110,7 @@ public class SportsBlitzGameManager : MonoBehaviour
             remainingGameIndices[swapIndex] = temp;
         }
     }
-    public void addHealth()
-    {
-        if (gamesWon == 5)
-        {
-            health++;
-        }
-        
-        if (gamesWon == 10)
-        {
-            health++;
-        }
-    }
+    
 
     public void StartNextGame()
     {

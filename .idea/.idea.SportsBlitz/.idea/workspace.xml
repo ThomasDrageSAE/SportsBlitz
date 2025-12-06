@@ -5,26 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1331eba5-df3a-4702-a395-df2270eb9d5e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SportsBlitz/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SportsBlitz/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Kabaddi/Scripts/KabaddiManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Kabaddi/Scripts/KabaddiManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Kabaddi/Scripts/KabaddiPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Kabaddi/Scripts/KabaddiPlayer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Boxing Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Boxing Scene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Hurdles.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Hurdles.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/IntroScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/IntroScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Kabaddi.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Kabaddi.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Professional wrestling.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Professional wrestling.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Racing.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Racing.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Soccer Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Soccer Scene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TVScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TVScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TugOfWarScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TugOfWarScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/PauseMenuController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/PauseMenuController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MinigameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MinigameManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/SportsBlitzGameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SportsBlitzGameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/HighScoreUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/HighScoreUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/ResultPopup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/ResultPopup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/StatsDisplay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/StatsDisplay.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,6 +148,7 @@
       <workItem from="1764690582939" duration="263000" />
       <workItem from="1764772408614" duration="8378000" />
       <workItem from="1764784072757" duration="338000" />
+      <workItem from="1764948737271" duration="24000" />
     </task>
     <servers />
   </component>
