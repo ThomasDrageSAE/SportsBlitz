@@ -11,7 +11,7 @@ public class SportsBlitzGameManager : MonoBehaviour
 
     [Header("Stats")]
     public int gamesWon = 0;
-    
+
     public int health = 3;
 
     [Header("Goal")]
@@ -44,20 +44,25 @@ public class SportsBlitzGameManager : MonoBehaviour
         }
     }
 
-   
+
 
     // 
     public void RegisterWin()
     {
         if (transitioning) return;
         gamesWon++;
+        if (gamesWon >= 1 && !SteamAchievementsManager.Instance.IsThisAchievementUnlocked(Achievements.ACH_FIRST_WIN))
+        {
+            SteamAchievementsManager.Instance?.UnlockAchievement(Achievements.ACH_FIRST_WIN);
+        }
+
         StartCoroutine(ReturnToTV());
     }
 
     public void RegisterLoss()
     {
         if (transitioning) return;
-        
+
         health--;
         StartCoroutine(ReturnToTV());
     }
@@ -88,7 +93,7 @@ public class SportsBlitzGameManager : MonoBehaviour
     {
         remainingGameIndices = new List<int>();
 
-        
+
         for (int i = 0; i < miniGameScenes.Length; i++)
             remainingGameIndices.Add(i);
 
@@ -100,7 +105,7 @@ public class SportsBlitzGameManager : MonoBehaviour
             remainingGameIndices[i] = remainingGameIndices[j];
             remainingGameIndices[j] = temp;
         }
-        
+
         // differnt game cycle
         if (lastSceneIndex != -1 && remainingGameIndices.Count > 1 && remainingGameIndices[0] == lastSceneIndex)
         {
@@ -110,7 +115,7 @@ public class SportsBlitzGameManager : MonoBehaviour
             remainingGameIndices[swapIndex] = temp;
         }
     }
-    
+
 
     public void StartNextGame()
     {
