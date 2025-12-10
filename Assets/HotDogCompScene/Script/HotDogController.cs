@@ -3,7 +3,7 @@ using UnityEngine;
 public class HotDogController : MonoBehaviour
 {
     int eatCount = 0;
-    bool gameState = false;
+    public bool gameState = true;
     int scoreToBeat;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -24,7 +24,21 @@ public class HotDogController : MonoBehaviour
         }
     }
 
-    
+
+    public void GameOver()
+    {
+        gameState = !gameState;
+        if (scoreToBeat >= eatCount)
+        {
+            //lose
+            Debug.Log("Lose");
+        }
+        else
+        {
+            //win
+            Debug.Log("Win");
+        }
+    }
 
 
 }
