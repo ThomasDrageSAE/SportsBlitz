@@ -1,4 +1,4 @@
-using UnityEditor.ShaderKeywordFilter;
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,7 +12,7 @@ public class KabaddiManager : MonoBehaviour
     private int countdownText;
     [SerializeField] private GameObject controlScreen;
 
-    private MinigameManager minigameManager;
+    [SerializeField] private MinigameManager minigameManager;
 
 
 
@@ -21,7 +21,7 @@ public class KabaddiManager : MonoBehaviour
     {
         waitTime = 2;
         time = 5;
-        minigameManager = GameObject.Find("MinigameManager").GetComponent<MinigameManager>();
+        minigameManager = FindObjectOfType<MinigameManager>();
     }
 
     // Update is called once per frame
@@ -46,7 +46,7 @@ public class KabaddiManager : MonoBehaviour
 
        if (time <= 0)
         {
-            Lose();  
+            GameLose();  
         }
 
         countdownText = (int)time;
@@ -54,20 +54,22 @@ public class KabaddiManager : MonoBehaviour
        countdownTimer.text = countdownText.ToString();
     }
 
-    public void Lose()
+    public void GameLose()
     {
-        minigameManager.Lose();
+        
         gameEnd = true;
+        minigameManager.Lose();
         /*loseScreen.SetActive(true);
         //lose
         Time.timeScale = 0;*/
         
     }
 
-    public void Win()
+    public void GameWin()
     {
-        minigameManager.Win();
+        
         gameEnd = true;
+        minigameManager.Win();
         /*winScreen.SetActive(true);
         Time.timeScale = 0;*/
         

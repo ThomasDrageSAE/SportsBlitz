@@ -1,7 +1,9 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
-using System.Collections.Generic;   // ← NEW
+using System.Collections.Generic;
+using Random = UnityEngine.Random; // ← NEW
 
 public class SportsBlitzGameManager : MonoBehaviour
 {
@@ -9,7 +11,7 @@ public class SportsBlitzGameManager : MonoBehaviour
 
     [Header("Stats")]
     public int gamesWon = 0;
-    public int gamesLost = 0;
+
     public int health = 3;
 
     [Header("Goal")]
@@ -42,23 +44,30 @@ public class SportsBlitzGameManager : MonoBehaviour
         }
     }
 
-    // ---------------------------------------------------------
+
+
+    // 
     public void RegisterWin()
     {
         if (transitioning) return;
         gamesWon++;
+        if (gamesWon >= 1 && !SteamAchievementsManager.Instance.IsThisAchievementUnlocked(Achievements.ACH_FIRST_WIN))
+        {
+            SteamAchievementsManager.Instance?.UnlockAchievement(Achievements.ACH_FIRST_WIN);
+        }
+
         StartCoroutine(ReturnToTV());
     }
 
     public void RegisterLoss()
     {
         if (transitioning) return;
-        gamesLost++;
+
         health--;
         StartCoroutine(ReturnToTV());
     }
 
-    // ---------------------------------------------------------
+    // 
     public bool HasClearedRun()
     {
         return gamesWon >= targetWins;
@@ -69,7 +78,7 @@ public class SportsBlitzGameManager : MonoBehaviour
         return health <= 0;
     }
 
-    // ---------------------------------------------------------
+    // 
     IEnumerator ReturnToTV()
     {
         transitioning = true;
@@ -78,13 +87,13 @@ public class SportsBlitzGameManager : MonoBehaviour
         SceneManager.LoadScene(tvSceneName);
     }
 
-    // === RANDOM ROTATION LOGIC ======================================
+    //RANDOM ROTATION LOGIC
 
     void InitializeGameOrder()
     {
         remainingGameIndices = new List<int>();
 
-        // Fill with 0..N-1
+
         for (int i = 0; i < miniGameScenes.Length; i++)
             remainingGameIndices.Add(i);
 
@@ -97,7 +106,7 @@ public class SportsBlitzGameManager : MonoBehaviour
             remainingGameIndices[j] = temp;
         }
 
-        // Make sure we don't start the new cycle on the same scene as last time
+        // differnt game cycle
         if (lastSceneIndex != -1 && remainingGameIndices.Count > 1 && remainingGameIndices[0] == lastSceneIndex)
         {
             int swapIndex = 1;
@@ -107,6 +116,7 @@ public class SportsBlitzGameManager : MonoBehaviour
         }
     }
 
+
     public void StartNextGame()
     {
         if (miniGameScenes == null || miniGameScenes.Length == 0)
@@ -115,7 +125,7 @@ public class SportsBlitzGameManager : MonoBehaviour
             return;
         }
 
-        // If we've used up the current shuffled list, build a new one
+        // new shuffle list
         if (remainingGameIndices == null || remainingGameIndices.Count == 0)
         {
             InitializeGameOrder();
@@ -135,13 +145,18 @@ public class SportsBlitzGameManager : MonoBehaviour
     public void ResetGame()
     {
         gamesWon = 0;
-        gamesLost = 0;
         health = 3;
 
-        // Optional: reset rotation when starting a fresh run
+        // reset rotation
         remainingGameIndices.Clear();
         lastSceneIndex = -1;
 
         SceneManager.LoadScene(tvSceneName);
     }
+    public void ResetStats()
+    {
+        gamesWon = 0;
+        health = 3;
+    }
+
 }

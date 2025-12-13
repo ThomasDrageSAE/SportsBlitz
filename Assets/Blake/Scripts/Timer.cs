@@ -34,6 +34,7 @@ namespace SportsBlitz.Blake
             }
 
             _timerCoroutine = StartCoroutine(TimerCoroutine(time));
+            
         }
     
         // INFO: Stop the timer

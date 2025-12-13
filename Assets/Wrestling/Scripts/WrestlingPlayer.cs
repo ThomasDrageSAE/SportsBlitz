@@ -65,6 +65,7 @@ public class WrestlingPlayer : MonoBehaviour
         if(other.gameObject.tag == "Table")
         {
             Debug.Log("hit table");
+            rb.bodyType = RigidbodyType2D.Static;
             enemyAudioSource.Play();
             minigameManager.Win();
             //win
@@ -72,6 +73,7 @@ public class WrestlingPlayer : MonoBehaviour
         else if(other.gameObject.tag == "Ground")
         {
             Debug.Log("hit ground");
+            rb.bodyType = RigidbodyType2D.Static;
             floorAudioSource.Play();
             minigameManager.Lose();
         }

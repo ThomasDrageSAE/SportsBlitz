@@ -1,3 +1,4 @@
+using System;
 using System.Threading;
 using Unity.Mathematics;
 using UnityEngine;
@@ -9,10 +10,15 @@ public class KabaddiPlayer : MonoBehaviour
     public KabaddiManager gameManager;
     [SerializeField] Animator animator;
 
+    private void Start()
+    {
+        gameManager = FindObjectOfType<KabaddiManager>();
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (gameManager.gameStart == false)
+        if (gameManager.gameStart == false || gameManager.gameEnd == true)
         {
             movementSpeed = 0;
         }
@@ -61,14 +67,14 @@ public class KabaddiPlayer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.tag == "Finish")
+        if(other.gameObject.CompareTag("Finish"))
         {
-            gameManager.Win();
+            gameManager.GameWin();
         }
 
-        if(other.gameObject.tag == "Barrier")
+        if(other.gameObject.CompareTag("Barrier"))
         {
-            gameManager.Lose();
+            gameManager.GameLose();
         }
     }
 

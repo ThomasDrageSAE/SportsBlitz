@@ -1,36 +1,30 @@
 using UnityEngine;
 using TMPro;
-using System.Collections;
 
 public class ResultPopup : MonoBehaviour
 {
-    public TextMeshProUGUI resultText;
-    public CanvasGroup canvasGroup;
+    [SerializeField] private CanvasGroup canvasGroup;
+    [SerializeField] private TextMeshProUGUI resultText;
 
-    public IEnumerator ShowResult(string message, Color color)
+    public float displayTime = 1.2f;   // optional if you animate it elsewhere
+
+    public void ShowInstant(string text, Color color)
     {
-        gameObject.SetActive(true);
+        if (canvasGroup == null || resultText == null)
+        {
+            Debug.LogWarning("ResultPopup: Missing references, cannot display result.");
+            return;
+        }
 
-        resultText.text = message;
+        resultText.text = text;
         resultText.color = color;
 
-        // fade in
-        canvasGroup.alpha = 0f;
-        while (canvasGroup.alpha < 1f)
-        {
-            canvasGroup.alpha += Time.deltaTime * 2f;
-            yield return null;
-        }
+        canvasGroup.gameObject.SetActive(true);
+        canvasGroup.alpha = 1f;
 
-        yield return new WaitForSeconds(1f);
-
-        // fade out
-        while (canvasGroup.alpha > 0f)
-        {
-            canvasGroup.alpha -= Time.deltaTime * 2f;
-            yield return null;
-        }
-
-        canvasGroup.alpha = 0f;
+        // You can either:
+        // 1) Let it disappear because the scene changes
+        // 2) Or trigger an Animator here to fade it out
+        //    e.g. animator.SetTrigger("Show");
     }
 }

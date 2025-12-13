@@ -12,7 +12,7 @@ namespace SportsBlitz.Blake.Boxing
 
         #region Round Settings
         [Header("Round Settings")]
-        [Tooltip("Duration of the round in seconds")][SerializeField] private float _roundTime = 10f;
+        [Tooltip("Duration of the round in seconds")][SerializeField] private float _roundTime = 5;
         [Tooltip("Delay to show instructions before the round starts in seconds")][SerializeField] private float _instructionDelay = 5f;
         #endregion
 
@@ -127,9 +127,8 @@ namespace SportsBlitz.Blake.Boxing
             if (_enemyAnimationController != null) _enemyAnimationController.SetTrigger("Lose");
             StartCoroutine(EndDelay(0.5f, true));
             if (_debug) Debug.Log("Game Won!");
-            minigameManager.Win();
 
-            // INFO: The rest is handled by the Microgame Manager
+            
         }
 
         // INFO: Game Lose Function
@@ -145,9 +144,8 @@ namespace SportsBlitz.Blake.Boxing
 
             StartCoroutine(EndDelay(0.5f));
             if (_debug) Debug.Log("Game Lost!");
-            minigameManager.Lose();
 
-            // INFO: The rest is handled by the Microgame Manager
+
         }
         #endregion
 
@@ -155,7 +153,8 @@ namespace SportsBlitz.Blake.Boxing
         private IEnumerator EndDelay(float time, bool isWin = false)
         {
             // INFO: Disable the input manager to prevent further inputs
-            if (_inputManager != null) _inputManager.gameObject.GetComponent<InputManager>().enabled = false;
+            if (_inputManager == null) Debug.LogWarning($"Input Manager is null, cannot disable it.");
+            _inputManager.gameObject.GetComponent<InputManager>().enabled = false;
             _boxingEventManager.stopTimer?.Invoke();
 
 
@@ -169,6 +168,12 @@ namespace SportsBlitz.Blake.Boxing
             _boxingEventManager.gameEnd?.Invoke();
 
             yield return new WaitForSeconds(time);
+
+            if (isWin)
+                minigameManager.Win();
+            else
+                minigameManager.Lose();
+                
         }
     }
 

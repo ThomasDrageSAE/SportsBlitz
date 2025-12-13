@@ -1,6 +1,8 @@
-using UnityEngine;
 using Helper.Blake;
 using SportsBlitz.Events;
+using UnityEditor;
+using UnityEngine;
+using static UnityEngine.Rendering.BoolParameter;
 
 public class Hurdles : MonoBehaviour
 {
@@ -23,7 +25,8 @@ public class Hurdles : MonoBehaviour
         minigameManager = GameObject.Find("MinigameManager").GetComponent<MinigameManager>();
         rb2d = GetComponent<Rigidbody2D>(); // or Rigidbody2D if 2D
         anim = GetComponent<Animator>();
-       
+
+
         // Subscribe to input event
         EventManager.Instance.correctKeyInput += OnCorrectKeyPressed;
     }
@@ -32,10 +35,12 @@ public class Hurdles : MonoBehaviour
     {
         if (canMove && transform.position.x < stopX)
         {
+
             transform.Translate(Vector3.right * speed * Time.deltaTime);
 
         }
     }
+
 
 
     private void OnCorrectKeyPressed(string key)

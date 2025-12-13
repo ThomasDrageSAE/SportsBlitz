@@ -16,6 +16,7 @@ public class TugOfWar : MonoBehaviour
     public Transform enemyLocation;            // set to enemy
     public float winDistance = 0.5f;        // Distance to win
     public float loseDistance = 0.5f;       // Distance to lose
+    public bool stopRope = false;
 
     private MinigameManager minigame;
 
@@ -27,79 +28,80 @@ public class TugOfWar : MonoBehaviour
     private void Start()
     {
         minigame = GameObject.Find("MinigameManager").GetComponent<MinigameManager>();
-        SelectSingleKey();
+
+    }
+
+    private void OnEnable()
+    {
+        EventManager.Instance.correctKeyInput += CheckPlayerPress;
     }
 
     private void Update()
     {
         AutoMoveRope();
-        CheckPlayerPress();
+
         CheckWinLose();
     }
 
     #region Rope Movement
     void AutoMoveRope()
     {
-        // Smooth automatic right movement
-        win.Translate(Vector3.right * autoMoveSpeed * Time.deltaTime, Space.World);
+        if (stopRope == false)
+        {
+            // Smooth automatic right movement
+            win.Translate(Vector3.right * autoMoveSpeed * Time.deltaTime, Space.World);
+        }
     }
     #endregion
 
     #region Player Input
-    void CheckPlayerPress()
+    void CheckPlayerPress(string key)
     {
-        InputManager inputManager = FindObjectOfType<InputManager>();
-        if (inputManager == null) return;
+        // InputManager inputManager = FindObjectOfType<InputManager>();
+        // if (inputManager == null) return;
 
-        if (Input.GetKeyDown(selectedKey.ToString().ToLower()))
+        if (Time.timeScale == 1 && stopRope == false)
         {
             // Move rope left by a fixed amount
             win.Translate(Vector3.left * playerMoveSpeed, Space.World);
 
-            // Trigger UI effects (green/shrink)
-            EventManager.Instance?.correctKeyInput?.Invoke(selectedKey.ToString().ToUpper());
-
-            // Reset the key UI after a short delay (0.2 seconds)
-            StartCoroutine(ResetKeyUI(selectedKey, 0.2f));
-
-            if (debug) Debug.Log($"Correct key '{selectedKey}' pressed. Rope moved left.");
         }
     }
 
-    private IEnumerator ResetKeyUI(string key, float delay)
-    {
-        yield return new WaitForSeconds(delay);
+    // private IEnumerator ResetKeyUI(string key, float delay)
+    // {
+    //     yield return new WaitForSeconds(delay);
 
-        KeyInputUI keyUI = GameObject.Find(key.ToString().ToUpper() + "_Key")?.GetComponent<KeyInputUI>();
-        if (keyUI != null)
-            keyUI.Pressed(false); 
-    }
+    //     KeyInputUI keyUI = GameObject.Find(key.ToString().ToUpper() + "_Key")?.GetComponent<KeyInputUI>();
+    //     if (keyUI != null)
+    //         keyUI.Pressed(false);
+    // }
     #endregion
 
     #region Key Selection
-    void SelectSingleKey()
-    {
-        InputManager inputManager = FindObjectOfType<InputManager>();
-        if (inputManager == null || UIManager.Instance == null) return;
+    // void SelectSingleKey()
+    // {
+    //     InputManager inputManager = FindObjectOfType<InputManager>();
+    //     if (inputManager == null || UIManager.Instance == null) return;
 
-        // Generate exactly one random key
-        List<string> newKeys = inputManager.GenerateRandomChars(1, false, false);
-        selectedKey = newKeys[0];
+    //     // Generate exactly one random key
+    //     List<string> newKeys = inputManager.GenerateRandomChars(1, false, false);
+    //     selectedKey = newKeys[0];
 
-        // Clear any previous keys in InputManager
-        inputManager.ClearNeededKeys();
-        inputManager.GetNeededKeys().Add(selectedKey);
+    //     // Clear any previous keys in InputManager
+    //     inputManager.ClearNeededKeys();
+    //     inputManager.GetNeededKeys().Add(selectedKey);
 
-        // Clear UI and spawn this key
-        UIManager.Instance.ClearUI();
-        List<GameObject> prefabs = new List<GameObject>
-        {
-            inputManager.GetPrefabForLetter(selectedKey)
-        };
-        UIManager.Instance.CreateUI(1, new List<string> { selectedKey }, prefabs);
+    //     // Clear UI and spawn this key
+    //     UIManager.Instance.ClearUI();
+    //     List<GameObject> prefabs = new List<GameObject>
+    //     {
+    //         inputManager.GetPrefabForLetter(selectedKey)
+    //     };
+    //     UIManager.Instance.CreateUI(1, new List<string> { selectedKey }, prefabs);
 
-        if (debug) Debug.Log("Selected key for game: " + selectedKey);
-    }
+    //     if (debug) Debug.Log("Selected key for game: " + selectedKey);
+    // }
     #endregion
 
     #region Win/Lose Condition
@@ -110,12 +112,14 @@ public class TugOfWar : MonoBehaviour
         {
             Debug.Log("You Win!");
             minigame.Win();
+            stopRope = true;
         }
         // Lose
         else if (Vector3.Distance(win.position, enemyLocation.position) <= loseDistance)
         {
             Debug.Log("You Lose!");
             minigame.Lose();
+            stopRope = true;
         }
     }
     #endregion
