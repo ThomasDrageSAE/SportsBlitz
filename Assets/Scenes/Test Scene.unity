@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 152160190}
   - component: {fileID: 152160189}
   - component: {fileID: 152160188}
+  - component: {fileID: 152160191}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -211,6 +212,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &152160191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152160187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
 --- !u!1001 &5865173183414269412
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -264,6 +309,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8562128361774664382, guid: dcb807dafa83dab448ea25c5809b35cd, type: 3}
+      propertyPath: _boxingActionMap
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+    - target: {fileID: 8562128361774664382, guid: dcb807dafa83dab448ea25c5809b35cd, type: 3}
+      propertyPath: _boxingActionMap.m_Id
+      value: 2063f42d-a633-4f75-a73e-05e4bdcd141e
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562128361774664382, guid: dcb807dafa83dab448ea25c5809b35cd, type: 3}
+      propertyPath: _boxingActionMap.m_Name
+      value: Boxing
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562128361774664382, guid: dcb807dafa83dab448ea25c5809b35cd, type: 3}
       propertyPath: '_inputLettersPrefabs.Array.data[26]'
       value: 
       objectReference: {fileID: 8174171947773725957, guid: 3db455eb3cc35464fb7fbf7210510522, type: 3}
@@ -287,6 +344,38 @@ PrefabInstance:
       propertyPath: '_inputLettersPrefabs.Array.data[31]'
       value: 
       objectReference: {fileID: 8174171947773725957, guid: 3db455eb3cc35464fb7fbf7210510522, type: 3}
+    - target: {fileID: 8562128361774664382, guid: dcb807dafa83dab448ea25c5809b35cd, type: 3}
+      propertyPath: _boxingActionMap.m_Actions.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562128361774664382, guid: dcb807dafa83dab448ea25c5809b35cd, type: 3}
+      propertyPath: _boxingActionMap.m_Bindings.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562128361774664382, guid: dcb807dafa83dab448ea25c5809b35cd, type: 3}
+      propertyPath: _boxingActionMap.m_Actions.Array.data[0].m_Id
+      value: 1bd4618a-3daf-42e6-a111-2c4388fe706a
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562128361774664382, guid: dcb807dafa83dab448ea25c5809b35cd, type: 3}
+      propertyPath: _boxingActionMap.m_Bindings.Array.data[0].m_Id
+      value: adc06de2-80e4-45d0-af09-3d73d7c21bfd
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562128361774664382, guid: dcb807dafa83dab448ea25c5809b35cd, type: 3}
+      propertyPath: _boxingActionMap.m_Actions.Array.data[0].m_Name
+      value: New action
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562128361774664382, guid: dcb807dafa83dab448ea25c5809b35cd, type: 3}
+      propertyPath: _boxingActionMap.m_Actions.Array.data[0].m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562128361774664382, guid: dcb807dafa83dab448ea25c5809b35cd, type: 3}
+      propertyPath: _boxingActionMap.m_Bindings.Array.data[0].m_Action
+      value: New action
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562128361774664382, guid: dcb807dafa83dab448ea25c5809b35cd, type: 3}
+      propertyPath: _boxingActionMap.m_Actions.Array.data[0].m_ExpectedControlType
+      value: Button
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -1100,11 +1100,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!1 &1378553119 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2692403533838681819, guid: dcb807dafa83dab448ea25c5809b35cd, type: 3}
-  m_PrefabInstance: {fileID: 7125661402793941466}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1378553120 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4167935517410036558, guid: dcb807dafa83dab448ea25c5809b35cd, type: 3}
@@ -1115,56 +1110,12 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8562128361774664382, guid: dcb807dafa83dab448ea25c5809b35cd, type: 3}
   m_PrefabInstance: {fileID: 7125661402793941466}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1378553119}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 40419ea4bc0f75444a6fa5eedca2e1ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1378553123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1378553119}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 621567455fd1c4ceb811cc8a00b6a1a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_NotificationBehavior: 0
-  m_MaxPlayerCount: -1
-  m_AllowJoining: 1
-  m_JoinBehavior: 0
-  m_PlayerJoinedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_PlayerLeftEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_JoinAction:
-    m_UseReference: 0
-    m_Action:
-      m_Name: 
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 4cb4f26c-8f99-4f85-9948-fb46f9145beb
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: 0}
-  m_PlayerPrefab: {fileID: 0}
-  m_SplitScreen: 0
-  m_MaintainAspectRatioInSplitScreen: 0
-  m_FixedNumberOfSplitScreens: -1
-  m_SplitScreenRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
 --- !u!1 &1577908253
 GameObject:
   m_ObjectHideFlags: 0
@@ -1651,7 +1602,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2692403533838681819, guid: dcb807dafa83dab448ea25c5809b35cd, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5334215226719848231, guid: dcb807dafa83dab448ea25c5809b35cd, type: 3}
       propertyPath: _gridManager
@@ -1706,20 +1657,45 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8562128361774664382, guid: dcb807dafa83dab448ea25c5809b35cd, type: 3}
+      propertyPath: InputActions
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+    - target: {fileID: 8562128361774664382, guid: dcb807dafa83dab448ea25c5809b35cd, type: 3}
       propertyPath: delayAndResetFail
-      value: 15
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8562128361774664382, guid: dcb807dafa83dab448ea25c5809b35cd, type: 3}
+      propertyPath: _UseNewInputSystem
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562128361774664382, guid: dcb807dafa83dab448ea25c5809b35cd, type: 3}
+      propertyPath: _inputActionsAsset
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+    - target: {fileID: 8562128361774664382, guid: dcb807dafa83dab448ea25c5809b35cd, type: 3}
       propertyPath: delayAndResetSuccess
-      value: 15
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562128361774664382, guid: dcb807dafa83dab448ea25c5809b35cd, type: 3}
+      propertyPath: _playerControls.m_Name
+      value: Player Controls
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562128361774664382, guid: dcb807dafa83dab448ea25c5809b35cd, type: 3}
+      propertyPath: _playerControls.m_SingletonActionBindings.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562128361774664382, guid: dcb807dafa83dab448ea25c5809b35cd, type: 3}
+      propertyPath: _playerControls.m_SingletonActionBindings.Array.data[0].m_Id
+      value: b54f9167-767c-4e0e-a1e9-b4490aeb5966
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562128361774664382, guid: dcb807dafa83dab448ea25c5809b35cd, type: 3}
+      propertyPath: _playerControls.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Player Controls
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2692403533838681819, guid: dcb807dafa83dab448ea25c5809b35cd, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1378553123}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcb807dafa83dab448ea25c5809b35cd, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

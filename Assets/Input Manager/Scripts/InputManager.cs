@@ -6,6 +6,10 @@ using UnityEngine.InputSystem;
 using System.Collections;
 using SportsBlitz.Events;
 using Steamworks;
+using UnityEngine.InputSystem.Controls;
+#if NaughtyAttributes
+using NaughtyAttributes;
+#endif
 
 namespace SportsBlitz.Controls.Managers
 {
@@ -14,7 +18,10 @@ namespace SportsBlitz.Controls.Managers
     {
         private Keyboard keyboardInputs;
         private bool _canAcceptInput = true;
+
+        #region Debug Settings
         [SerializeField] private bool debug;
+        #endregion
 
         #region Input Settings
         [Header("Input Generation Settings")]
@@ -32,21 +39,38 @@ namespace SportsBlitz.Controls.Managers
         [SerializeField] private float delayAndResetFail = 0.25f;
         #endregion
 
+        #region Unity Input System (Testing)
+        [Header("Input Manager Settings")]
+        public InputActionAsset InputActions;
+        private InputAction m_BoxingAction;
+
+        #endregion
+
         #region Letters to be used for inputs
         [Header("Letters and Prefabs Settings")]
         [SerializeField] private List<GameObject> _inputLettersPrefabs = new List<GameObject>();
-        #endregion
-
-        #region Input Manager (Testing)
-        #endregion
-
+        #endregion        
         // INFO: Store needed keys for game manager (Don't edit manually!)
         [HideInInspector] private List<string> _neededKeys;
 
         #region Unity Functions
+        private void OnEnable()
+        {
+            InputActions.FindActionMap("Player").Enable();
+            m_BoxingAction.performed += HandleNewInput;
+
+        }
+        private void OnDisable()
+        {
+            m_BoxingAction.performed -= HandleNewInput;
+            InputActions.FindActionMap("Player").Disable();
+
+        }
+
         private void Awake()
         {
             _neededKeys = new List<string>();
+            m_BoxingAction = InputActions.FindAction("Box/Hurdles/TugOfWar/Fencing");
 
         }
 
@@ -57,13 +81,6 @@ namespace SportsBlitz.Controls.Managers
 
         }
         #endregion
-
-        private void Update()
-        {
-            if (keyboardInputs != null && keyboardInputs.anyKey.wasPressedThisFrame) HandleInput();
-
-        }
-
 
         // INFO: Remove after the key is pressed
         private void RemoveKeyAfterPress(string key)
@@ -79,52 +96,73 @@ namespace SportsBlitz.Controls.Managers
             }
         }
 
-        public void HandleInput()
+        private void HandleNewInput(InputAction.CallbackContext ctx)
         {
             if (!_canAcceptInput) return;
 
-            if (keyboardInputs == null)
+            InputControl control = ctx.control;
+
+            // INFO: Keyboard
+            if (control is ButtonControl && control.device is Keyboard)
             {
-                keyboardInputs = Keyboard.current;
-                if (keyboardInputs == null) return;
+                // Extract key name from "<Keyboard>/space"
+                string path = control.path;
+                string keyName = path.Substring(path.LastIndexOf('/') + 1);
+
+                if (debug)
+                    Debug.Log($"Keyboard key pressed: {keyName.ToUpper()}");
+
+                HandleInput((KeyCode)Enum.Parse(typeof(KeyCode), keyName.ToUpper()));
+                return;
             }
 
-            foreach (UnityEngine.InputSystem.Controls.KeyControl key in keyboardInputs.allKeys)
+
+            // INFO: Gamepad (ignore sticks/triggers)
+            if (control is ButtonControl button && control.device is Gamepad)
             {
+                string buttonName = button.name;
 
-                if (key == null) continue;
-                if (!key.wasPressedThisFrame) continue;
-                if (_neededKeys == null || _neededKeys.Count == 0 || !_inputLettersPrefabs.Any(prefab => prefab.GetComponent<KeyInputUI>() != null && prefab.GetComponent<KeyInputUI>().keyToDisplay.ToUpper() == key.keyCode.ToString().ToUpper())) continue;
+                if (debug)
+                    Debug.Log($"Gamepad button pressed: {buttonName}");
 
-                string pressed = key.keyCode.ToString().ToUpper();
-                string expected = _neededKeys[0].ToUpper();
-
-                // INFO: Incorrect Key
-                if (pressed != expected)
-                {
-                    if (debug) Debug.Log($"Incorrect key '{pressed}'. Resetting.");
-                    EventManager.Instance.incorrectKeyInput?.Invoke();
-                    if (_removeKeyAfterIncorrectPress) RemoveKeyAfterPress(expected.ToString());
-
-                    StartCoroutine(DelayAndReset(delayAndResetFail));
-                    continue;
-                }
-
-                // INFO: Correct Key
-                if (debug) Debug.Log($"Correct key '{pressed}' pressed.");
-                EventManager.Instance?.correctKeyInput?.Invoke(pressed);
-                _neededKeys.RemoveAt(0);
-
-                // INFO: Check if all needed keys have been pressed
-                if (_neededKeys.Count == 0)
-                {
-                    if (debug) Debug.Log("Sequence complete.");
-                    EventManager.Instance?.correctKeySequence?.Invoke();
-                    if (_removeKeyAfterCorrectPress) RemoveKeyAfterPress(expected.ToString());
-                    StartCoroutine(DelayAndReset(delayAndResetSuccess));
-                    break;
-                }
+                // HandleInput(buttonName);
             }
+        }
+
+
+        private void HandleInput(KeyCode key)
+        {
+            if (_neededKeys == null || _neededKeys.Count == 0 || !_inputLettersPrefabs.Any(prefab => prefab.GetComponent<KeyInputUI>() != null && prefab.GetComponent<KeyInputUI>().keyToDisplay.ToUpper() == key.ToString().ToUpper())) return;
+
+            string pressed = key.ToString().ToUpper();
+            string expected = _neededKeys[0].ToUpper();
+
+            // INFO: Incorrect Key
+            if (pressed != expected)
+            {
+                if (debug) Debug.Log($"Incorrect key '{pressed}'. Resetting.");
+                EventManager.Instance.incorrectKeyInput?.Invoke();
+                if (_removeKeyAfterIncorrectPress) RemoveKeyAfterPress(expected.ToString());
+
+                StartCoroutine(DelayAndReset(delayAndResetFail));
+                return;
+            }
+
+            // INFO: Correct Key
+            if (debug) Debug.Log($"Correct key '{pressed}' pressed.");
+            EventManager.Instance?.correctKeyInput?.Invoke(pressed);
+            _neededKeys.RemoveAt(0);
+
+            // INFO: Check if all needed keys have been pressed
+            if (_neededKeys.Count == 0)
+            {
+                if (debug) Debug.Log("Sequence complete.");
+                EventManager.Instance?.correctKeySequence?.Invoke();
+                if (_removeKeyAfterCorrectPress) RemoveKeyAfterPress(expected.ToString());
+                StartCoroutine(DelayAndReset(delayAndResetSuccess));
+                return;
+            }
+
         }
 
         private IEnumerator DelayAndReset(float time)
