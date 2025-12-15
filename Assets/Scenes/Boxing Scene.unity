@@ -125,7 +125,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 581339898}
     m_Modifications:
     - target: {fileID: 1375679489573601133, guid: f1961c7355d074e41abf2258e67a50fa, type: 3}
       propertyPath: m_UiScaleMode
@@ -240,6 +240,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1961c7355d074e41abf2258e67a50fa, type: 3}
+--- !u!224 &58017835 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6434603422016471985, guid: f1961c7355d074e41abf2258e67a50fa, type: 3}
+  m_PrefabInstance: {fileID: 58017834}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &75788685
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,6 +443,7 @@ Transform:
   - {fileID: 1577908254}
   - {fileID: 1002908510}
   - {fileID: 1048250455}
+  - {fileID: 58017835}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &812279681
@@ -1681,6 +1687,26 @@ PrefabInstance:
       value: Player Controls
       objectReference: {fileID: 0}
     - target: {fileID: 8562128361774664382, guid: dcb807dafa83dab448ea25c5809b35cd, type: 3}
+      propertyPath: _inputLettersPrefabs.Array.size
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562128361774664382, guid: dcb807dafa83dab448ea25c5809b35cd, type: 3}
+      propertyPath: '_inputLettersPrefabs.Array.data[26]'
+      value: 
+      objectReference: {fileID: 8174171947773725957, guid: 761a8e11370a44d41997c920e9ed5198, type: 3}
+    - target: {fileID: 8562128361774664382, guid: dcb807dafa83dab448ea25c5809b35cd, type: 3}
+      propertyPath: '_inputLettersPrefabs.Array.data[27]'
+      value: 
+      objectReference: {fileID: 8174171947773725957, guid: 4d95fea364dbf284dbeafdf94d5cf205, type: 3}
+    - target: {fileID: 8562128361774664382, guid: dcb807dafa83dab448ea25c5809b35cd, type: 3}
+      propertyPath: '_inputLettersPrefabs.Array.data[28]'
+      value: 
+      objectReference: {fileID: 8174171947773725957, guid: 367fb6a861da28e499a3056d5c068e61, type: 3}
+    - target: {fileID: 8562128361774664382, guid: dcb807dafa83dab448ea25c5809b35cd, type: 3}
+      propertyPath: '_inputLettersPrefabs.Array.data[29]'
+      value: 
+      objectReference: {fileID: 8174171947773725957, guid: 0d7ce1a992b56b94da3a0f8560446878, type: 3}
+    - target: {fileID: 8562128361774664382, guid: dcb807dafa83dab448ea25c5809b35cd, type: 3}
       propertyPath: _playerControls.m_SingletonActionBindings.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -1704,4 +1730,3 @@ SceneRoots:
   - {fileID: 1122457598}
   - {fileID: 467013976}
   - {fileID: 581339898}
-  - {fileID: 58017834}

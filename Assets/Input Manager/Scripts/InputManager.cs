@@ -103,104 +103,121 @@ namespace SportsBlitz.Controls.Managers
             InputControl control = ctx.control;
 
             // INFO: Keyboard
-            if (control is ButtonControl && control.device is Keyboard)
+            if (control is ButtonControl key && control.device is Keyboard)
             {
-                // Extract key name from "<Keyboard>/space"
-                string path = control.path;
-                string keyName = path.Substring(path.LastIndexOf('/') + 1);
-
                 if (debug)
-                    Debug.Log($"Keyboard key pressed: {keyName.ToUpper()}");
+                    Debug.Log($"Keyboard key pressed: {key.name.ToUpper()}");
 
-                HandleInput((KeyCode)Enum.Parse(typeof(KeyCode), keyName.ToUpper()));
+                HandleInputString(key.name.ToUpper());
                 return;
             }
 
-
-            // INFO: Gamepad (ignore sticks/triggers)
+            // INFO: Gamepad
             if (control is ButtonControl button && control.device is Gamepad)
             {
                 string buttonName = button.name;
 
                 if (debug)
-                    Debug.Log($"Gamepad button pressed: {buttonName}");
+                    Debug.Log($"Gamepad button pressed: {buttonName.ToUpper()}");
 
-                // HandleInput(buttonName);
+                HandleInputString(buttonName);
             }
         }
 
-
-        private void HandleInput(KeyCode key)
+        private void HandleInputString(string pressedRaw)
         {
-            if (_neededKeys == null || _neededKeys.Count == 0 || !_inputLettersPrefabs.Any(prefab => prefab.GetComponent<KeyInputUI>() != null && prefab.GetComponent<KeyInputUI>().keyToDisplay.ToUpper() == key.ToString().ToUpper())) return;
+            if (_neededKeys == null || _neededKeys.Count == 0) return;
 
-            string pressed = key.ToString().ToUpper();
+            string pressed = pressedRaw.ToUpper();
             string expected = _neededKeys[0].ToUpper();
 
-            // INFO: Incorrect Key
+            // INFO: Validate input based on device
+            bool isKeyboardInput = _inputLettersPrefabs.Any(prefab =>
+                prefab.GetComponent<KeyInputUI>() != null &&
+                prefab.GetComponent<KeyInputUI>().keyToDisplay.ToUpper() == pressed
+            );
+
+            bool isDpadInput = dpadInputs.Contains(pressed);
+
+            if (Gamepad.current != null && !isDpadInput) return; // Only D-pad allowed
+            if (Gamepad.current == null && !isKeyboardInput) return; // Only keyboard allowed
+
+            // INFO: Check Input
             if (pressed != expected)
             {
-                if (debug) Debug.Log($"Incorrect key '{pressed}'. Resetting.");
+                if (debug) Debug.Log($"Incorrect input '{pressed}'. Resetting.");
                 EventManager.Instance.incorrectKeyInput?.Invoke();
-                if (_removeKeyAfterIncorrectPress) RemoveKeyAfterPress(expected.ToString());
+                if (_removeKeyAfterIncorrectPress) RemoveKeyAfterPress(expected);
 
                 StartCoroutine(DelayAndReset(delayAndResetFail));
                 return;
             }
 
-            // INFO: Correct Key
-            if (debug) Debug.Log($"Correct key '{pressed}' pressed.");
+            // INFO: Correct input
+            if (debug) Debug.Log($"Correct input '{pressed}' pressed.");
             EventManager.Instance?.correctKeyInput?.Invoke(pressed);
             _neededKeys.RemoveAt(0);
 
-            // INFO: Check if all needed keys have been pressed
+            // INFO: Sequence Complete
             if (_neededKeys.Count == 0)
             {
                 if (debug) Debug.Log("Sequence complete.");
                 EventManager.Instance?.correctKeySequence?.Invoke();
-                if (_removeKeyAfterCorrectPress) RemoveKeyAfterPress(expected.ToString());
+                if (_removeKeyAfterCorrectPress) RemoveKeyAfterPress(expected);
                 StartCoroutine(DelayAndReset(delayAndResetSuccess));
-                return;
             }
-
         }
 
         private IEnumerator DelayAndReset(float time)
         {
             _canAcceptInput = false; // blocks inputs
             yield return new WaitForSeconds(time);
+            if (!enabled) yield break;
 
             GetNewInputs();
             _canAcceptInput = true; //unblocks input
         }
 
         #region Generate Random Inputs
+        private readonly string[] dpadInputs = new string[] { "UP", "DOWN", "LEFT", "RIGHT" };
         public List<string> GenerateRandomChars(int amountOfInputs, bool allowDuplicates = false, bool sortList = true)
         {
+            List<string> sourceInputs = new List<string>();
+
+            // INFO: If a controller is connected, use only D-pad inputs
+            if (Gamepad.current != null)
+            {
+                sourceInputs.AddRange(dpadInputs);
+            }
+            else // No controller, use keyboard inputs
+            {
+                foreach (var go in _inputLettersPrefabs)
+                    sourceInputs.Add(go.GetComponent<KeyInputUI>().keyToDisplay);
+            }
+
             // INFO: Validate input
-            if (!allowDuplicates && amountOfInputs > _inputLettersPrefabs.Count())
+            if (!allowDuplicates && amountOfInputs > sourceInputs.Count)
                 return new List<string>();
 
-            // INFO: Generate random chars
+            // INFO: Generate random inputs
             List<string> result = new List<string>();
-            List<GameObject> temp = new List<GameObject>(_inputLettersPrefabs);
+            List<string> temp = new List<string>(sourceInputs);
 
             for (int i = 0; i < amountOfInputs; i++)
             {
                 int index = UnityEngine.Random.Range(0, temp.Count);
-                result.Add(temp[index].GetComponent<KeyInputUI>().keyToDisplay);
+                result.Add(temp[index]);
 
-                // INFO: Remove selected letter to avoid duplicates
                 if (!allowDuplicates)
                     temp.RemoveAt(index);
             }
 
-            // INFO: Sort the list
             if (sortList)
                 result.Sort();
 
             return result;
         }
+
         #endregion
 
         #region Get New Inputs
