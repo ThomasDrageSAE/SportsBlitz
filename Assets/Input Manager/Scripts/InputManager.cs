@@ -6,6 +6,10 @@ using UnityEngine.InputSystem;
 using System.Collections;
 using SportsBlitz.Events;
 using Steamworks;
+using UnityEngine.InputSystem.Controls;
+#if NaughtyAttributes
+using NaughtyAttributes;
+#endif
 
 namespace SportsBlitz.Controls.Managers
 {
@@ -14,7 +18,10 @@ namespace SportsBlitz.Controls.Managers
     {
         private Keyboard keyboardInputs;
         private bool _canAcceptInput = true;
+
+        #region Debug Settings
         [SerializeField] private bool debug;
+        #endregion
 
         #region Input Settings
         [Header("Input Generation Settings")]
@@ -32,21 +39,38 @@ namespace SportsBlitz.Controls.Managers
         [SerializeField] private float delayAndResetFail = 0.25f;
         #endregion
 
+        #region Unity Input System (Testing)
+        [Header("Input Manager Settings")]
+        public InputActionAsset InputActions;
+        private InputAction m_BoxingAction;
+
+        #endregion
+
         #region Letters to be used for inputs
         [Header("Letters and Prefabs Settings")]
         [SerializeField] private List<GameObject> _inputLettersPrefabs = new List<GameObject>();
-        #endregion
-
-        #region Input Manager (Testing)
-        #endregion
-
+        #endregion        
         // INFO: Store needed keys for game manager (Don't edit manually!)
         [HideInInspector] private List<string> _neededKeys;
 
         #region Unity Functions
+        private void OnEnable()
+        {
+            InputActions.FindActionMap("Player").Enable();
+            m_BoxingAction.performed += HandleNewInput;
+
+        }
+        private void OnDisable()
+        {
+            m_BoxingAction.performed -= HandleNewInput;
+            InputActions.FindActionMap("Player").Disable();
+
+        }
+
         private void Awake()
         {
             _neededKeys = new List<string>();
+            m_BoxingAction = InputActions.FindAction("Box/Hurdles/TugOfWar/Fencing");
 
         }
 
@@ -57,13 +81,6 @@ namespace SportsBlitz.Controls.Managers
 
         }
         #endregion
-
-        private void Update()
-        {
-            if (keyboardInputs != null && keyboardInputs.anyKey.wasPressedThisFrame) HandleInput();
-
-        }
-
 
         // INFO: Remove after the key is pressed
         private void RemoveKeyAfterPress(string key)
@@ -79,51 +96,75 @@ namespace SportsBlitz.Controls.Managers
             }
         }
 
-        public void HandleInput()
+        private void HandleNewInput(InputAction.CallbackContext ctx)
         {
             if (!_canAcceptInput) return;
 
-            if (keyboardInputs == null)
+            InputControl control = ctx.control;
+
+            // INFO: Keyboard
+            if (control is ButtonControl key && control.device is Keyboard)
             {
-                keyboardInputs = Keyboard.current;
-                if (keyboardInputs == null) return;
+                if (debug)
+                    Debug.Log($"Keyboard key pressed: {key.name.ToUpper()}");
+
+                HandleInputString(key.name.ToUpper());
+                return;
             }
 
-            foreach (UnityEngine.InputSystem.Controls.KeyControl key in keyboardInputs.allKeys)
+            // INFO: Gamepad
+            if (control is ButtonControl button && control.device is Gamepad)
             {
+                string buttonName = button.name;
 
-                if (key == null) continue;
-                if (!key.wasPressedThisFrame) continue;
-                if (_neededKeys == null || _neededKeys.Count == 0 || !_inputLettersPrefabs.Any(prefab => prefab.GetComponent<KeyInputUI>() != null && prefab.GetComponent<KeyInputUI>().keyToDisplay.ToUpper() == key.keyCode.ToString().ToUpper())) continue;
+                if (debug)
+                    Debug.Log($"Gamepad button pressed: {buttonName.ToUpper()}");
 
-                string pressed = key.keyCode.ToString().ToUpper();
-                string expected = _neededKeys[0].ToUpper();
+                HandleInputString(buttonName);
+            }
+        }
 
-                // INFO: Incorrect Key
-                if (pressed != expected)
-                {
-                    if (debug) Debug.Log($"Incorrect key '{pressed}'. Resetting.");
-                    EventManager.Instance.incorrectKeyInput?.Invoke();
-                    if (_removeKeyAfterIncorrectPress) RemoveKeyAfterPress(expected.ToString());
+        private void HandleInputString(string pressedRaw)
+        {
+            if (_neededKeys == null || _neededKeys.Count == 0) return;
 
-                    StartCoroutine(DelayAndReset(delayAndResetFail));
-                    continue;
-                }
+            string pressed = pressedRaw.ToUpper();
+            string expected = _neededKeys[0].ToUpper();
 
-                // INFO: Correct Key
-                if (debug) Debug.Log($"Correct key '{pressed}' pressed.");
-                EventManager.Instance?.correctKeyInput?.Invoke(pressed);
-                _neededKeys.RemoveAt(0);
+            // INFO: Validate input based on device
+            bool isKeyboardInput = _inputLettersPrefabs.Any(prefab =>
+                prefab.GetComponent<KeyInputUI>() != null &&
+                prefab.GetComponent<KeyInputUI>().keyToDisplay.ToUpper() == pressed
+            );
 
-                // INFO: Check if all needed keys have been pressed
-                if (_neededKeys.Count == 0)
-                {
-                    if (debug) Debug.Log("Sequence complete.");
-                    EventManager.Instance?.correctKeySequence?.Invoke();
-                    if (_removeKeyAfterCorrectPress) RemoveKeyAfterPress(expected.ToString());
-                    StartCoroutine(DelayAndReset(delayAndResetSuccess));
-                    break;
-                }
+            bool isDpadInput = dpadInputs.Contains(pressed);
+
+            if (Gamepad.current != null && !isDpadInput) return; // Only D-pad allowed
+            if (Gamepad.current == null && !isKeyboardInput) return; // Only keyboard allowed
+
+            // INFO: Check Input
+            if (pressed != expected)
+            {
+                if (debug) Debug.Log($"Incorrect input '{pressed}'. Resetting.");
+                EventManager.Instance.incorrectKeyInput?.Invoke();
+                if (_removeKeyAfterIncorrectPress) RemoveKeyAfterPress(expected);
+
+                StartCoroutine(DelayAndReset(delayAndResetFail));
+                return;
+            }
+
+            // INFO: Correct input
+            if (debug) Debug.Log($"Correct input '{pressed}' pressed.");
+            EventManager.Instance?.correctKeyInput?.Invoke(pressed);
+            _neededKeys.RemoveAt(0);
+
+            // INFO: Sequence Complete
+            if (_neededKeys.Count == 0)
+            {
+                if (debug) Debug.Log("Sequence complete.");
+                EventManager.Instance?.correctKeySequence?.Invoke();
+                if (_removeKeyAfterCorrectPress) RemoveKeyAfterPress(expected);
+                StartCoroutine(DelayAndReset(delayAndResetSuccess));
             }
         }
 
@@ -131,38 +172,52 @@ namespace SportsBlitz.Controls.Managers
         {
             _canAcceptInput = false; // blocks inputs
             yield return new WaitForSeconds(time);
+            if (!enabled) yield break;
 
             GetNewInputs();
             _canAcceptInput = true; //unblocks input
         }
 
         #region Generate Random Inputs
+        private readonly string[] dpadInputs = new string[] { "UP", "DOWN", "LEFT", "RIGHT" };
         public List<string> GenerateRandomChars(int amountOfInputs, bool allowDuplicates = false, bool sortList = true)
         {
+            List<string> sourceInputs = new List<string>();
+
+            // INFO: If a controller is connected, use only D-pad inputs
+            if (Gamepad.current != null)
+            {
+                sourceInputs.AddRange(dpadInputs);
+            }
+            else // No controller, use keyboard inputs
+            {
+                foreach (var go in _inputLettersPrefabs)
+                    sourceInputs.Add(go.GetComponent<KeyInputUI>().keyToDisplay);
+            }
+
             // INFO: Validate input
-            if (!allowDuplicates && amountOfInputs > _inputLettersPrefabs.Count())
+            if (!allowDuplicates && amountOfInputs > sourceInputs.Count)
                 return new List<string>();
 
-            // INFO: Generate random chars
+            // INFO: Generate random inputs
             List<string> result = new List<string>();
-            List<GameObject> temp = new List<GameObject>(_inputLettersPrefabs);
+            List<string> temp = new List<string>(sourceInputs);
 
             for (int i = 0; i < amountOfInputs; i++)
             {
                 int index = UnityEngine.Random.Range(0, temp.Count);
-                result.Add(temp[index].GetComponent<KeyInputUI>().keyToDisplay);
+                result.Add(temp[index]);
 
-                // INFO: Remove selected letter to avoid duplicates
                 if (!allowDuplicates)
                     temp.RemoveAt(index);
             }
 
-            // INFO: Sort the list
             if (sortList)
                 result.Sort();
 
             return result;
         }
+
         #endregion
 
         #region Get New Inputs
