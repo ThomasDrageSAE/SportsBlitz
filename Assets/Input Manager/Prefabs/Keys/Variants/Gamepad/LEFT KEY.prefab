@@ -61,6 +61,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 715221261719982160}
     - target: {fileID: 5754182816025289336, guid: 322c618ca50bc3e4293c1b9615645ffc, type: 3}
+      propertyPath: <keyType>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754182816025289336, guid: 322c618ca50bc3e4293c1b9615645ffc, type: 3}
+      propertyPath: <isGamepadKey>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754182816025289336, guid: 322c618ca50bc3e4293c1b9615645ffc, type: 3}
       propertyPath: <keyToDisplay>k__BackingField
       value: LEFT
       objectReference: {fileID: 0}
