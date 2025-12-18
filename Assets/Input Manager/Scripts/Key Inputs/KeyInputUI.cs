@@ -5,11 +5,14 @@ using UnityEngine.UI;
 
 public class KeyInputUI : MonoBehaviour, IUIElement
 {
-    [SerializeField] private float _releaseKeyTime = 0.05f;
-    [field: SerializeField] public string keyToDisplay { get; private set; }
     public bool isPressed { get; private set; } = false; // INFO: Logic to handle the pressed state
     private TextMeshProUGUI _textComponent;
     private Image _keyImage;
+
+    [Header("Key Settings")]
+    [SerializeField] private float _releaseKeyTime = 0.05f;
+    [field: SerializeField] public string keyToDisplay { get; private set; }
+    [field: SerializeField] public KeyType keyType { get; private set; } = KeyType.Keyboard;
 
     #region Update Key Display in Editor
     private void OnValidate()
