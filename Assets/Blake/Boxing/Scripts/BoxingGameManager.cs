@@ -78,6 +78,7 @@ namespace SportsBlitz.Blake.Boxing
 
         private void Start()
         {
+            _inputManager?.gameObject.SetActive(false);
             _boxingEventManager.startGame?.Invoke();
             StartCoroutine(InstructionsCoroutine()); // INFO: Give the player time to read the instructions
             minigameManager = FindFirstObjectByType<MinigameManager>();
@@ -92,7 +93,7 @@ namespace SportsBlitz.Blake.Boxing
             _roundStarted = true;
             if (_debug) Debug.Log($"Round started with duration: {_roundTime} seconds");
             _boxingEventManager.startTimer?.Invoke(_roundTime);
-            if (_inputManager != null) _inputManager.gameObject.SetActive(true);
+            _inputManager?.gameObject.SetActive(true);
         }
 
         #endregion
@@ -128,7 +129,7 @@ namespace SportsBlitz.Blake.Boxing
             StartCoroutine(EndDelay(0.5f, true));
             if (_debug) Debug.Log("Game Won!");
 
-            
+
         }
 
         // INFO: Game Lose Function
@@ -153,8 +154,7 @@ namespace SportsBlitz.Blake.Boxing
         private IEnumerator EndDelay(float time, bool isWin = false)
         {
             // INFO: Disable the input manager to prevent further inputs
-            if (_inputManager == null) Debug.LogWarning($"Input Manager is null, cannot disable it.");
-            _inputManager.gameObject.GetComponent<InputManager>().enabled = false;
+            if (_inputManager != null) _inputManager.gameObject.GetComponent<InputManager>().enabled = false;
             _boxingEventManager.stopTimer?.Invoke();
 
 
@@ -173,7 +173,7 @@ namespace SportsBlitz.Blake.Boxing
                 minigameManager.Win();
             else
                 minigameManager.Lose();
-                
+
         }
     }
 

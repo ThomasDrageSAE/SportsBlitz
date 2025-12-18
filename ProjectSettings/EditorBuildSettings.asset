@@ -36,5 +36,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Professional wrestling.unity
     guid: 0a8b3097944911e459a140eabaff27c3
   m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: c3e4e833e90dda647b7bd307d8376c4e, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
