@@ -7,6 +7,7 @@ using System.Collections;
 using SportsBlitz.Events;
 using Steamworks;
 using UnityEngine.InputSystem.Controls;
+using NUnit.Framework.Internal;
 #if NaughtyAttributes
 using NaughtyAttributes;
 #endif
@@ -187,17 +188,29 @@ namespace SportsBlitz.Controls.Managers
             // INFO: If a controller is connected, use only D-pad inputs
             if (Gamepad.current != null)
             {
-                sourceInputs.AddRange(dpadInputs);
+                // !! Controller detected, use gamepad inputs
+                if (debug) Debug.Log($"Controller detected ({Gamepad.current.displayName}), using gamepad inputs.");
+
+                foreach (GameObject go in _inputLettersPrefabs)
+                    if (go.GetComponent<KeyInputUI>().keyType == KeyType.Gamepad)
+                    {
+                        sourceInputs.Add(go.GetComponent<KeyInputUI>().keyToDisplay);
+                        Debug.Log($"{go.GetComponent<KeyInputUI>().keyToDisplay} added to sourceInputs");
+                    }
+
             }
-            else // No controller, use keyboard inputs
+            else // INFO: No controller, use keyboard inputs
             {
-                foreach (var go in _inputLettersPrefabs)
-                    sourceInputs.Add(go.GetComponent<KeyInputUI>().keyToDisplay);
+                // !! No controller, use keyboard inputs
+                if (debug) Debug.Log($"No controller detected ({Keyboard.current.displayName}), using keyboard inputs.");
+                foreach (GameObject go in _inputLettersPrefabs)
+                    if (go.GetComponent<KeyInputUI>().keyType == KeyType.Keyboard) sourceInputs.Add(go.GetComponent<KeyInputUI>().keyToDisplay);
             }
 
-            // INFO: Validate input
-            if (!allowDuplicates && amountOfInputs > sourceInputs.Count)
-                return new List<string>();
+            // !! INFO: Check source inputs
+            if (debug) Debug.Log($"Source Inputs: {string.Join(", ", sourceInputs)}");
+
+            if (!allowDuplicates && amountOfInputs > sourceInputs.Count) amountOfInputs = sourceInputs.Count;
 
             // INFO: Generate random inputs
             List<string> result = new List<string>();
@@ -210,6 +223,7 @@ namespace SportsBlitz.Controls.Managers
 
                 if (!allowDuplicates)
                     temp.RemoveAt(index);
+
             }
 
             if (sortList)
@@ -229,8 +243,9 @@ namespace SportsBlitz.Controls.Managers
             uIManager.ClearUI();
 
             List<string> randomChars = GenerateRandomChars(_amountOfInputs, _allowDuplicateInputs, _sortInputs);
+            if (randomChars.Count <= 0) { Debug.LogError($"Sequence is empty!"); return; }
 
-            // Build per-letter prefab list (may contain nulls -> UIManager will fallback)
+            // INFO: Build per-letter prefab list
             List<GameObject> prefabsForLetters = new List<GameObject>(randomChars.Count);
             foreach (string c in randomChars)
             {
@@ -246,6 +261,7 @@ namespace SportsBlitz.Controls.Managers
             }
 
             uIManager.CreateUI(randomChars.Count, randomChars, prefabsForLetters);
+
             if (debug) Debug.Log($"Sequence: {string.Join(", ", randomChars)}");
             if (string.IsNullOrEmpty(_previousKey)) _previousKey = randomChars[0];
 
